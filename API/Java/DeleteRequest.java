@@ -18,7 +18,7 @@ public class DeleteRequest {
             HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
             conn.setRequestMethod("DELETE");
             conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Authorization", "Bearer 16425917-35ed6402-e04a78dd4c848ad98170b5cefcf4fcb9");
+            conn.setRequestProperty("Authorization", "Bearer 16425917");
 
             String parameters = "iscsignature=";
             conn.setDoOutput(true);

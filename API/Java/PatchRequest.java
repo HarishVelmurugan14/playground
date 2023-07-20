@@ -28,7 +28,7 @@ public class PatchRequest {
     }
 
     public static HttpURLConnection PatchRequestBuilder(HttpURLConnection connection){
-        connection.setRequestProperty("Authorization", "Bearer 16425917-6d18bcb4-a19493e369c697c1f457890dbd780fe7");
+        connection.setRequestProperty("Authorization", "Bearer 16425917");
         connection.setRequestProperty("Content-Type", "application/json");
         return connection;
     }
