@@ -6,7 +6,6 @@ public class SearchInsertPosition {
         int left = 0;
         int right = nums.length-1;
         while(left<=right){
-            System.out.println("L = "+left+" R =" + right);
             int mid = left + ((right-left) / 2);
             if(nums[mid] == target){
                 return mid;
@@ -16,7 +15,6 @@ public class SearchInsertPosition {
             }else{
                 right = mid-1;
             }
-            System.out.println(" OUT L = "+left+" R =" + right);
         }
         return left;
     }
