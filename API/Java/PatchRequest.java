@@ -1,5 +1,13 @@
 package API.Java;
 
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPatch;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,19 +17,51 @@ import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class PatchRequest {
 
     public static void PatchRequestInit(){
-        PatchRequestUsingHttpURLConnection();
+        PatchRequestUsingApacheCloseableHttpClient(); // Direct Way
+        PatchRequestUsingHttpURLConnection(); // Workaround
+    }
+
+
+    public static void PatchRequestUsingApacheCloseableHttpClient(){
+        String urlValue = "https://example.com/internalapi/v2/16485289/zsa-16485289/form/Volunteer";
+        String requestBody = "{\"data\" : {\"set_email_notification\":{\"cc\":[\"abc@abc.com\",\"xyz@xyz.com\"],\"bcc\":[\"xyz@abc.com\",\"abc@xyz.com\"],\"content_type\":\"HTML\",\"subject\":\"Temporary\",\"from\":\"zoho.adminuserid\",\"language\":\"English\",\"template_type\":\"inline\",\"to\":[\"harish.vk@zohocorp.com\",\"harish.vk@zohotest.com\"],\"message\":\"Dummy\",\"include_field_values\":true},\"has_email_notification\":false}}";
+
+        String result = SendPatchRequest(urlValue, requestBody, null);
+        JSONObject resultObj = new JSONObject(result);
+        if(!resultObj.get("code").equals(3000)){
+            System.out.println( "Email Notification update failed due to unknown reasons,  Response : "+ result);
+        }
+    }
+
+    public static String SendPatchRequest(String url, String requestBody, HashMap<String,String> headerMap) {
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+
+            HttpPatch patchRequest = new HttpPatch(url);
+            for(String key : headerMap.keySet()){
+                patchRequest.addHeader(key, headerMap.get(key));
+            }
+            StringEntity entity = new StringEntity(requestBody);
+            patchRequest.setEntity(entity);
+
+            CloseableHttpResponse response = httpClient.execute(patchRequest);
+            return EntityUtils.toString(response.getEntity());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
     public static void PatchRequestUsingHttpURLConnection(){
-        String urlValue = "https://example.com/internalapi/v2/16485289/zsa-16485289/form/Volunteer";
         //Sample
+        String urlValue = "https://example.com/internalapi/v2/16485289/zsa-16485289/form/Volunteer";
         String requestBody = "{\"data\" : {\"set_email_notification\":{\"cc\":[\"abc@abc.com\",\"xyz@xyz.com\"],\"bcc\":[\"xyz@abc.com\",\"abc@xyz.com\"],\"content_type\":\"HTML\",\"subject\":\"Temporary\",\"from\":\"zoho.adminuserid\",\"language\":\"English\",\"template_type\":\"inline\",\"to\":[\"harish.vk@zohocorp.com\",\"harish.vk@zohotest.com\"],\"message\":\"Dummy\",\"include_field_values\":true},\"has_email_notification\":false}}";
         allowMethods("PATCH");
         PatchRequest(urlValue, requestBody);
