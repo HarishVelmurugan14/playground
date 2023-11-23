@@ -1,6 +1,7 @@
 # Ignore build output directories
 /target/
 /out/
+/Private/
 
 # Ignore IDE-specific files and directories
 .idea/
@@ -11,3 +12,4 @@
 
 # Ignore log files
 *.log
+*.iml
