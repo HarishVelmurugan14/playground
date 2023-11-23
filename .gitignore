@@ -13,3 +13,4 @@
 # Ignore log files
 *.log
 *.iml
+!/master.iml
