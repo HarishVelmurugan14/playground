@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -11,13 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose
   .connect("mongodb://127.0.0.1:27017/development")
   .then(() => console.log("Connected!"));
-const secret = "harishvelmurugan";
 
 const userSchema = new mongoose.Schema({
   email: { type: String },
   password: { type: Number },
 });
-userSchema.plugin(encrypt, { secret: secret, encryptedFields: ["password"]});
+userSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ["password"]});
 const User = mongoose.model("User", userSchema);
 
 app.get("/", (req, res) => {
