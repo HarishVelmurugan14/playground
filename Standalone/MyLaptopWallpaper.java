@@ -3,7 +3,10 @@ package Standalone;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class MyLaptopWallpaper {
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        generateWallpaper();
+//    }
+    public static void generateWallpaper() {
         Scanner userInput = new Scanner(System.in);
         String name = "magic";
         boolean myAvailability = false;
