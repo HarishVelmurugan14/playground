@@ -1,3 +1,4 @@
+package Interviews;
 
 @SuppressWarnings("ReassignedVariable")
 public class HarishPivotCode {
@@ -16,8 +17,8 @@ public class HarishPivotCode {
     public static void main(String[] args) {
 
 
-        // int[] givenArray = {5,-1,1};
-        int[] givenArray = {3, 4};
+         int[] givenArray = {-1,1, 5};
+        //int[] givenArray = {3, 4};
         int rightSideSum = 0;
         for (int value : givenArray) {
             rightSideSum = rightSideSum + value;
