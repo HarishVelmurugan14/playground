@@ -1,4 +1,4 @@
-package com.spring.learn.intellij.myartifact;
+package com.spring.debug.myartifact;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

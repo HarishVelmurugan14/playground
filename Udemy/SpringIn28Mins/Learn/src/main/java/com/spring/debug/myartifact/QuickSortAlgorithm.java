@@ -1,9 +1,9 @@
-package com.spring.learn.intellij.myartifact;
+package com.spring.debug.myartifact;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class QuickSortAlgorithm implements SortAlgorithm{
+public class QuickSortAlgorithm implements SortAlgorithm {
 
     public int[] sort(int[] numbers) {
         //Assume that bubble sort logic is included
