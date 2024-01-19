@@ -22,8 +22,7 @@ public class MyartifactApplication {
 
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 		int result1 = binarySearch.binarySearch(new int[] {1,2,3}, 4);
-		System.out.print(result1);
-
+		System.out.println(result1);
 	}
 
 
