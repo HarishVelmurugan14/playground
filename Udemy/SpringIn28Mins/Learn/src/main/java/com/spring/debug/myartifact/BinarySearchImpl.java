@@ -1,16 +1,23 @@
 package com.spring.debug.myartifact;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.logging.Logger;
+
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
 
+    private final Logger LOGGER = Logger.getLogger("BinarySearchImpl.class");
     @Autowired
     private SortAlgorithm sortAlgorithm;
 
     public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
         //Logic3
+        LOGGER.info("Algorith name "+sortAlgorithm);
         this.sortAlgorithm = sortAlgorithm;
     }
 
