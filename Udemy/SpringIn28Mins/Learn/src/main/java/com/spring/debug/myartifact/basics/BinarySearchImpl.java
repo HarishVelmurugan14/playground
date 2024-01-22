@@ -1,14 +1,11 @@
 package com.spring.debug.myartifact.basics;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
 
     private final Logger LOGGER = Logger.getLogger("BinarySearchImpl.class");
