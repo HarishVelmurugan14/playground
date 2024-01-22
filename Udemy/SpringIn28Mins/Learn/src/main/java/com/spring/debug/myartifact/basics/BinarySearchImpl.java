@@ -1,4 +1,4 @@
-package com.spring.debug.myartifact;
+package com.spring.debug.myartifact.basics;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;

@@ -1,4 +1,4 @@
-package com.spring.debug.myartifact;
+package com.spring.debug.myartifact.basics;
 
 import org.springframework.stereotype.Component;
 
