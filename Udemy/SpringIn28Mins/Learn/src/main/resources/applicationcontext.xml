@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context_namespace="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context_namespace:component-scan base-package="com.spring.debug.myartifact.scope"/>
+
+    <bean id="XmlJdbcConnectionBean" class="com.spring.debug.myartifact.xml.XmlJdbcConnection"/>
+
+    <bean id="XmlPersonDAO" class="com.spring.debug.myartifact.xml.XmlPersonDAO">
+        <property name="XmlJdbcConnection" ref="XmlJdbcConnectionBean"/>
+    </bean>
+</beans>
