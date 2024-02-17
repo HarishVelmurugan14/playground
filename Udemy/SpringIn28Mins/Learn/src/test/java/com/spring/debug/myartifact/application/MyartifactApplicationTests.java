@@ -1,13 +1,13 @@
-package com.spring.debug.myartifact;
+package com.spring.debug.myartifact.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MyartifactApplicationTests {
+class SpringBootApplicationPropertyApplicationTest {
 
 	@Test
-	void contextLoads() {
+	void firstTest() {
 	}
 
 }
