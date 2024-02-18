@@ -19,6 +19,7 @@ public class MyMathTest {
         System.out.println("BeforeEach");
     }
 
+
     @Test
     void calculate_three(){
         System.out.println("Three Member Array");
