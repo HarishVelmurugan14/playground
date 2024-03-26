@@ -35,7 +35,7 @@ public class BasicConcepts {
 //            Method  : public final void MethodName() : MethodName cannot be overriden
 //            Variable : public final int A = 1; cannot be reassigned
 //            Object : final Object obj = new Object();
-//                obj = new NewObject(); Cannot be re referenced
+//                obj = new NewObject(); Cannot be re initialized
         }
     }
 

@@ -19,5 +19,9 @@ public class DriverClass {
         OOPSConcepts.Encapsulation encapsulation = oopsConcepts.new Encapsulation();
         encapsulation.definitions();
 
+
+//        @ModernJava
+        ModernJava modernJava = new ModernJava();
+        modernJava.definitions();
     }
 }
