@@ -11,16 +11,21 @@ public class DriverClass {
         DriverClass driverClass = new DriverClass();
 //        driverClass.patternMethods();
 //        driverClass.recursionMethods();
-        driverClass.hashingMethods();
-
+//        driverClass.hashingMethods();
+//        driverClass.sortingMethods();
     }
 
+    public void sortingMethods(){
+        Sorting sorting = new Sorting();
+        int[] arr = sorting.selectionSort(new int[]{9 ,3 ,6 ,2 ,0});
+        printHelper.intArrayPrinter(arr);
+    }
 
     public void hashingMethods() {
         Hashing hashing = new Hashing();
         printHelper.intArrayPrinter(hashing.countFrequency(7, 20, new int[]{10, 7, 9, 8, 14, 20, 6}));
+        printHelper.intArrayPrinter(hashing.getFrequencies(new int[]{19,17,16}));
     }
-
 
     public void recursionMethods() {
         Recursions recursions = new Recursions();
