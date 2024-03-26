@@ -20,4 +20,38 @@ public class Sorting {
         }
         return arr;
     }
+
+    public void bubbleSort(int[] arr, int n) {
+        for (int i = n - 2; i >= 0; i--) {
+            int didSwap = 0;
+            for (int j = 0; j <= i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    int x = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = x;
+                    didSwap = 1; // Check if already sorted ?
+                }
+            }
+            if (didSwap == 0) {
+                break;
+            }
+        }
+
+        PrintHelper printHelper = new PrintHelper();
+        printHelper.intArrayPrinter(arr);
+    }
+
+    public void insertionSort(int[] arr, int n){
+        for (int i = 1; i < n; i++) {
+            int j = i;
+            while (j > 0 && arr[j - 1] > arr[j]) {
+                int x = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = x;
+                j--;
+            }
+        }
+        PrintHelper printHelper = new PrintHelper();
+        printHelper.intArrayPrinter(arr);
+    }
 }
