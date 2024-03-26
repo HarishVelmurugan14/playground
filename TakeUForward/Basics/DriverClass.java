@@ -21,6 +21,7 @@ public class DriverClass {
         printHelper.intArrayPrinter(arr);
         sorting.bubbleSort(new int[]{9 ,3 ,6 ,2 ,0}, 5);
         sorting.insertionSort(new int[]{7,2,3,4,5,6}, 6);
+        sorting.mergeSortPseudocodeExample(); // Image reference
     }
 
     public void hashingMethods() {

@@ -54,4 +54,8 @@ public class Sorting {
         PrintHelper printHelper = new PrintHelper();
         printHelper.intArrayPrinter(arr);
     }
+
+    public void mergeSortPseudocodeExample() {
+//            Refer Resources/MergeSortMyOwnPesucodeImplementation.png
+    }
 }
