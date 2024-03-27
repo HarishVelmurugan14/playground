@@ -20,8 +20,6 @@ public class Hashing {
         for (int num : v) {
             resultMap.merge(num, 1, Integer::sum);
         }
-        PrintHelper printHelper = new PrintHelper();
-        printHelper.hashMapPrinter(resultMap);
         int maxOccurrence = 0;
         int maxNum = Integer.MAX_VALUE;
         int minNum = Integer.MAX_VALUE;

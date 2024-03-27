@@ -3,6 +3,8 @@ package TakeUForward.Basics;
 import Utilities.PrintHelper;
 
 public class Sorting {
+
+    //*************************************SELECTION SORT*****************************************
     public int[] selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -20,6 +22,10 @@ public class Sorting {
         }
         return arr;
     }
+
+    //*************************************SELECTION SORT*****************************************
+
+    //*************************************BUBBLE SORT*****************************************
 
     public void bubbleSort(int[] arr, int n) {
         for (int i = n - 2; i >= 0; i--) {
@@ -41,6 +47,10 @@ public class Sorting {
         printHelper.intArrayPrinter(arr);
     }
 
+    //*************************************BUBBLE SORT*****************************************
+
+    //*************************************INSERTION SORT*****************************************
+
     public void insertionSort(int[] arr, int n){
         for (int i = 1; i < n; i++) {
             int j = i;
@@ -55,7 +65,51 @@ public class Sorting {
         printHelper.intArrayPrinter(arr);
     }
 
+    //*************************************INSERTION SORT*****************************************
+
+    //*************************************MERGE SORT*****************************************
+
     public void mergeSortPseudocodeExample() {
-//            Refer Resources/MergeSortMyOwnPesucodeImplementation.png
+//            Refer Resources/MergeSortMyOwnPseudocodeImplementation.png
     }
+
+    public void mergeSort(int[] arr, int start, int end) {
+
+        //BaseCase
+        if (start >= end) {
+            return;
+        }
+        //RecursiveCase
+        int mid = (start + end) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid + 1, end);
+        mergeTwoArraysInAscendingOrder(arr, start, mid, end);
+    }
+
+    public void mergeTwoArraysInAscendingOrder(int[] arr, int start, int mid, int end) {
+        int i = start;
+        int j = mid + 1;
+        int[] tempArray = new int[(end - start) + 1];
+
+        for (int currentPos = 0; currentPos <= end - start; currentPos++) {
+            if (i > mid) {
+                tempArray[currentPos] = arr[j];
+                j++;
+            } else if (j > end) {
+                tempArray[currentPos] = arr[i];
+                i++;
+            } else if (arr[i] <= arr[j]) {
+                tempArray[currentPos] = arr[i];
+                i++;
+            } else if (arr[i] > arr[j]) {
+                tempArray[currentPos] = arr[j];
+                j++;
+            }
+        }
+
+        for (int k = 0; k <= end - start; k++) {
+            arr[k + start] = tempArray[k];
+        }
+    }
+    //*************************************MERGE SORT*****************************************
 }

@@ -12,22 +12,30 @@ public class DriverClass {
 //        driverClass.patternMethods();
 //        driverClass.recursionMethods();
 //        driverClass.hashingMethods();
-        driverClass.sortingMethods();
+//        driverClass.sortingMethods();
+        Sorting sorting = new Sorting();
+
     }
 
-    public void sortingMethods(){
+    public void sortingMethods() {
         Sorting sorting = new Sorting();
-        int[] arr = sorting.selectionSort(new int[]{9 ,3 ,6 ,2 ,0});
+        int[] arr = sorting.selectionSort(new int[]{9, 3, 6, 2, 0});
         printHelper.intArrayPrinter(arr);
-        sorting.bubbleSort(new int[]{9 ,3 ,6 ,2 ,0}, 5);
-        sorting.insertionSort(new int[]{7,2,3,4,5,6}, 6);
+        sorting.bubbleSort(new int[]{9, 3, 6, 2, 0}, 5);
+        sorting.insertionSort(new int[]{7, 2, 3, 4, 5, 6}, 6);
         sorting.mergeSortPseudocodeExample(); // Image reference
+        sorting.mergeTwoArraysInAscendingOrder(new int[]{2, 8, 3, 5, 1, 6, 4, 7}, 4, 5, 7);
+        sorting.mergeSort(new int[]{5, 2, 8, 3, 6, 1, 7, 4}, 0, 7);
+        sorting.mergeSort(new int[]{49, 92, 15, 102, 72, 88, 13, 14, 103, 134, 45, 104, 139, 43, 119, 80, 84, 76, 80,
+                144, 125, 39, 5, 118, 64, 137, 12, 50, 122, 58, 140, 58, 6, 49, 67, 9, 55, 14, 94, 109, 76, 114, 115,
+                130, 120, 83, 121, 58, 6, 101, 52, 56, 63, 70, 26, 55, 64, 84, 65, 52, 112, 116, 100}, 0, 62);
+        sorting.mergeTwoArraysInAscendingOrder(new int[]{58, 122, 58, 140}, 0, 1, 3);
     }
 
     public void hashingMethods() {
         Hashing hashing = new Hashing();
         printHelper.intArrayPrinter(hashing.countFrequency(7, 20, new int[]{10, 7, 9, 8, 14, 20, 6}));
-        printHelper.intArrayPrinter(hashing.getFrequencies(new int[]{19,17,16}));
+        printHelper.intArrayPrinter(hashing.getFrequencies(new int[]{19, 17, 16}));
     }
 
     public void recursionMethods() {
