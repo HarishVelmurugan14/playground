@@ -1,8 +1,8 @@
-package TakeUForward.Basics;
+package TakeUForward.Basics.Sorting;
 
 import Utilities.PrintHelper;
 
-public class Sorting {
+public class AllSorting {
 
     //*************************************SELECTION SORT*****************************************
     public int[] selectionSort(int[] arr) {
@@ -10,7 +10,7 @@ public class Sorting {
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
             int minValue = arr[i];
-            for (int j = i+1; j < n; j++) {
+            for (int j = i + 1; j < n; j++) {
                 if (arr[j] < minValue) {
                     minIndex = j;
                     minValue = arr[j];
@@ -47,11 +47,16 @@ public class Sorting {
         printHelper.intArrayPrinter(arr);
     }
 
+    public void bubbleSortRecursion(int[] arr, int n) {
+
+    }
+
+
     //*************************************BUBBLE SORT*****************************************
 
     //*************************************INSERTION SORT*****************************************
 
-    public void insertionSort(int[] arr, int n){
+    public void insertionSort(int[] arr, int n) {
         for (int i = 1; i < n; i++) {
             int j = i;
             while (j > 0 && arr[j - 1] > arr[j]) {

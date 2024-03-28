@@ -1,5 +1,7 @@
 package TakeUForward.Basics;
 
+import TakeUForward.Basics.Sorting.AllSorting;
+import TakeUForward.Basics.Sorting.SortingsYouNeed;
 import Utilities.PrintHelper;
 
 import java.util.Arrays;
@@ -12,13 +14,18 @@ public class DriverClass {
 //        driverClass.patternMethods();
 //        driverClass.recursionMethods();
 //        driverClass.hashingMethods();
-//        driverClass.sortingMethods();
-        Sorting sorting = new Sorting();
+//        driverClass.allSortingMethods();
+//        driverClass.usefulSortingMethods();
 
     }
 
-    public void sortingMethods() {
-        Sorting sorting = new Sorting();
+    public void usefulSortingMethods() {
+        SortingsYouNeed sortingsYouNeed = new SortingsYouNeed();
+        sortingsYouNeed.definitions();
+    }
+
+    public void allSortingMethods() {
+        AllSorting sorting = new AllSorting();
         int[] arr = sorting.selectionSort(new int[]{9, 3, 6, 2, 0});
         printHelper.intArrayPrinter(arr);
         sorting.bubbleSort(new int[]{9, 3, 6, 2, 0}, 5);
