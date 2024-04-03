@@ -4,7 +4,9 @@ import Utilities.BasicHelper;
 import Utilities.PrintHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EasyArrayProblems {
 
@@ -12,8 +14,8 @@ public class EasyArrayProblems {
     PrintHelper printHelper = new PrintHelper();
 
     public void currentCheck(int[] arr) {
-        int[] a = new int[]{1, 2, 1, 3};
-        int n1 = longestSubArrayWithSumK(a, 2);
+        int[] a = new int[]{-1, 0, 1, 1, -1, -1, 0};
+        int n1 = longestSubArrayWithSumKOptimal(a, 0);
         printHelper.print("max : ", n1);
 
     }
@@ -44,6 +46,8 @@ public class EasyArrayProblems {
         int missingNumber = missingNumberOptimal(new int[]{9, 6, 4, 2, 3, 5, 0, 8, 1});
         int maxConsecutiveOnes = findMaxConsecutiveOnesOptimal(new int[]{1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1});
         int singleNumber = singleNumberOptimal(new int[]{4, 1, 2, 1, 2, 3, 4});
+        int positiveLongSubArray = longestSubArrayWithSumKOptimal(new int[]{4, 1, 2, 1, 2, 3, 4}, 4);
+        int positiveNegativeLongSubArray = longestSubArrayWithSumKPositiveNegativeOptimal(new int[]{-1, 0, 1, 1, -1, -1, 0}, 3);
 
 
         printHelper.print("Largest element : ", largestElement);
@@ -58,7 +62,9 @@ public class EasyArrayProblems {
         printHelper.print("Union of those two lists are : ", unionOfTwoArrayList);
         printHelper.print("Missing number : ", missingNumber);
         printHelper.print("Max consecutive ones : ", maxConsecutiveOnes);
-        printHelper.print("Single number is : ", new int[]{4, 1, 2, 1, 2, 3, 4});
+        printHelper.print("Single number is : ", singleNumber);
+        printHelper.print("Longest sub array in +ve set : ", positiveLongSubArray);
+        printHelper.print("Longest sub array in +ve & -ve set : ", positiveNegativeLongSubArray);
 
 
         printHelper.print("Final Array : ", arr);
@@ -78,6 +84,8 @@ public class EasyArrayProblems {
          * missing number in first n number :  sum of first n number (n(n+1))/2
          * max consecutive ones in an array : two pointer flexible window
          * only single number (not a pair) :  XOR approach
+         * longest sub array with sum = k : Two pointer window algo
+         * longest sub array with sum = k (-ve inc) : Hashing prefix sum
          * */
     }
 
@@ -472,12 +480,12 @@ public class EasyArrayProblems {
         return xorr;
     }
 
-    public int longestSubArrayWithSumK(int[] a, long k) {
+    public int longestSubArrayWithSumKOptimal(int[] a, long k) {
         int n = a.length;
         int maxLen = 0;
         int left = 0;
         int right = 0;
-        int sum = a[0];
+        long sum = a[0];
         while (right < n) {
             while (sum > k && left <= right) {
                 sum = sum - a[left];
@@ -493,5 +501,27 @@ public class EasyArrayProblems {
         }
         return maxLen;
     }
+
+    public int longestSubArrayWithSumKPositiveNegativeOptimal(int[] nums, int k) {
+        Map<Integer, Integer> prefixSumMap = new HashMap<>();
+        int maxLen = 0;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum = sum + nums[i];
+            if (sum == k) {
+                maxLen = Math.max(maxLen, i + 1);
+            }
+            int rem = sum - k;
+            if (prefixSumMap.containsKey(rem)) {
+                int len = i - prefixSumMap.get(rem);
+                maxLen = Math.max(maxLen, len);
+            }
+            if (!prefixSumMap.containsKey(sum)) {
+                prefixSumMap.put(sum, i);
+            }
+        }
+        return maxLen;
+    }
+
 
 }

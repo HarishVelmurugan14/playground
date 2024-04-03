@@ -30,9 +30,12 @@ public class SlidingWindow {
          *                   Select the first window and calculate
          *                   move window by 1 index subtract previous and add new element
          *
-         * Flexible Window : Remember sub array identification 0->n-1 ; 1->n-1; 2->n-1 .. n-1 -> n-1
+         * Flexible Window : Move right hand to the last follow left hand based on need (double while loop)
+         *
+         *                   Remember sub array identification 0->n-1 ; 1->n-1; 2->n-1 .. n-1 -> n-1
          *                   traversal should go for O(N) for once 0 -> N-1 (some use case can have less
          *                                which is identified during runtime)
+         *                   Upon violation reduce left and proceed
          *                   start = end for all traversal
          *                   keep start same move last until possible. repeat cycle
          * */
