@@ -12,10 +12,9 @@ public class EasyArrayProblems {
     PrintHelper printHelper = new PrintHelper();
 
     public void currentCheck(int[] arr) {
-        int[] a = new int[]{4, 1, 2, 1, 2, 3, 4};
-        int n1 = singleNumber(a);
-        printHelper.print("Single number is : ", n1);
-        singleNumberOptimal(a);
+        int[] a = new int[]{1, 2, 1, 3};
+        int n1 = longestSubArrayWithSumK(a, 2);
+        printHelper.print("max : ", n1);
 
     }
 
@@ -471,6 +470,28 @@ public class EasyArrayProblems {
             xorr = xorr ^ num;
         }
         return xorr;
+    }
+
+    public int longestSubArrayWithSumK(int[] a, long k) {
+        int n = a.length;
+        int maxLen = 0;
+        int left = 0;
+        int right = 0;
+        int sum = a[0];
+        while (right < n) {
+            while (sum > k && left <= right) {
+                sum = sum - a[left];
+                left++;
+            }
+            if (sum == k) {
+                maxLen = Math.max(maxLen, right - left + 1);
+            }
+            right++;
+            if (right < n) {
+                sum = sum + a[right];
+            }
+        }
+        return maxLen;
     }
 
 }
