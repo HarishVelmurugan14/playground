@@ -44,7 +44,7 @@ public class AllSorting {
         }
 
         PrintHelper printHelper = new PrintHelper();
-        printHelper.intArrayPrinter(arr);
+        printHelper.print("Test",arr);
     }
 
     public void bubbleSortRecursion(int[] arr, int n) {
@@ -67,7 +67,7 @@ public class AllSorting {
             }
         }
         PrintHelper printHelper = new PrintHelper();
-        printHelper.intArrayPrinter(arr);
+        printHelper.print("Test", arr);
     }
 
     //*************************************INSERTION SORT*****************************************

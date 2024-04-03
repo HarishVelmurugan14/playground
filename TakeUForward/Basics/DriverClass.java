@@ -27,7 +27,7 @@ public class DriverClass {
     public void allSortingMethods() {
         AllSorting sorting = new AllSorting();
         int[] arr = sorting.selectionSort(new int[]{9, 3, 6, 2, 0});
-        printHelper.intArrayPrinter(arr);
+        printHelper.print("Test", arr);
         sorting.bubbleSort(new int[]{9, 3, 6, 2, 0}, 5);
         sorting.insertionSort(new int[]{7, 2, 3, 4, 5, 6}, 6);
         sorting.mergeSortPseudocodeExample(); // Image reference
@@ -41,8 +41,8 @@ public class DriverClass {
 
     public void hashingMethods() {
         Hashing hashing = new Hashing();
-        printHelper.intArrayPrinter(hashing.countFrequency(7, 20, new int[]{10, 7, 9, 8, 14, 20, 6}));
-        printHelper.intArrayPrinter(hashing.getFrequencies(new int[]{19, 17, 16}));
+        printHelper.print("Test", hashing.countFrequency(7, 20, new int[]{10, 7, 9, 8, 14, 20, 6}));
+        printHelper.print("Test", hashing.getFrequencies(new int[]{19, 17, 16}));
     }
 
     public void recursionMethods() {
@@ -56,7 +56,7 @@ public class DriverClass {
         System.out.println(recursions.isPalindromeNormal("A man, a plan, a canal: Panama"));
         System.out.println(recursions.isPalindromeNormal("dad"));
         System.out.println(recursions.isPalindromeNormal("dab , bad"));
-        printHelper.intArrayPrinter(recursions.generateFibonacciNumbers(8));
+        printHelper.print("Test", recursions.generateFibonacciNumbers(8));
         System.out.println(recursions.generateFibonacciValue(4));
         System.out.println(recursions.fibonacciInRecursion(2));
     }

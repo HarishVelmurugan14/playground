@@ -1,14 +1,28 @@
 package Utilities;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class PrintHelper {
-    public void intArrayPrinter(int[] array) {
-        for (Object element : array) {
-            System.out.print(element);
+
+    public void print(String message, Object o) {
+        System.out.println(message + o);
+    }
+
+    public void print(String message, int[] array) {
+        System.out.println(message + Arrays.toString(array));
+    }
+
+    public <T> void print(String message, List<T> list) {
+        System.out.print(message);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i));
+            if (i == list.size() - 1) {
+                break;
+            }
             System.out.print(",");
         }
-        System.out.println();
     }
 
     public void hashMapPrinter(HashMap<Integer, Integer> hashMap) {
