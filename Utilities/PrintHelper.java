@@ -14,6 +14,15 @@ public class PrintHelper {
         System.out.println(message + Arrays.toString(array));
     }
 
+    public void print(String message, int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(" " + matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     public <T> void print(String message, List<T> list) {
         System.out.print(message);
         for (int i = 0; i < list.size(); i++) {
@@ -23,6 +32,7 @@ public class PrintHelper {
             }
             System.out.print(",");
         }
+        System.out.println();
     }
 
     public void hashMapPrinter(HashMap<Integer, Integer> hashMap) {
