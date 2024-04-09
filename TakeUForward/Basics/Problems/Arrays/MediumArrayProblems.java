@@ -417,7 +417,7 @@ public class MediumArrayProblems {
 
         int n = mat.length;
         //Transpose
-        printHelper.print("Original ", mat);
+//        printHelper.print("Original ", mat);
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 int x = mat[i][j];
@@ -426,7 +426,7 @@ public class MediumArrayProblems {
             }
         }
 
-        printHelper.print("Transposed ", mat);
+//        printHelper.print("Transposed ", mat);
         //Reverse column wise
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n / 2; j++) {
@@ -435,7 +435,7 @@ public class MediumArrayProblems {
                 mat[i][j] = x;
             }
         }
-        printHelper.print("After Reversing ", mat);
+//        printHelper.print("After Reversing ", mat);
 
         return mat;
     }
@@ -504,9 +504,7 @@ public class MediumArrayProblems {
         for (int i = arrayList.size() - 1; i > n * m - 1; i--) {
             arrayList.remove(i);
         }
-        for (int nu : arrayList) {
-            System.out.print(nu + "-");
-        }
+//        printHelper.print("Arraylist", arrayList);
         return arrayList;
     }
 
