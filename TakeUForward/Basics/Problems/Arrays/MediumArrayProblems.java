@@ -4,7 +4,6 @@ import Utilities.BasicHelper;
 import Utilities.PrintHelper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -19,19 +18,7 @@ public class MediumArrayProblems {
     public static void main(String[] args) {
         PrintHelper printHelper = new PrintHelper();
         MediumArrayProblems mediumArrayProblems = new MediumArrayProblems();
-        String s1 = "s(trin)g";
-        mediumArrayProblems.minRemoveToMakeValid(s1);
-        String s2 = "s(t(rin)g";
-        mediumArrayProblems.minRemoveToMakeValid(s2);
-        String s3 = "s(tri)n)g";
-        mediumArrayProblems.minRemoveToMakeValid(s3);
-        String s4 = "s(tring";
-        mediumArrayProblems.minRemoveToMakeValid(s4);
-        String s5 = "strin)g";
-        mediumArrayProblems.minRemoveToMakeValid(s5);
-        String s6 = "s)trin(g";
-        mediumArrayProblems.minRemoveToMakeValid(s6);
-//        mediumArrayProblems.optimalSolutions();
+        mediumArrayProblems.optimalSolutions();
     }
 
 
@@ -46,6 +33,9 @@ public class MediumArrayProblems {
         List<Integer> superiorElements = superiorElements(new int[]{1, 2, 2, 1});
         int longestConsecutiveSequence = longestConsecutiveSequenceInTheArrayInAnyOrder(new int[]{100, 200, 3, 2, 4, 1});
         int[][] matrixAfterRCtoZero = setZeroes(new int[][]{{1, 1, 1, 1}, {0, 0, 1, 1}, {1, 1, 0, 1}, {0, 1, 1, 1}});
+        int[][] matrixRotated90Degrees = rotateOptimal(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        int subArrayWithKSumCount = countSubArray(new int[]{1, 2, 1, 2, 1}, 3);
+        List<Integer> spiralPrintList = spiralMatrixPrint(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}});
         printHelper.print("Index with target provided is ", index);
         printHelper.print("Array after in place sorting is ", sortColorArray);
         printHelper.print("Majority element with more than half is ", majorityElement);
@@ -54,7 +44,10 @@ public class MediumArrayProblems {
         printHelper.print("Next permutation is ", nextPermutation);
         printHelper.print("Superior elements are ", superiorElements);
         printHelper.print("Longest consecutive elements length is ", longestConsecutiveSequence);
-        printHelper.print("matrix after changing to zero", matrixAfterRCtoZero);
+        printHelper.print("Matrix after changing to zero", matrixAfterRCtoZero);
+        printHelper.print("Matrix after rotating 90 degree", matrixRotated90Degrees);
+        printHelper.print("Count of sub arrays with sum k are ", subArrayWithKSumCount);
+        printHelper.print("Matrix printed spirally ", spiralPrintList);
 
 
     }
@@ -78,6 +71,12 @@ public class MediumArrayProblems {
          *                     keep first row and column along with a temp variable for 0th index of column
          *                     convert the middle of the matrix except these 2 storages
          *                     covert the storages
+         * matrix 90 degrees : Transpose the matrix (condition : n x n) --> run above leading diagonal
+         *                     Reverse the matrix --> run for first half second half sorts automatically
+         * count of sub arrays : single traversal prefix sum approach
+         *                      calculate prefix sum X we know the sub array sum as K so if any part has
+         *                      a sum of X-K then we have one sub array
+         * spiral printed list : clockwise 4 loops TopRightBottomLeft
          * */
     }
 
@@ -390,7 +389,7 @@ public class MediumArrayProblems {
                 forwardBrace.add(i);
                 stack.push('(');
             } else if (characters[i] == ')') {
-                if (  !stack.isEmpty() &&   stack.peek() == '(') {
+                if (!stack.isEmpty() && stack.peek() == '(') {
                     forwardBrace.remove(forwardBrace.size() - 1);
                     stack.pop();
                 } else {
@@ -399,19 +398,116 @@ public class MediumArrayProblems {
             }
         }
 
-        for(int index : forwardBrace){
+        for (int index : forwardBrace) {
             characters[index] = '0';
         }
-        for(int index : reverseBrace){
+        for (int index : reverseBrace) {
             characters[index] = '0';
         }
-        printHelper.print("F List = ",forwardBrace);
+        printHelper.print("F List = ", forwardBrace);
         printHelper.print("R List = ", reverseBrace);
 
         System.out.println(String.valueOf(characters).replaceAll("0", ""));
 
         return String.valueOf(characters).replaceAll("0", "");
 
+    }
+
+    public int[][] rotateOptimal(int[][] mat) {
+
+        int n = mat.length;
+        //Transpose
+        printHelper.print("Original ", mat);
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int x = mat[i][j];
+                mat[i][j] = mat[j][i];
+                mat[j][i] = x;
+            }
+        }
+
+        printHelper.print("Transposed ", mat);
+        //Reverse column wise
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                int x = mat[i][n - 1 - j];
+                mat[i][n - 1 - j] = mat[i][j];
+                mat[i][j] = x;
+            }
+        }
+        printHelper.print("After Reversing ", mat);
+
+        return mat;
+    }
+
+    public int countSubArray(int[] arr, int s) {
+//        N = 4, array[] = {3, 1, 2, 4}, k = 6
+
+        int count = 0;
+        int sum = 0;
+
+        HashMap<Integer, Integer> storage = new HashMap<>();
+        storage.put(0, 1);
+        for (int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
+            int rem = sum - s;
+            if (storage.containsKey(rem)) {
+                count = count + storage.get(rem);
+                if (storage.containsKey(sum)) {
+                    storage.put(sum, storage.get(sum) + 1);
+                } else {
+                    storage.put(sum, 1);
+                }
+            } else {
+                if (storage.containsKey(sum)) {
+                    storage.put(sum, storage.get(sum) + 1);
+                } else {
+                    storage.put(sum, 1);
+                }
+            }
+        }
+
+        return count;
+    }
+
+    @SuppressWarnings("DataFlowIssue")
+    public ArrayList<Integer> spiralMatrixPrint(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int left = 0;
+        int top = 0;
+        int bottom = n - 1;
+        int right = m - 1;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        while (left <= right && top <= bottom) {
+            for (int i = left; i <= right; i++) {
+                arrayList.add(matrix[top][i]);
+            }
+            top++;
+
+            for (int i = top; i <= bottom; i++) {
+                arrayList.add(matrix[i][right]);
+            }
+            right--;
+
+            for (int i = right; i >= left; i--) {
+                arrayList.add(matrix[bottom][i]);
+            }
+            bottom--;
+
+            for (int i = bottom; i >= top; i--) {
+                arrayList.add(matrix[i][left]);
+            }
+            left++;
+        }
+        for (int i = arrayList.size() - 1; i > n * m - 1; i--) {
+            arrayList.remove(i);
+        }
+        for (int nu : arrayList) {
+            System.out.print(nu + "-");
+        }
+        return arrayList;
     }
 
 }
