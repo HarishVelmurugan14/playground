@@ -7,5 +7,8 @@ public class ProblemDriverClass {
 
         MediumArrayProblems mediumArrayProblems = new MediumArrayProblems();
         mediumArrayProblems.optimalSolutions();
+
+        HardArrayProblems hardArrayProblems = new HardArrayProblems();
+        hardArrayProblems.optimalSolutions();
     }
 }
