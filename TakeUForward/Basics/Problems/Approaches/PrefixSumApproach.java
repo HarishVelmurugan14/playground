@@ -14,6 +14,8 @@ public class PrefixSumApproach {
          *                       if so current = x = 7 ; if any n has 2
          *                       x -n = 5  => i - indexWherePrevSum is 2
          *                       Hence it requires prefix sum stored in hashmap : don't replace same sum longest is needed
+         *
+         * Youtube : https://www.youtube.com/watch?v=7pJo_rM0z_s&ab_channel=MiketheCoder
          * */
     }
 
