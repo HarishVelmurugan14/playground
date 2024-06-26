@@ -13,6 +13,13 @@ public class InsertionSort {
 //        Loop from low +1 -> high
 //        check i with all the previous elements and swapping it unless the criteria fails for smaller case
 //        dont check beyond 0
+        /*
+        * Insert pannanum
+        * Yarra - low class la irka orthana high class ku equal ah
+        * low class the current veedu; high - change ahapora pinnadi veedu
+        * eppo varaikum mathnum highclass karanga ellam low class ah vida edathla kammi ahra varaikum. Appo current ah adhihama irkanhga
+        * ovvoru change kum oru adi vangnum
+        * */
     }
 
     public void sort(Comparable[] a, int low, int high){
