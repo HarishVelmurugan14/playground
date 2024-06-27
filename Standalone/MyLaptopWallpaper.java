@@ -3,20 +3,19 @@ package Standalone;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class MyLaptopWallpaper {
-//    public static void main(String[] args) {
-//        generateWallpaper();
-//    }
-    public static void generateWallpaper() {
+    public static void main(String[] args) {
+        generateWallpaper(false);
+    }
+    public static void generateWallpaper(boolean myAvailability) {
         Scanner userInput = new Scanner(System.in);
-        String name = "magic";
-        boolean myAvailability = false;
+        String name = "Harish";
         ArrayList<String> possibleLocations = new ArrayList<>();
         possibleLocations.add("Conferance Room");
         possibleLocations.add("Pantry");
         possibleLocations.add("South Plaza Tent");
         possibleLocations.add("My Home");
         String whenCanYouExpectMe = "I am not sure";
-        String emailAddress = "magic.vk@zohocorp.com";
+        String emailAddress = "harish.vk@zohocorp.com";
 
 
         if(!myAvailability) {
