@@ -10,10 +10,11 @@ public class OptimizedQuickSort {
     }
 
     private static void threeWayPartitionQuickSort(Comparable[] a, int lo, int hi) {
-        // NOTE : Only foward path || Duplicate key case is solved
-        // Swapping of pivot exist ; if less swap with pivot increment low and pivot; if greater swap with high , decreement high and proceed in forward direction
-        // If equal increement low
         // if high less than low end
+        // NOTE : Only foward path || Duplicate key case is solved
+        // Traverse from lo to hi with lo value as pivot. Swapping of pivot exist ;
+        // if less swap with pivot increment low and pivot; if greater swap with high , decreement high and proceed in forward direction
+        // If equal increement low
         if (hi <= lo) return;
         int lt = lo, gt = hi;
         Comparable pivot = a[lo];
