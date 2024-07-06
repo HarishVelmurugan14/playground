@@ -1,8 +1,11 @@
 package Interviews.Preparation.DSA.Tree;
 
+import Interviews.Preparation.DSA.Tree.Utility.Node;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
+@SuppressWarnings("rawtypes")
 public class TreeTraversal {
 
     public static void main(String[] args) {
@@ -12,41 +15,36 @@ public class TreeTraversal {
     }
 
     public void init() {
-        Queue<Integer> q = new LinkedList<>();
-        Node root = new Node(50, 1);
-        root.left = new Node(30, 2);
-        root.left.left = new Node(20, 3);
-        root.left.right = new Node(40, 4);
-        root.right = new Node(70, 5);
-        root.right.left = new Node(60, 6);
-        root.right.right = new Node(80, 7);
+        Queue<Comparable> q = new LinkedList<>();
+        Node root = new Node("50", 1);
+        root.left = new Node("30", 2);
+        root.left.left = new Node("20", 3);
+        root.left.right = new Node("40", 4);
+        root.right = new Node("70", 5);
+        root.right.left = new Node("60", 6);
+        root.right.right = new Node("80", 7);
         inorderTraversal(root, q);
 
         System.out.println("In Order");
-        for (int element : q) {
-            System.out.print(element + " ");
-        }
+        printNode(q);
 
         System.out.println("\nPre Order");
 //        50, 30, 20, 40, 70, 60, 80.
         q = new LinkedList<>();
         preOrderTraversal(root, q);
 
-        for (int element : q) {
-            System.out.print(element + " ");
-        }
+        printNode(q);
+
         System.out.println("\nPost Order");
 //        20, 40, 30, 60, 80, 70, 50.
         q = new LinkedList<>();
         postOrderTraversal(root, q);
 
-        for (int element : q) {
-            System.out.print(element + " ");
-        }
-
+        printNode(q);
     }
 
-    private void inorderTraversal(Node x, Queue<Integer> q) {
+    @SuppressWarnings("rawtypes")
+    protected void inorderTraversal(Node x, Queue<Comparable> q) {
         /*
          * queue left subtree
          * queue node
@@ -61,7 +59,7 @@ public class TreeTraversal {
 
     }
 
-    private void preOrderTraversal(Node x, Queue<Integer> q) {
+    public void preOrderTraversal(Node x, Queue<Comparable> q) {
         /*
          * queue node
          * queue left till its last
@@ -75,7 +73,7 @@ public class TreeTraversal {
         }
     }
 
-    private void postOrderTraversal(Node x, Queue<Integer> q) {
+    public void postOrderTraversal(Node x, Queue<Comparable> q) {
         /*
          * queue left child
          * queue right child
@@ -90,16 +88,10 @@ public class TreeTraversal {
         }
     }
 
-    public class Node {
-        private int key;
-        private int value;
-        private Node left, right;
-
-        public Node(int key, int value) {
-            this.key = key;
-            this.value = value;
+    public void printNode(Queue<Comparable> q){
+        System.out.println();
+        for (Comparable element : q) {
+            System.out.print(element + " ");
         }
     }
-
-
 }

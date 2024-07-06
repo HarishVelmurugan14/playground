@@ -5,6 +5,7 @@ import Coursera.RobertSedgewick.algorithms.com.dsa.week3.sorting.MergeSort;
 import Coursera.RobertSedgewick.algorithms.com.dsa.week3.sorting.OptimizedQuickSort;
 import Interviews.Preparation.DSA.Search.BinarySearch;
 import Interviews.Preparation.DSA.Tree.BinarySearchTree;
+import Interviews.Preparation.DSA.Tree.RedBlackBST;
 
 public class DriverClass {
     public static void main(String[] args) {
@@ -34,8 +35,8 @@ public class DriverClass {
 
     private static void tree() {
         //Must Know
-        BinarySearchTree binarySearchTree = BinarySearchTree.getInstance();
-        binarySearchTree.init();
+        BinarySearchTree.init();
+        RedBlackBST.init(); // Most Efficient
 
     }
 }
