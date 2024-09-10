@@ -1,4 +1,4 @@
-package SelfLearn.Java.defaultpackage;
+package SelfLearn.Java.Defaultpackage.Concepts.Fundamental;
 
 @SuppressWarnings("unused")
 public class BasicConcepts {

@@ -1,4 +1,4 @@
-package SelfLearn.Java.defaultpackage;
+package SelfLearn.Java.Defaultpackage.Concepts.Fundamental;
 
 import java.util.HashMap;
 import java.util.Map;

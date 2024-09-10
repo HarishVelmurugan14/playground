@@ -1,4 +1,4 @@
-package SelfLearn.Java.defaultpackage.Redis;
+package SelfLearn.Java.Defaultpackage.Redis;
 
 import redis.clients.jedis.Jedis;
 

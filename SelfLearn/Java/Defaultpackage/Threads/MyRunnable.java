@@ -1,4 +1,4 @@
-package SelfLearn.Java.defaultpackage.Threads;
+package SelfLearn.Java.Defaultpackage.Threads;
 
 class MyRunnable implements Runnable {
     private SharedResource resource;

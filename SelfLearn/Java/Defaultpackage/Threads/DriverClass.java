@@ -1,4 +1,4 @@
-package SelfLearn.Java.defaultpackage.Threads;
+package SelfLearn.Java.Defaultpackage.Threads;
 
 public class DriverClass {
     public static void main(String[] args) throws InterruptedException {
