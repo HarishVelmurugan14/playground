@@ -1,4 +1,4 @@
-package SelfLearn.Java.Defaultpackage.Concepts.Fundamental;
+package SelfLearn.Java.Defaultpackage.Fundamental.Concepts;
 
 public class OOPSConcepts {
     class Encapsulation{
