@@ -33,7 +33,14 @@ public class NullHandler {
     }
 
     public static <T> void handleOptional(T optionalValue, Consumer<T> consumer) {
-        Optional.ofNullable(optionalValue).ifPresent(consumer);
+        applyIfNotNull(consumer, optionalValue, false);
+    }
+
+    public static <T> void applyIfNotNull(Consumer<T> consumer, T value, boolean excludeEmpty) {
+        // If string is empty need to be removed set as true
+        Optional.ofNullable(value)
+                .filter(val -> !excludeEmpty || !(val instanceof String && ((String) val).isEmpty()))
+                .ifPresent(consumer);
     }
 }
 
