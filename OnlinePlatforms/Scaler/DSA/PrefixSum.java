@@ -4,7 +4,7 @@ import Resources.Utilities.PrintHelper;
 
 /**
  * @author Harish Velmurugan
- * @last-modified 06-01-2025
+ * @last-modified 07-01-2025
  * @since 06-01-2025
  */
 
@@ -37,6 +37,7 @@ public class PrefixSum {
         System.out.println("Problems Starts Here .. \n");
         prefixSum.specialIndices();
         prefixSum.inPlacePrefixSum();
+        prefixSum.equilibiriumIndex();
 
     }
 
@@ -139,7 +140,7 @@ public class PrefixSum {
 
     private void definitions() {
         /*
-         * NoteBook 1 : Page 1
+         * NoteBook_06012025 : Page 1
          * */
     }
 
@@ -190,6 +191,35 @@ public class PrefixSum {
             array[i] = array[i - 1] + array[i];
         }
         print("In Place Prefix : ", array);
+    }
+
+    public void equilibiriumIndex() {
+        int[] A = {-7, 1, 5, 2, -4, 3, 0};
+//        int[] A= {1, 2, 3};
+        int n = A.length;
+        int[] prefixArray = new int[n];
+        prefixArray[0] = A[0];
+        for (int i = 1; i < n; i++) {
+            prefixArray[i] = prefixArray[i - 1] + A[i];
+        }
+
+        int equilibriumIndex = -1;
+        for (int i = 0; i < n; i++) {
+            int sumOnTheRight = 0;
+            int sumOnTheLeft = 0;
+            if (i == 0) {
+                sumOnTheRight = prefixArray[n - 1] - prefixArray[0];
+            } else if (i == n - 1) {
+                sumOnTheLeft = prefixArray[n - 2];
+            } else {
+                sumOnTheLeft = prefixArray[i - 1];
+                sumOnTheRight = prefixArray[n - 1] - prefixArray[i];
+            }
+            if (sumOnTheRight == sumOnTheLeft) {
+                equilibriumIndex = i;
+            }
+        }
+        System.out.println("Equilibirium Index is : " + equilibriumIndex);
     }
 
 
