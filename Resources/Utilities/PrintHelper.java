@@ -15,14 +15,15 @@ public class PrintHelper {
     }
 
     public void print(String message, int[][] matrix) {
-        System.out.println(message);
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                System.out.print(" " + matrix[i][j]);
+        for (int[] subArray : matrix) {
+            System.out.print("[");
+            for (int num : subArray) {
+                System.out.print(num + " ");
             }
-            System.out.println();
+            System.out.println("]");
         }
     }
+
 
     public <T> void print(String message, List<T> list) {
         System.out.print(message);
