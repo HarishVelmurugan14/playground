@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA;
+package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week1;
 
 import Resources.Utilities.PrintHelper;
 
