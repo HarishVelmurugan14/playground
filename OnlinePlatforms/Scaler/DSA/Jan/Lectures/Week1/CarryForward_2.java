@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @last-modified 08-01-2025
  * @since 08-01-2025
  */
-public class CarryForward {
+public class CarryForward_2 {
 
     private final PrintHelper printHelper = new PrintHelper();
 
@@ -20,7 +20,7 @@ public class CarryForward {
         char[] charArray = {'a', 'g', 'c', 'g', 'a', 'g', 'g'};
 
         // Call Stack
-        CarryForward carryForward = new CarryForward();
+        CarryForward_2 carryForward = new CarryForward_2();
         carryForward.bruteForce(charArray);
         carryForward.optimal(charArray);
 

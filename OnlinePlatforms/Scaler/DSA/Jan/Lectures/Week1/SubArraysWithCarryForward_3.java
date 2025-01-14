@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @last-modified 09-01-2025
  * @since 08-01-2025
  */
-public class SubArraysWithCarryForward {
+public class SubArraysWithCarryForward_3 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -25,7 +25,7 @@ public class SubArraysWithCarryForward {
 
 
         // Call Stack
-        SubArraysWithCarryForward subArraysWithCarryForward = new SubArraysWithCarryForward();
+        SubArraysWithCarryForward_3 subArraysWithCarryForward = new SubArraysWithCarryForward_3();
 
         subArraysWithCarryForward.printASubArray(array, 0, array.length - 1);
         subArraysWithCarryForward.printAllSubArrays(array);

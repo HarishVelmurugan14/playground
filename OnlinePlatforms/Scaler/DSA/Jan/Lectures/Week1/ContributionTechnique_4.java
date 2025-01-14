@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @last-modified 12-01-2025
  * @since 10-01-2025
  */
-public class ContributionTechnique {
+public class ContributionTechnique_4 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -20,7 +20,7 @@ public class ContributionTechnique {
 
 
         // Call Stack
-        ContributionTechnique contributionTechnique = new ContributionTechnique();
+        ContributionTechnique_4 contributionTechnique = new ContributionTechnique_4();
 
         //Problems
 

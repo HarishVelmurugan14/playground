@@ -8,7 +8,7 @@ import Resources.Utilities.PrintHelper;
  * @since 06-01-2025
  */
 
-public class PrefixSum {
+public class PrefixSum_1 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -27,7 +27,7 @@ public class PrefixSum {
         };
 
         // Call Stack
-        PrefixSum prefixSum = new PrefixSum();
+        PrefixSum_1 prefixSum = new PrefixSum_1();
 
         prefixSum.bruteForce(array, queries);
         prefixSum.optimal(array, queries, "all");

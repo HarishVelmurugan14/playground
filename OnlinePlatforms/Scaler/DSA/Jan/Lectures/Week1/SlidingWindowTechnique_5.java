@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 12-01-2025
  * @since 10-01-2025
  */
-public class SlidingWindowTechnique {
+public class SlidingWindowTechnique_5 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -18,7 +18,7 @@ public class SlidingWindowTechnique {
 
 
         // Call Stack
-        SlidingWindowTechnique slidingWindowTechnique = new SlidingWindowTechnique();
+        SlidingWindowTechnique_5 slidingWindowTechnique = new SlidingWindowTechnique_5();
 
         slidingWindowTechnique.maxSumSubArray();
         slidingWindowTechnique.checkIfSubArrayWithLengthBHasSumC();
