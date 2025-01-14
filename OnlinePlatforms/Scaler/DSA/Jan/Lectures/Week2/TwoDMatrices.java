@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 14-01-2025
  * @since 14-01-2025
  */
-public class TwoDMatrices {
+public class TwoDMatrices_1 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -25,13 +25,13 @@ public class TwoDMatrices {
         int n = matrixArray.length;
         int m = matrixArray[0].length;
 
-//        twoDMatrices.printRowWiseSum(matrixArray);
-//        twoDMatrices.printMainDiagonalElementsForSquareMatrix(matrixArray);
-//        twoDMatrices.printAntiDiagonalElementsForSquareMatrix(matrixArray);
-//        twoDMatrices.printAllAntiDiagonalElementsOfAMatrix(matrixArray);
+        twoDMatrices.printRowWiseSum(matrixArray);
+        twoDMatrices.printMainDiagonalElementsForSquareMatrix(matrixArray);
+        twoDMatrices.printAntiDiagonalElementsForSquareMatrix(matrixArray);
+        twoDMatrices.printAllAntiDiagonalElementsOfAMatrix(matrixArray);
         twoDMatrices.matrixTranspose(matrixArray, n, m);
-//        twoDMatrices.matrixTransposeInPlace(matrixArray, n, m);
-//        twoDMatrices.rotateMatrix90Degree(matrixArray);
+        twoDMatrices.matrixTransposeInPlace(matrixArray, n, m);
+        twoDMatrices.rotateMatrix90Degree(matrixArray);
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
@@ -47,25 +47,6 @@ public class TwoDMatrices {
         print("", reverse(matrix, n, m));
         print("", reverseInPlace(matrix, n, m));
 
-
-    }
-
-    public void optimal90Degree(int[][] matrix) {
-//        System.out.println();
-//        // Complexity : Time : [  ]
-//        // Complexity : Space : [  ]
-//        int n = matrix.length;
-//        int m = matrix[0].length;
-//
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < m; j++) {
-//                int temp = matrix[i][j];
-        matrix[0][0] = matrix[0][0];
-        // Not Improvised
-//                matrix[j][n - i - 1] = temp;
-//            }
-//        }
-//        print("", matrix);
 
     }
     /* Section : ------------------------------- [ Problems ] ----------------------------------------- */
@@ -187,7 +168,6 @@ public class TwoDMatrices {
 
     private void rotateMatrix90Degree(int[][] matrix) {
         bruteForce90Degree(matrix);
-        optimal90Degree(matrix);
     }
 
     public int[] columnWiseSum(int[][] A) {
