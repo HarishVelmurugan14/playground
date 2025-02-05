@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week4;
+package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week5;
 
 import Resources.Utilities.PrintHelper;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @last-modified 03-02-2025
  * @since 03-02-2025
  */
-public class RecursionTwo_3 {
+public class RecursionTwo_1 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,7 +21,7 @@ public class RecursionTwo_3 {
         int[] A = {3, 2, 3, 4, 5, 3};
 
         // Call Stack
-        RecursionTwo_3 recursionTwo3 = new RecursionTwo_3();
+        RecursionTwo_1 recursionTwo3 = new RecursionTwo_1();
 //        recursionTwo3.powerOfANumberUsingRecursion();
 //        recursionTwo3.printArray(A, A.length - 1);
 //        ArrayList<Integer> res = recursionTwo3.printTargetIndex_Harish(A, A.length, 3, new ArrayList<>());
