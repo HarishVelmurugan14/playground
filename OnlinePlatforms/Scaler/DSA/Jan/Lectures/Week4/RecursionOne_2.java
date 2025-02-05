@@ -32,12 +32,17 @@ public class RecursionOne_2 {
 
         int fib = recursionOne2.printNthFibonacciNumber(7);
         recursionOne2.print("Fib : ", fib);
+        recursionOne2.printNNumbersFirstInDescendingThenInAscendingOrder(3);
+
+        recursionOne2.findSumOfDigitsOfANumber(46);
 
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
     private int sumOfNNaturalNumbers(int N) {
+        // Complexity : Time : [ O(N) ]
+        // Complexity : Space : [ O(1) ]
         if (N == 0) {
             return 0;
         }
@@ -46,6 +51,8 @@ public class RecursionOne_2 {
 
 
     private int factorial(int N) {
+        // Complexity : Time : [ O(N) ]
+        // Complexity : Space : [ O(N) ]
         if (N == 0) { // 0 and 1 both has factorial as 1
             return 1;
         }
@@ -53,6 +60,8 @@ public class RecursionOne_2 {
     }
 
     private void printAllNumbersInIncreasingOrder(int N) {
+        // Complexity : Time : [ O(N) ]
+        // Complexity : Space : [ O(N) ]
         if (N == 0) {
             return;
         }
@@ -61,6 +70,8 @@ public class RecursionOne_2 {
     }
 
     private void printAllNumbersInDecreasingOrder(int N) {
+        // Complexity : Time : [ O(N) ]
+        // Complexity : Space : [ O(N) ]
         if (N == 0) {
             return;
         }
@@ -69,12 +80,32 @@ public class RecursionOne_2 {
     }
 
     private int printNthFibonacciNumber(int N) {
+        // Complexity : Time : [ O(Refer Notes) ]
+        // Complexity : Space : [ O(Refer Notes) ]
         if (N == 0) {
             return 0;
         } else if (N == 1) {
             return 1;
         }
         return printNthFibonacciNumber(N - 1) + printNthFibonacciNumber(N - 2);
+    }
+
+    private void printNNumbersFirstInDescendingThenInAscendingOrder(int A) {
+
+        if (A == 0) {
+            return;
+        }
+        System.out.print(A + " ");
+
+        printNNumbersFirstInDescendingThenInAscendingOrder(A - 1);
+        System.out.print(A + " ");
+    }
+
+    private int findSumOfDigitsOfANumber(int N) {
+        if (N == 0) {
+            return 0;
+        }
+        return N % 10 + findSumOfDigitsOfANumber(N / 10);
     }
 
 
