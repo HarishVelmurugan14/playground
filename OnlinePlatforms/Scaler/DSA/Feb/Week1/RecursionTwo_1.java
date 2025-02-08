@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week5;
+package OnlinePlatforms.Scaler.DSA.Feb.Week1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -22,15 +22,15 @@ public class RecursionTwo_1 {
 
         // Call Stack
         RecursionTwo_1 recursionTwo3 = new RecursionTwo_1();
-//        recursionTwo3.powerOfANumberUsingRecursion();
-//        recursionTwo3.printArray(A, A.length - 1);
-//        ArrayList<Integer> res = recursionTwo3.printTargetIndex_Harish(A, A.length, 3, new ArrayList<>());
-//        recursionTwo3.print("", res);
-//        ArrayList<Integer> res1 = recursionTwo3.printTargetIndex_Yahnit(A, A.length, 3);
-//        recursionTwo3.print("", res1);
-//        String s = "malayalam";
-//        char[] array = s.toCharArray();
-//        recursionTwo3.checkForPalindrome(array, 0, array.length - 1);
+        recursionTwo3.powerOfANumberUsingRecursion();
+        recursionTwo3.printArray(A, A.length - 1);
+        ArrayList<Integer> res = recursionTwo3.printTargetIndex_Harish(A, A.length, 3, new ArrayList<>());
+        recursionTwo3.print("", res);
+        ArrayList<Integer> res1 = recursionTwo3.printTargetIndex_Yahnit(A, A.length, 3);
+        recursionTwo3.print("", res1);
+        String s = "malayalam";
+        char[] array = s.toCharArray();
+        recursionTwo3.checkForPalindrome(array, 0, array.length - 1);
 
         recursionTwo3.towerOfHanoi(4, 1, 2, 3);
         System.out.println("--------------------");
