@@ -137,7 +137,7 @@ public class Arrays_InterviewProblems_2 {
 
     /* Section : ------------------------------- [ Problems ] ------------------------------- */
 
-    private void mergeIntervalAndProvidePointsMerged() {
+    public void mergeIntervalAndProvidePointsMerged() {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(1) ]
         //Intervals are sorted based on ascending order
@@ -183,7 +183,7 @@ public class Arrays_InterviewProblems_2 {
         // If the start indexes are not sorted then sort and then start merging
     }
 
-    private void firstMissingNaturalNumber() {
+    public void firstMissingNaturalNumber() {
 //        int[] array = {5, 3, 1, -1, -2, 1, 2};
 //        int[] array = {1, 5, 4, 2, 3};
 //        int brute = bruteForce_MissingNaturalNumber(array);
@@ -196,7 +196,7 @@ public class Arrays_InterviewProblems_2 {
 
     }
 
-    private void nextPermutation() {
+    public void nextPermutation() {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(1) ]
 
@@ -257,7 +257,7 @@ public class Arrays_InterviewProblems_2 {
         System.out.println(pivotIndex + " -- " + successorIndex);
     }
 
-    private void insertANewIntervalAndMergeIfPossible() {
+    public void insertANewIntervalAndMergeIfPossible() {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         /*

@@ -21,10 +21,10 @@ public class OneDimensionalArray_3 {
         int[] array = {-500};
         // Call Stack
         OneDimensionalArray_3 oneDimensionalArray3 = new OneDimensionalArray_3();
-//        oneDimensionalArray3.maximumSumSubArray(array);
-//        oneDimensionalArray3.rainWaterTrapped();
-//        oneDimensionalArray3.beggarProfit();
-//        oneDimensionalArray3.addOneToNumber();
+        oneDimensionalArray3.maximumSumContiguosSubArray(array);
+        oneDimensionalArray3.rainWaterTrappedBetween2Buildings();
+        oneDimensionalArray3.profitOfBeggarsSittingContiguoslyGettingRandomDonation();
+        oneDimensionalArray3.addOneToNumberProvidedAsArray();
 
     }
 
@@ -163,7 +163,8 @@ public class OneDimensionalArray_3 {
 
     /* Section : ------------------------------- [ Problems ] ------------------------------- */
 
-    private void maximumSumSubArray(int[] array) {
+    public void maximumSumContiguosSubArray(int[] array) {
+        //Find the maximum sum of contiguous non-empty subarray within an array A of length N.
         bruteForce(array);
         prefixSumApproach(array);
         carryForwardApproach(array);
@@ -171,7 +172,7 @@ public class OneDimensionalArray_3 {
         kadanesAlgorithm_withEndPoints(array);
     }
 
-    private void rainWaterTrapped() {
+    public void rainWaterTrappedBetween2Buildings() {
         int[] array = {5, 4, 1, 4, 3, 2, 7};
         rainWaterTrapped_brute(array);
         rainWaterTrapped_optimized(array);
@@ -243,7 +244,7 @@ public class OneDimensionalArray_3 {
     }
 
 
-    private void beggarProfit() {
+    public void profitOfBeggarsSittingContiguoslyGettingRandomDonation() {
         int A = 5;
         int[][] B = {{1, 2, 10}, {2, 3, 20}, {2, 5, 25}};
         beggarProfit_brute(A, B);
@@ -292,7 +293,7 @@ public class OneDimensionalArray_3 {
     }
 
     @SuppressWarnings("ReassignedVariable")
-    private void addOneToNumber() {
+    public void addOneToNumberProvidedAsArray() {
         // Complexity : Time : [ O(2N) ]
         // Complexity : Space : [ O(3N) ]
 //        int[] A = {0, 1, 9};

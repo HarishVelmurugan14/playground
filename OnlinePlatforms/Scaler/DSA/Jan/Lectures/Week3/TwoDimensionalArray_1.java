@@ -20,15 +20,15 @@ public class TwoDimensionalArray_1 {
 
         // Call Stack
         TwoDimensionalArray_1 twoDimensionalArray1 = new TwoDimensionalArray_1();
-//        twoDimensionalArray1.searchInASortedMatrix();
-        int[][] A = twoDimensionalArray1.generateMatrix(2);
-        int x = twoDimensionalArray1.sumOfAllPossibleMatrices(A);
+        twoDimensionalArray1.searchInARowWiseAndColumnWiseSortedMatrix();
+        int[][] A = twoDimensionalArray1.generateSquareMatrixInSpiralOrder(2);
+        int x = twoDimensionalArray1.sumOfAllPossibleSubMatrices(A);
         System.out.println(x);
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
-    private int sumOfAllPossibleMatrices(int[][] A) {
+    public int sumOfAllPossibleSubMatrices(int[][] A) {
         // Contribution Technique
         int N = A.length;
         int M = A[0].length;
@@ -43,7 +43,7 @@ public class TwoDimensionalArray_1 {
         return sum;
     }
 
-    private int[][] generateMatrix(int A) {
+    public int[][] generateSquareMatrixInSpiralOrder(int A) {
         int[][] returnMatrix = new int[A][A];
         int i = 0;
         int j = 0;
@@ -91,7 +91,7 @@ public class TwoDimensionalArray_1 {
     }
 
 
-    private int searchInASortedMatrix() {
+    public void searchInARowWiseAndColumnWiseSortedMatrix() {
         // Complexity : Time : [  ]
         // Complexity : Space : [  ]
         int[][] A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -120,7 +120,6 @@ public class TwoDimensionalArray_1 {
         }
         System.out.println();
         System.out.println(ans);
-        return isPresent ? ans : -1;
     }
 
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */

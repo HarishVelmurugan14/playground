@@ -24,9 +24,9 @@ public class BitWiseOperatorsOne_3 {
         bitWiseOperatorsOne3.powerOfRightShiftOperator();
         bitWiseOperatorsOne3.computerScientist(4, 3, 2);
 
-        bitWiseOperatorsOne3.singleNumber(new int[]{1, 2, 3, 2, 1});
+        bitWiseOperatorsOne3.arrayContainingOnlyOneDistintNumber(new int[]{1, 2, 3, 2, 1});
 
-        bitWiseOperatorsOne3.findingGoodDays();
+        bitWiseOperatorsOne3.findingGoodDaysForAlexCat();
 
 
     }
@@ -70,20 +70,20 @@ public class BitWiseOperatorsOne_3 {
         countNumberOfSetBits(6);
     }
 
-    private void setTheIthBitInNumberN(int N, int i) {
+    public void setTheIthBitInNumberN(int N, int i) {
         System.out.println("After setting " + N + " at " + i + " bit " + (N | (1 << i)));
     }
 
-    private void toggleBitIInNumberN(int N, int i) {
+    public void toggleBitIInNumberN(int N, int i) {
         // Property of XOR 0^1 = 1; 1^1=0; xo ring with 1 gives opposite of input
         System.out.println("After toggling " + N + " at " + i + " bit " + (N ^ (1 << i)));
     }
 
-    private void unSetTheIthBitInNumberN(int N, int i) {
+    public void unSetTheIthBitInNumberN(int N, int i) {
         System.out.println("After un setting " + N + " at " + i + " bit " + (N & (~(1 << i))));
     }
 
-    private void checkIfIthBitIsSetOrUnset(int N, int i) {
+    public void checkIfIthBitIsSetOrUnset(int N, int i) {
         if ((N & (1 << i)) == (1 << i)) {
             System.out.println("The Ith " + i + " bit is set");
         } else {
@@ -91,7 +91,7 @@ public class BitWiseOperatorsOne_3 {
         }
     }
 
-    private void countNumberOfSetBits(int N) {
+    public void countNumberOfSetBits(int N) {
         // Complexity : Time : [ O(logN) ]
         // Complexity : Space : [ O(1) ]
         int A = N;
@@ -114,7 +114,7 @@ public class BitWiseOperatorsOne_3 {
         System.out.println(result << C);
     }
 
-    public int singleNumber(int[] A) {
+    public int arrayContainingOnlyOneDistintNumber(int[] A) {
         int result = A[0];
         for (int i = 1; i < A.length; i++) {
             result = result ^ A[i];
@@ -122,12 +122,36 @@ public class BitWiseOperatorsOne_3 {
         return result;
     }
 
-    private void findingGoodDays(){
+    public void findingGoodDaysForAlexCat(){
         int A = 5;
         countNumberOfSetBits(A);
+    }
 
+    public int findNthMagicNumber(int A) {
+        int magicNumber = 0;
+        int power = 1;
 
+        while (A > 0) {
+            if ((A & 1) == 1) {
+                magicNumber += Math.pow(5, power);
+            }
+            power++;
+            A >>= 1;
+        }
 
+        return magicNumber;
+    }
+
+    public int helpFromSam(int A) {
+        int N = A;
+        int count = 0;
+        while (N != 0) {
+            if ((N & 1) == 1) {
+                count++;
+            }
+            N = N >> 1;
+        }
+        return count;
     }
 
 
