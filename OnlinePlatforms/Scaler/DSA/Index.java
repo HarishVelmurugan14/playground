@@ -1,5 +1,6 @@
 package OnlinePlatforms.Scaler.DSA;
 
+import OnlinePlatforms.Scaler.DSA.Advanced.Part2.d21_Searching_BinarySearchOnArray;
 import OnlinePlatforms.Scaler.DSA.Feb.Week2.Hashing2_1;
 import OnlinePlatforms.Scaler.DSA.Feb.Week2.Sorting2QuickSortComparatorProblems;
 import OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week2.OneDimensionalArray_3;
@@ -77,5 +78,12 @@ public class Index {
         sorting2QuickSortCmp.sortByColor();
         sorting2QuickSortCmp.quickSort(new int[]{}, 0, 10);
 
+        /* ------------------------------------------ ADVANCED DSA 2 -------------------------------------------------*/
+        /* ------------------------- Day 21 - DSA : Searching 1: Binary Search on Array ------------------------------*/
+        d21_Searching_BinarySearchOnArray d21SearchingBinarySearchOnArray = new d21_Searching_BinarySearchOnArray();
+
+        d21SearchingBinarySearchOnArray.searchForStartAndEndIndexOfAnElementInAnArray(); // Q1
+        d21SearchingBinarySearchOnArray.positionWhereTargetIsPresentOrShouldBeInserted(); // Q2
+        d21SearchingBinarySearchOnArray.singleElementInASortedArray(); // Q3
     }
 }
