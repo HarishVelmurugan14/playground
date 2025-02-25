@@ -8,6 +8,7 @@ import OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3.Arrays_InterviewProblems_2;
 import OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3.BitWiseOperatorsOne_3;
 import OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3.TwoDimensionalArray_1;
 
+@SuppressWarnings("ExtractMethodRecommender")
 public class Index {
     public static void main(String[] args) {
 
@@ -85,5 +86,9 @@ public class Index {
         d21SearchingBinarySearchOnArray.searchForStartAndEndIndexOfAnElementInAnArray(); // Q1
         d21SearchingBinarySearchOnArray.positionWhereTargetIsPresentOrShouldBeInserted(); // Q2
         d21SearchingBinarySearchOnArray.singleElementInASortedArray(); // Q3
+        d21SearchingBinarySearchOnArray.peakElement(); //Q4
+
+        d21SearchingBinarySearchOnArray.searhAMatrix(); //AQ1
+        d21SearchingBinarySearchOnArray.maximumHeightOfAStaircase(20); //AQ3
     }
 }
