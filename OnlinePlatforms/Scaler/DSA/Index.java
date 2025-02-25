@@ -1,6 +1,7 @@
 package OnlinePlatforms.Scaler.DSA;
 
 import OnlinePlatforms.Scaler.DSA.Advanced.Part2.d21_Searching_BinarySearchOnArray;
+import OnlinePlatforms.Scaler.DSA.Advanced.Part2.d22_Searching2_BinarySearchProblems;
 import OnlinePlatforms.Scaler.DSA.Feb.Week2.Hashing2_1;
 import OnlinePlatforms.Scaler.DSA.Feb.Week2.Sorting2QuickSortComparatorProblems;
 import OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week2.OneDimensionalArray_3;
@@ -86,9 +87,18 @@ public class Index {
         d21SearchingBinarySearchOnArray.searchForStartAndEndIndexOfAnElementInAnArray(); // Q1
         d21SearchingBinarySearchOnArray.positionWhereTargetIsPresentOrShouldBeInserted(); // Q2
         d21SearchingBinarySearchOnArray.singleElementInASortedArray(); // Q3
-        d21SearchingBinarySearchOnArray.peakElement(); //Q4
+        d21SearchingBinarySearchOnArray.peakElement(); // Q4
 
-        d21SearchingBinarySearchOnArray.searhAMatrix(); //AQ1
-        d21SearchingBinarySearchOnArray.maximumHeightOfAStaircase(20); //AQ3
+        d21SearchingBinarySearchOnArray.searhAMatrix(); // AQ1
+        d21SearchingBinarySearchOnArray.maximumHeightOfAStaircase(20); // AQ3
+
+
+        /* ------------------------- Day 22 - DSA: Searching 2: Binary Search Problems ------------------------------*/
+        d22_Searching2_BinarySearchProblems d22Searching2BinarySearchProblems = new d22_Searching2_BinarySearchProblems();
+
+        d22Searching2BinarySearchProblems.squareRootOfANumber(4); // Q1
+        d22Searching2BinarySearchProblems.rotatedSortedArraySearch(); // Q2
+
+        d22Searching2BinarySearchProblems.rotationFactor(new int[]{});
     }
 }
