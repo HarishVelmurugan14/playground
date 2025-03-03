@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week1;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -8,7 +8,7 @@ import Resources.Utilities.PrintHelper;
  * @since 05-02-2025
  */
 
-public class ModularArithmeticAndGCD_2 {
+public class d15_ModularArithmeticAndGCD {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -19,7 +19,7 @@ public class ModularArithmeticAndGCD_2 {
 
 
         // Call Stack
-        ModularArithmeticAndGCD_2 modularArithmeticAndGCD2 = new ModularArithmeticAndGCD_2();
+        d15_ModularArithmeticAndGCD modularArithmeticAndGCD2 = new d15_ModularArithmeticAndGCD();
 
         long x = modularArithmeticAndGCD2.power(-1, 1, 20);
         modularArithmeticAndGCD2.pairSumDivisibleByM();
@@ -31,7 +31,7 @@ public class ModularArithmeticAndGCD_2 {
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
 
-    private long power(int A, int N, int C) {
+    public long power(int A, int N, int C) {
 //        power(71045970, 41535484, 64735492)
 //        power(0, 0, 1)
 //        power(-1, 1, 20)
@@ -49,7 +49,7 @@ public class ModularArithmeticAndGCD_2 {
     }
 
 
-    private int gcd(int a, int b) {
+    public int gcd(int a, int b) {
 //       a > b or it can be lesser b > a : always it will be re corrected
         if (b == 0) {
             return a;
@@ -92,7 +92,7 @@ public class ModularArithmeticAndGCD_2 {
 
     }
 
-    private void pairSumDivisibleByM_optimal() {
+    public void pairSumDivisibleByM_optimal() {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(M) ]
         int[] A = {2, 3, 4, 8, 6, 15, 10, 6, 1, 6};

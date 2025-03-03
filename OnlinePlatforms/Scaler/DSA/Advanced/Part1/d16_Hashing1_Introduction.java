@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week1;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
  * @last-modified 08-02-2025
  * @since 08-02-2025
  */
-public class Hashing1_3 {
+public class d16_Hashing1_Introduction {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,19 +21,19 @@ public class Hashing1_3 {
 
 
         // Call Stack
-        Hashing1_3 hashing13 = new Hashing1_3();
-//        hashing13.frequencyCounter(new int[]{6, 3, 3, 6, 7, 8, 7, 3, 7}, new int[]{10, 9, 8});
-//        hashing13.commonElements();
-//        hashing13.firstRepeatingElement();
-//        hashing13.distinctElements();
-//        hashing13.subArraySumAsZero();
-        hashing13.countSubArraySumAsZero();
+        d16_Hashing1_Introduction d16_Hashing1_Introduction = new d16_Hashing1_Introduction();
+        d16_Hashing1_Introduction.frequencyCounter(new int[]{6, 3, 3, 6, 7, 8, 7, 3, 7}, new int[]{10, 9, 8});
+        d16_Hashing1_Introduction.commonElements();
+        d16_Hashing1_Introduction.firstRepeatingElement();
+        d16_Hashing1_Introduction.distinctElements();
+        d16_Hashing1_Introduction.subArraySumAsZero();
+        d16_Hashing1_Introduction.countSubArraySumAsZero();
 
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
-    private void distinctElements() {
+    public void distinctElements() {
         int[] A = {3, 3, 3, 9, 0, 1, 0};
         int N = A.length;
         HashMap<Integer, Integer> frequencyMap = new HashMap<>();
@@ -48,7 +48,7 @@ public class Hashing1_3 {
         System.out.println(count);
     }
 
-    private void firstRepeatingElement() {
+    public void firstRepeatingElement() {
         int[] A = {10, 5, 3, 4, 3, 5, 6};
         int N = A.length;
         HashMap<Integer, Integer> frequencyMap_A = new HashMap<>();
@@ -70,7 +70,7 @@ public class Hashing1_3 {
     }
 
 
-    private void subArraySumAsZero() {
+    public void subArraySumAsZero() {
         int[] A = {-1, 1};
         int N = A.length;
         HashMap<Long, Integer> prefixMap = new HashMap<>();
@@ -93,7 +93,7 @@ public class Hashing1_3 {
     }
 
 
-    private void countSubArraySumAsZero() {
+    public void countSubArraySumAsZero() {
         int[] A = {1, -1, -2, 2};
         int N = A.length;
         HashMap<Long, Integer> prefixMap = new HashMap<>();
@@ -119,7 +119,7 @@ public class Hashing1_3 {
         System.out.println(count);
     }
 
-    private void commonElements() {
+    public void commonElements() {
         int[] A = {1, 2, 2, 1};
         int[] B = {2, 3, 1, 2};
         int N = A.length;

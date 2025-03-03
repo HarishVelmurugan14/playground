@@ -1,19 +1,20 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
-import OnlinePlatforms.Scaler.DSA.Feb.Week2.Hashing2_1;
 import OnlinePlatforms.Scaler.DSA.Feb.Week2.Sorting2QuickSortComparatorProblems;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("DataFlowIssue")
+@SuppressWarnings({"DataFlowIssue", "ExtractMethodRecommender"})
 public class Advanced_DSA_Part1 {
     public void implementations() {
         Arrays();
         BitManipulations();
         Recursions();
+        ModularArithmeticAndGCD();
     }
 
     private void Arrays() {
+
         /* ------------------------- Day 08 - DSA: Arrays 1 : 1Dimensional Array -------------------------------------*/
         d08_Arrays_OneDimensional d08_arrays_oneDimensional = new d08_Arrays_OneDimensional();
 
@@ -45,6 +46,7 @@ public class Advanced_DSA_Part1 {
     }
 
     private void BitManipulations() {
+
         /* ------------------------- Day 11 - DSA: Bit Manipulation 1 ------------------------------------------------*/
         d11_BitWiseManipulations1 d11_BitWiseManipulations1 = new d11_BitWiseManipulations1();
 
@@ -102,21 +104,53 @@ public class Advanced_DSA_Part1 {
         // AQ4
     }
 
+    private void ModularArithmeticAndGCD(){
+
+        /* ------------------------- Day 15 - DSA: Modular Arithmetic And GCD ----------------------------------------*/
+        d15_ModularArithmeticAndGCD d15_ModularArithmeticAndGCD = new d15_ModularArithmeticAndGCD();
+
+        d15_ModularArithmeticAndGCD.power(-1, 1, 20); // Q1
+        d15_ModularArithmeticAndGCD.gcd(130, 50); // Q2
+        d15_ModularArithmeticAndGCD.pairSumDivisibleByM_optimal(); // Q3
+
+        // AQ1
+        // AQ2
+        // AQ3
+        // AQ4
+        // AQ5
+
+    }
+
     private void Hashing() {
-        /* ------------------------------------------ Hashing 2 ------------------------------------------------------*/
-        Hashing2_1 hashing21 = new Hashing2_1();
 
-        hashing21.findThePairWithSumAsK(); // Q1
-        hashing21.countOfPairsWithDifferenceEqualsK(); // Q2
-        hashing21.countOfSubArrayWithSumEqualsK(); // Q3
-        hashing21.distinctNumbersInWindow(); // Q4
-        hashing21.longestSubArrayWithSumAsZero(); // Q5
+        /* ------------------------- Day 16 - DSA: Hashing 1 ---------------------------------------------------------*/
+        d16_Hashing1_Introduction d16_Hashing1_Introduction = new d16_Hashing1_Introduction();
 
-        hashing21.countThePairWithSumAsK(); // AQ1
+        d16_Hashing1_Introduction.frequencyCounter(new int[]{6, 3, 3, 6, 7, 8, 7, 3, 7}, new int[]{10, 9, 8}); // Q1
+        d16_Hashing1_Introduction.distinctElements(); // Q2
+        d16_Hashing1_Introduction.firstRepeatingElement(); // Q3
+        d16_Hashing1_Introduction.subArraySumAsZero(); // Q4
+        d16_Hashing1_Introduction.commonElements(); // Q5
+
+        // AQ1
         // AQ2
 
-        hashing21.longestSubArrayWithSumAsK(); // Ext
-        hashing21.firstNonRepeatingElementInAnArray(); // Ext
+        d16_Hashing1_Introduction.countSubArraySumAsZero(); // Ext
+
+        /* ------------------------- Day 17 - DSA: Hashing 2 ---------------------------------------------------------*/
+        d17_Hashing2_Problems d17_Hashing2_Problems = new d17_Hashing2_Problems();
+
+        d17_Hashing2_Problems.findThePairWithSumAsK(); // Q1
+        d17_Hashing2_Problems.countOfPairsWithDifferenceEqualsK(); // Q2
+        d17_Hashing2_Problems.countOfSubArrayWithSumEqualsK(); // Q3
+        d17_Hashing2_Problems.distinctNumbersInWindow(); // Q4
+        d17_Hashing2_Problems.longestSubArrayWithSumAsZero(); // Q5
+
+        d17_Hashing2_Problems.countThePairWithSumAsK(); // AQ1
+        // AQ2
+
+        d17_Hashing2_Problems.longestSubArrayWithSumAsK(); // Ext
+        d17_Hashing2_Problems.firstNonRepeatingElementInAnArray(); // Ext
     }
 
     private void Sorting() {

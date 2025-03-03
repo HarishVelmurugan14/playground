@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -10,7 +10,7 @@ import java.util.HashSet;
  * @last-modified 11-02-2025
  * @since 11-02-2025
  */
-public class Hashing2_1 {
+public class d17_Hashing2_Problems {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,22 +21,22 @@ public class Hashing2_1 {
 
 
         // Call Stack
-        Hashing2_1 hashing21 = new Hashing2_1();
+        d17_Hashing2_Problems d17_Hashing2_Problems = new d17_Hashing2_Problems();
 
         // still in progress
-        hashing21.firstSubArrayWithSumAsK();
+        d17_Hashing2_Problems.firstSubArrayWithSumAsK();
 
 
-        hashing21.findThePairWithSumAsK(); // Q1
-        hashing21.countOfPairsWithDifferenceEqualsK(); // Q2
-        hashing21.countOfSubArrayWithSumEqualsK(); // Q3
-        hashing21.distinctNumbersInWindow(); // Q4
-        hashing21.longestSubArrayWithSumAsZero(); // Q5
+        d17_Hashing2_Problems.findThePairWithSumAsK(); // Q1
+        d17_Hashing2_Problems.countOfPairsWithDifferenceEqualsK(); // Q2
+        d17_Hashing2_Problems.countOfSubArrayWithSumEqualsK(); // Q3
+        d17_Hashing2_Problems.distinctNumbersInWindow(); // Q4
+        d17_Hashing2_Problems.longestSubArrayWithSumAsZero(); // Q5
 
-        hashing21.longestSubArrayWithSumAsK(); // Ext
-        hashing21.firstNonRepeatingElementInAnArray(); // Ext
+        d17_Hashing2_Problems.longestSubArrayWithSumAsK(); // Ext
+        d17_Hashing2_Problems.firstNonRepeatingElementInAnArray(); // Ext
 
-        hashing21.countThePairWithSumAsK(); // AQ1
+        d17_Hashing2_Problems.countThePairWithSumAsK(); // AQ1
 
     }
 
