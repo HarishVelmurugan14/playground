@@ -3,7 +3,12 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 @SuppressWarnings("ExtractMethodRecommender")
 public class Advanced_DSA_Part2 {
     public void implementations() {
+        Searching();
+        LinkedList();
+        Stacks();
+    }
 
+    private void Searching(){
         /* ------------------------- Day 21 - DSA : Searching 1: Binary Search on Array ------------------------------*/
         d21_Searching_BinarySearchOnArray d21SearchingBinarySearchOnArray = new d21_Searching_BinarySearchOnArray();
 
@@ -40,10 +45,14 @@ public class Advanced_DSA_Part2 {
 
         // AQ1
         // AQ2
+    }
 
+    private void LinkedList(){
         /* ------------------------- Day 24 - DSA: Classes, Objects & Linked Lists -----------------------------------*/
         /* ------------------------- Day 25 - DSA: Linked List Problems ----------------------------------------------*/
-        /* ------------------------- Day 26 - DSA: Stacks 1 : Implementations & Basic Problems -----------------------*/
+    }
 
+    private void Stacks(){
+        /* ------------------------- Day 26 - DSA: Stacks 1 : Implementations & Basic Problems -----------------------*/
     }
 }

@@ -11,6 +11,7 @@ public class Advanced_DSA_Part1 {
         BitManipulations();
         Recursions();
         ModularArithmeticAndGCD();
+        Hashing();
     }
 
     private void Arrays() {
@@ -160,6 +161,4 @@ public class Advanced_DSA_Part1 {
         sorting2QuickSortCmp.sortByColor();
         sorting2QuickSortCmp.quickSort(new int[]{}, 0, 10);
     }
-
-    ;
 }
