@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 25-01-2025
  * @since 25-01-2025
  */
-public class BitWiseOperatorsOne_3 {
+public class d11_BitWiseManipulations1 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -18,7 +18,7 @@ public class BitWiseOperatorsOne_3 {
 
 
         // Call Stack
-        BitWiseOperatorsOne_3 bitWiseOperatorsOne3 = new BitWiseOperatorsOne_3();
+        d11_BitWiseManipulations1 bitWiseOperatorsOne3 = new d11_BitWiseManipulations1();
         bitWiseOperatorsOne3.oddOrEven();
         bitWiseOperatorsOne3.powerOfLeftShiftOperator();
         bitWiseOperatorsOne3.powerOfRightShiftOperator();

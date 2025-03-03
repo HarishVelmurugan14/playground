@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week1;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @last-modified 03-02-2025
  * @since 03-02-2025
  */
-public class RecursionTwo_1 {
+public class d14_Recursions2 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,30 +21,46 @@ public class RecursionTwo_1 {
         int[] A = {3, 2, 3, 4, 5, 3};
 
         // Call Stack
-        RecursionTwo_1 recursionTwo3 = new RecursionTwo_1();
-        recursionTwo3.powerOfANumberUsingRecursion();
-        recursionTwo3.printArray(A, A.length - 1);
-        ArrayList<Integer> res = recursionTwo3.printTargetIndex_Harish(A, A.length, 3, new ArrayList<>());
-        recursionTwo3.print("", res);
-        ArrayList<Integer> res1 = recursionTwo3.printTargetIndex_Yahnit(A, A.length, 3);
-        recursionTwo3.print("", res1);
+        d14_Recursions2 d14_Recursions2 = new d14_Recursions2();
+        d14_Recursions2.powerOfANumberUsingRecursion();
+        d14_Recursions2.printArrayUsingRecursion(A, A.length - 1);
+        ArrayList<Integer> res = d14_Recursions2.allIndicesOfATargetInAnArray_Harish(A, A.length, 3, new ArrayList<>());
+        d14_Recursions2.print("", res);
+        ArrayList<Integer> res1 = d14_Recursions2.allIndicesOfATargetInAnArray_Yahnit(A, A.length, 3);
+        d14_Recursions2.print("", res1);
         String s = "malayalam";
         char[] array = s.toCharArray();
-        recursionTwo3.checkForPalindrome(array, 0, array.length - 1);
+        d14_Recursions2.checkForPalindrome(array, 0, array.length - 1);
 
-        recursionTwo3.towerOfHanoi(4, 1, 2, 3);
+        d14_Recursions2.towerOfHanoi(4, 1, 2, 3);
         System.out.println("--------------------");
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        recursionTwo3.towerOfHanoi_list(4, 1, 2, 3, result);
+        d14_Recursions2.towerOfHanoi_list(4, 1, 2, 3, result);
 
         for (ArrayList<Integer> ar : result) {
-            recursionTwo3.print("", ar);
+            d14_Recursions2.print("", ar);
         }
 
-
+        d14_Recursions2.isMagicNumber(4);
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
+
+    public int isMagicNumber(int A) {
+        int x = sum(A);
+        if (x / 10 > 0) {
+            x = isMagicNumber(x);
+        }
+        return x == 1 ? 1 : 0;
+    }
+
+    private int sum(int A) {
+        if (A == 0) {
+            return 0;
+        }
+        int x = A % 10;
+        return x + sum(A / 10);
+    }
 
     private void towerOfHanoi(int n, int source, int helper, int destination) {
         //https://www.youtube.com/watch?v=usOtwunz0oM - CodingNinjas
@@ -60,7 +76,7 @@ public class RecursionTwo_1 {
     }
 
 
-    private ArrayList<ArrayList<Integer>> towerOfHanoi_list(int n, int source, int helper, int destination, ArrayList<ArrayList<Integer>> result) {
+    public ArrayList<ArrayList<Integer>> towerOfHanoi_list(int n, int source, int helper, int destination, ArrayList<ArrayList<Integer>> result) {
         if (n == 0) {
             return new ArrayList<>();
         }
@@ -74,7 +90,7 @@ public class RecursionTwo_1 {
         return result;
     }
 
-    private void powerOfANumberUsingRecursion() {
+    public void powerOfANumberUsingRecursion() {
         int x = powerOfANumberUsingRecursion_brute(5, 3);
         System.out.println(x);
         x = powerOfANumberUsingRecursion_approach2(5, 3);
@@ -108,42 +124,42 @@ public class RecursionTwo_1 {
     }
 
 
-    private void printArray(int[] A, int n) {
+    public void printArrayUsingRecursion(int[] A, int n) {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         System.out.println(A[n]);
         if (n == 0) {
             return;
         }
-        printArray(A, n - 1);
+        printArrayUsingRecursion(A, n - 1);
     }
 
 
-    private ArrayList<Integer> printTargetIndex_Harish(int[] A, int n, int B, ArrayList<Integer> returnList) {
+    private ArrayList<Integer> allIndicesOfATargetInAnArray_Harish(int[] A, int n, int B, ArrayList<Integer> returnList) {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         if (n == 0) {
             return returnList;
         }
-        printTargetIndex_Harish(A, n - 1, B, returnList);
+        allIndicesOfATargetInAnArray_Harish(A, n - 1, B, returnList);
         if (A[n - 1] == B) {
             returnList.add(n - 1);
         }
         return returnList;
     }
 
-    private ArrayList<Integer> printTargetIndex_Yahnit(int[] A, int n, int B) {
+    public ArrayList<Integer> allIndicesOfATargetInAnArray_Yahnit(int[] A, int n, int B) {
         if (n == 0) {
             return new ArrayList<>();
         }
-        ArrayList<Integer> arrayList = printTargetIndex_Yahnit(A, n - 1, B);
+        ArrayList<Integer> arrayList = allIndicesOfATargetInAnArray_Yahnit(A, n - 1, B);
         if (A[n - 1] == B) {
             arrayList.add(n - 1);
         }
         return arrayList;
     }
 
-    private boolean checkForPalindrome(char[] array, int start, int end) {
+    public boolean checkForPalindrome(char[] array, int start, int end) {
         // Complexity : Time : [ O(N/2) ]
         // Complexity : Space : [ O(N/2) ]
         if (start >= end) {

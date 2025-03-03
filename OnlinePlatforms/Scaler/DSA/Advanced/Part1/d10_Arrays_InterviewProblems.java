@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @last-modified 23-01-2025
  * @since 22-01-2025
  */
-public class Arrays_InterviewProblems_2 {
+public class d10_Arrays_InterviewProblems {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -28,7 +28,7 @@ public class Arrays_InterviewProblems_2 {
 
 
         // Call Stack
-        Arrays_InterviewProblems_2 arraysInterviewProblems = new Arrays_InterviewProblems_2();
+        d10_Arrays_InterviewProblems arraysInterviewProblems = new d10_Arrays_InterviewProblems();
         arraysInterviewProblems.mergeInterval(sampleArray[0], sampleArray[1]);
         arraysInterviewProblems.mergeIntervalAndProvidePointsMerged();
         arraysInterviewProblems.firstMissingNaturalNumber();

@@ -22,6 +22,10 @@ public class d22_Searching2_BinarySearchProblems {
 //        d22Searching2BinarySearchProblems.squareRootOfANumber(4); // Q1
         d22Searching2BinarySearchProblems.rotatedSortedArraySearch();
 
+        int[] A = {1, 2, 7, 9, 11, 13};
+        int[] B = {1, 3, 4, 5, 8, 10};
+        d22Searching2BinarySearchProblems.findMedianInSortedArrays(A, B);
+
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
@@ -118,6 +122,89 @@ public class d22_Searching2_BinarySearchProblems {
         System.out.println(rotationFactor);
         return rotationFactor;
     }
+
+    public int findMedianInSortedArrays(int[] A, int[] B) {
+        if (A.length > B.length) {
+            return findMedianInSortedArrays(B, A); // Ensure A is the smaller array
+        }
+
+        int n = A.length, m = B.length;
+        int low = 0, high = n;
+        int numberOfElementsLeftSideShouldHave = (n + m + 1) / 2;
+
+        while (low <= high) {
+            int partitionX = (low + high) / 2;
+            int partitionY = numberOfElementsLeftSideShouldHave - partitionX;
+
+            int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : A[partitionX - 1];
+            int minRightX = (partitionX == n) ? Integer.MAX_VALUE : A[partitionX];
+
+            int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : B[partitionY - 1];
+            int minRightY = (partitionY == m) ? Integer.MAX_VALUE : B[partitionY];
+
+            if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
+                // Found the correct partition
+                if ((n + m) % 2 == 0) {
+                    return (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2;
+                } else {
+                    return Math.max(maxLeftX, maxLeftY);
+                }
+            } else if (maxLeftX > minRightY) {
+                high = partitionX - 1; // Move left
+            } else {
+                low = partitionX + 1; // Move right
+            }
+        }
+        return 0;
+    }
+
+
+//    public int medianOfTwoSortedArrays(int[] A, int[] B) {
+//        /* QUESTION :
+//        Given two sorted arrays A and B of size M and N respectively, return the median of the two sorted arrays.
+//        Round of the value to the floor integer [2.6=2, 2.2=2]
+//        */
+//
+//        int N = A.length;
+//        int M = B.length;
+//        if (N > M) {
+//            medianOfTwoSortedArrays(B, A);
+//        }
+//
+//        int low = 0;
+//        int high = N; // since we are picking elements all N elements can be taken
+//        int leftSideShouldHave = (N + M + 1) / 2;
+//
+//        while (low <= high) {
+//            int midA = low + ((high - low) / 2);
+//            int midB = leftSideShouldHave - midA;
+//            int leftA = Integer.MIN_VALUE, leftB = Integer.MIN_VALUE;
+//            int rightA = Integer.MAX_VALUE, rightB = Integer.MAX_VALUE;
+//            if (midA < N) {
+//                rightA = A[midA + 1];
+//            }
+//            if (midB < M) {
+//                rightB = B[midB + 1];
+//            }
+//            if (midA > 0) {
+//                leftA = A[midA - 1];
+//            }
+//            if (midB > 0) {
+//                leftB = A[midB - 1];
+//            }
+//            if (leftA <= rightB && leftB <= rightA) {
+//
+//            } else {
+//                if (leftA > rightB) {
+//
+//                } else {
+//
+//                }
+//            }
+//        }
+//
+//        return 0;
+//    }
 
     /* Section : ------------------------------- [Additional Problems ] ------------------------------------ */
 

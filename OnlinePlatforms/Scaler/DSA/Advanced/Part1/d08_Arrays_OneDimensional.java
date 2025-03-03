@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -8,7 +8,8 @@ import Resources.Utilities.PrintHelper;
  * @since 21-01-2025
  */
 
-public class OneDimensionalArray_3 {
+@SuppressWarnings("StringTemplateMigration")
+public class d08_Arrays_OneDimensional {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -20,11 +21,11 @@ public class OneDimensionalArray_3 {
 //         int[] array = {1, 2, 3, 4};
         int[] array = {-500};
         // Call Stack
-        OneDimensionalArray_3 oneDimensionalArray3 = new OneDimensionalArray_3();
-        oneDimensionalArray3.maximumSumContiguosSubArray(array);
-        oneDimensionalArray3.rainWaterTrappedBetween2Buildings();
-        oneDimensionalArray3.profitOfBeggarsSittingContiguoslyGettingRandomDonation();
-        oneDimensionalArray3.addOneToNumberProvidedAsArray();
+        d08_Arrays_OneDimensional d08ArraysOneDimensional = new d08_Arrays_OneDimensional();
+        d08ArraysOneDimensional.maximumSumContiguosSubArray(array);
+        d08ArraysOneDimensional.rainWaterTrappedBetween2Buildings();
+        d08ArraysOneDimensional.profitOfBeggarsSittingContiguoslyGettingRandomDonation();
+        d08ArraysOneDimensional.addOneToNumberProvidedAsArray();
 
     }
 

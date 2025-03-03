@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week4;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
  * @last-modified 27-01-2025
  * @since 27-01-2025
  */
-public class BitManipulationTwo_1 {
+public class d12_BitWiseManipulations2 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,15 +21,15 @@ public class BitManipulationTwo_1 {
 
 
         // Call Stack
-        BitManipulationTwo_1 bitManipulationTwo1 = new BitManipulationTwo_1();
+        d12_BitWiseManipulations2 bitManipulationTwo1 = new d12_BitWiseManipulations2();
         bitManipulationTwo1.tripleTrouble();
         bitManipulationTwo1.twoUniqueElements();
         int[] A = {1, 0, 0, 0, 1, 0, 1};
         bitManipulationTwo1.numberOfSubArraysWithOr0(A);
         bitManipulationTwo1.numberOfSubArraysWithOr1(A);
         bitManipulationTwo1.findMinXor();
-        bitManipulationTwo1.sumAfterBitwiseOROperatorOnAllSubArraysOfAnArray();
         bitManipulationTwo1.strangeEqualityWithFormula(5);
+        bitManipulationTwo1.sumAfterBitwiseOROperatorOnAllSubArraysOfAnArray();
         bitManipulationTwo1.missingTwoNumbersInRangeNPlus2();
 
 
@@ -37,7 +37,7 @@ public class BitManipulationTwo_1 {
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
-    private void tripleTrouble() {
+    public void tripleTrouble() {
         // Int array where every element is occurring 3 times except 1 number. Identify that. Without extra space
 
         int x = tripleTrouble_approach3();
@@ -99,7 +99,7 @@ public class BitManipulationTwo_1 {
     /* Section : ------------------------------- [ Problems ] ------------------------------- */
 
 
-    private void twoUniqueElements() {
+    public void twoUniqueElements() {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(1) ]
 
@@ -153,7 +153,7 @@ public class BitManipulationTwo_1 {
         return result;
     }
 
-    private int numberOfSubArraysWithOr1(int[] A) {
+    public int numberOfSubArraysWithOr1(int[] A) {
         int n = A.length;
         int totalSubArrayCount = (n * (n + 1)) / 2;
         int subArrayWithNo1 = numberOfSubArraysWithOr0(A);
@@ -224,7 +224,7 @@ public class BitManipulationTwo_1 {
 
 
     @SuppressWarnings("ReassignedVariable")
-    private void sumAfterBitwiseOROperatorOnAllSubArraysOfAnArray() {
+    public void sumAfterBitwiseOROperatorOnAllSubArraysOfAnArray() {
         // Complexity : Time : [ O(27N) ]
         // Complexity : Space : [ O(1) ]
 //        int[] A = {1, 2, 3, 4, 5};

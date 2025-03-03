@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week3;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -8,7 +8,7 @@ import Resources.Utilities.PrintHelper;
  * @since 06-02-2025
  */
 
-public class TwoDimensionalArray_1 {
+public class d09_Arrays_TwoDimensional {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -19,7 +19,7 @@ public class TwoDimensionalArray_1 {
 
 
         // Call Stack
-        TwoDimensionalArray_1 twoDimensionalArray1 = new TwoDimensionalArray_1();
+        d09_Arrays_TwoDimensional twoDimensionalArray1 = new d09_Arrays_TwoDimensional();
         twoDimensionalArray1.searchInARowWiseAndColumnWiseSortedMatrix();
         int[][] A = twoDimensionalArray1.generateSquareMatrixInSpiralOrder(2);
         int x = twoDimensionalArray1.sumOfAllPossibleSubMatrices(A);

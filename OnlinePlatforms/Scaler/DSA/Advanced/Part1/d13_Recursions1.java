@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week4;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 29-01-2025
  * @since 29-01-2025
  */
-public class RecursionOne_2 {
+public class d13_Recursions1 {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -18,7 +18,7 @@ public class RecursionOne_2 {
 
 
         // Call Stack
-        RecursionOne_2 recursionOne2 = new RecursionOne_2();
+        d13_Recursions1 recursionOne2 = new d13_Recursions1();
 
         int sum = recursionOne2.sumOfNNaturalNumbers(5);
         recursionOne2.print("Sum : ", sum);
@@ -50,7 +50,7 @@ public class RecursionOne_2 {
     }
 
 
-    private int factorial(int N) {
+    public int factorial(int N) {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         if (N == 0) { // 0 and 1 both has factorial as 1
@@ -59,7 +59,7 @@ public class RecursionOne_2 {
         return factorial(N - 1) * N;
     }
 
-    private void printAllNumbersInIncreasingOrder(int N) {
+    public void printAllNumbersInIncreasingOrder(int N) {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         if (N == 0) {
@@ -69,7 +69,7 @@ public class RecursionOne_2 {
         System.out.print(N);
     }
 
-    private void printAllNumbersInDecreasingOrder(int N) {
+    public void printAllNumbersInDecreasingOrder(int N) {
         // Complexity : Time : [ O(N) ]
         // Complexity : Space : [ O(N) ]
         if (N == 0) {
@@ -79,7 +79,7 @@ public class RecursionOne_2 {
         printAllNumbersInDecreasingOrder(N - 1);
     }
 
-    private int printNthFibonacciNumber(int N) {
+    public int printNthFibonacciNumber(int N) {
         // Complexity : Time : [ O(Refer Notes) ]
         // Complexity : Space : [ O(Refer Notes) ]
         if (N == 0) {
@@ -90,7 +90,7 @@ public class RecursionOne_2 {
         return printNthFibonacciNumber(N - 1) + printNthFibonacciNumber(N - 2);
     }
 
-    private void printNNumbersFirstInDescendingThenInAscendingOrder(int A) {
+    public void printNNumbersFirstInDescendingThenInAscendingOrder(int A) {
 
         if (A == 0) {
             return;
@@ -101,7 +101,7 @@ public class RecursionOne_2 {
         System.out.print(A + " ");
     }
 
-    private int findSumOfDigitsOfANumber(int N) {
+    public int findSumOfDigitsOfANumber(int N) {
         if (N == 0) {
             return 0;
         }
