@@ -1,6 +1,6 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
-@SuppressWarnings("ExtractMethodRecommender")
+@SuppressWarnings({"ExtractMethodRecommender", "DataFlowIssue", "SpellCheckingInspection"})
 public class Advanced_DSA_Part2 {
     public void implementations() {
         Searching();
@@ -8,7 +8,7 @@ public class Advanced_DSA_Part2 {
         Stacks();
     }
 
-    private void Searching(){
+    private void Searching() {
         /* ------------------------- Day 21 - DSA : Searching 1: Binary Search on Array ------------------------------*/
         d21_Searching_BinarySearchOnArray d21SearchingBinarySearchOnArray = new d21_Searching_BinarySearchOnArray();
 
@@ -47,12 +47,24 @@ public class Advanced_DSA_Part2 {
         // AQ2
     }
 
-    private void LinkedList(){
+    private void LinkedList() {
         /* ------------------------- Day 24 - DSA: Classes, Objects & Linked Lists -----------------------------------*/
         /* ------------------------- Day 25 - DSA: Linked List Problems ----------------------------------------------*/
     }
 
-    private void Stacks(){
+    private void Stacks() {
         /* ------------------------- Day 26 - DSA: Stacks 1 : Implementations & Basic Problems -----------------------*/
+
+        d26_Stacks1_BasicProblems d26_Stacks1_BasicProblems = new d26_Stacks1_BasicProblems();
+
+        d26_Stacks1_BasicProblems.postFixExpression(null); // Q1
+        d26_Stacks1_BasicProblems.balancedParenthesis("{()()()}({"); // Q2
+        d26_Stacks1_BasicProblems.doubleCharacterTrouble("abccbc"); // Q3
+        d26_Stacks1_BasicProblems.passingGameOfBall(10, 48, new int[]{4, 0, 30, 0, 41, 28, 50, 2, 47, 39}); // Q4
+
+        // AQ1
+        // AQ2
+        // AQ3
+        // AQ4
     }
 }
