@@ -49,7 +49,14 @@ public class Advanced_DSA_Part2 {
 
     private void LinkedList() {
         /* ------------------------- Day 24 - DSA: Classes, Objects & Linked Lists -----------------------------------*/
+
         /* ------------------------- Day 25 - DSA: Linked List Problems ----------------------------------------------*/
+
+        d25_LinkedList_Problems d25_linkedList_problems = new d25_LinkedList_Problems();
+
+        d25_linkedList_problems.insertAtPosition(null, 3, 7); // Q3
+        d25_linkedList_problems.deleteAtPosition(null, 5); // Q4
+
     }
 
     private void Stacks() {
