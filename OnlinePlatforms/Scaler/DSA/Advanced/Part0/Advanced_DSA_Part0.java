@@ -4,6 +4,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part0;
 public class Advanced_DSA_Part0 {
     public void implementations() {
         PrefixSum();
+        CarryForwardAndSubArrays();
     }
 
     private void PrefixSum() {
@@ -18,6 +19,24 @@ public class Advanced_DSA_Part0 {
 
         d03_Arrays_PrefixSum.equilibriumIndex(); // AQ2
         d03_Arrays_PrefixSum.inPlacePrefixSum(); // AQ3
+    }
+
+    private void CarryForwardAndSubArrays() {
+
+        /* ------------------------- Day 04 - DSA: Arrays : Carry Forward & Sub Arrays -------------------------------*/
+        d04_Arrays_CarryForward d04_arrays_carryForward = new d04_Arrays_CarryForward();
+        d04_Arrays_SubArraysWithCarryForward d04_arrays_subArraysWithCarryForward = new d04_Arrays_SubArraysWithCarryForward();
+
+        // Q1, Q3, AQ4 : Pick One
+        d04_arrays_subArraysWithCarryForward.smallestSubArrayWithBothMinAndMaxElements(null); // Q2
+        d04_arrays_subArraysWithCarryForward.subArrayInAGivenRange(null, 1, 3); // Q4
+        d04_arrays_subArraysWithCarryForward.storeAllSubArraysInA2DMatrix(null); // Q5
+        d04_arrays_carryForward.numberOfAGPairsInAString("ABCGAGG"); // Q6
+
+        d04_arrays_carryForward.maxPossibleElementConsideringNEdgeElements(); // AQ1
+        d04_arrays_carryForward.leaderElements(); // AQ2
+        d04_arrays_subArraysWithCarryForward.maxProfitOnOnlyOneTransaction(); // AQ3
+
 
     }
 }

@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @last-modified 08-01-2025
  * @since 08-01-2025
  */
-public class CarryForward_2 {
+public class d04_Arrays_CarryForward {
 
     private final PrintHelper printHelper = new PrintHelper();
 
@@ -20,14 +20,14 @@ public class CarryForward_2 {
         char[] charArray = {'a', 'g', 'c', 'g', 'a', 'g', 'g'};
 
         // Call Stack
-        CarryForward_2 carryForward = new CarryForward_2();
+        d04_Arrays_CarryForward carryForward = new d04_Arrays_CarryForward();
         carryForward.bruteForce(charArray);
         carryForward.optimal(charArray);
 
         // Problems
-        carryForward.numberOfAGPairsInAString("agcgagg");
-        carryForward.maxPossibleElementConsideringNEdgeElements();
-        carryForward.leaderElements();
+        carryForward.numberOfAGPairsInAString("agcgagg"); // Q6
+        carryForward.maxPossibleElementConsideringNEdgeElements(); // AQ1
+        carryForward.leaderElements(); // AQ2
 
     }
 

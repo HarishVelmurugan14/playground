@@ -10,7 +10,8 @@ import java.util.Arrays;
  * @last-modified 09-01-2025
  * @since 08-01-2025
  */
-public class SubArraysWithCarryForward_3 {
+@SuppressWarnings("UnusedReturnValue")
+public class d04_Arrays_SubArraysWithCarryForward {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -25,19 +26,31 @@ public class SubArraysWithCarryForward_3 {
 
 
         // Call Stack
-        SubArraysWithCarryForward_3 subArraysWithCarryForward = new SubArraysWithCarryForward_3();
+        d04_Arrays_SubArraysWithCarryForward subArraysWithCarryForward = new d04_Arrays_SubArraysWithCarryForward();
 
         subArraysWithCarryForward.printASubArray(array, 0, array.length - 1);
         subArraysWithCarryForward.printAllSubArrays(array);
         subArraysWithCarryForward.numberOfPossibleSubArrays(21);
 
 //        Problems
-        subArraysWithCarryForward.smallestSubArrayWithBothMinAndMaxElements(array);
-        subArraysWithCarryForward.storeAllSubArraysInA2DMatrix(array);
-        subArraysWithCarryForward.maxProfitOnOnlyOneTransaction();
+        subArraysWithCarryForward.smallestSubArrayWithBothMinAndMaxElements(array); // Q2
+        subArraysWithCarryForward.subArrayInAGivenRange(array,1,3); // Q4
+        subArraysWithCarryForward.storeAllSubArraysInA2DMatrix(array); // Q5
+        subArraysWithCarryForward.maxProfitOnOnlyOneTransaction(); // AQ3
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+
+    public int[] subArrayInAGivenRange(int[] A, int B, int C) {
+        int[] returnArray = new int[C-B+1];
+        int index = 0;
+        for(int i = B; i <= C; i++){
+            returnArray[index] = A[i];
+            index++;
+        }
+        return returnArray;
+    }
 
     public void bruteForce(int[] array) {
         // Complexity : Time : [ O(N^3) ]
@@ -118,12 +131,12 @@ public class SubArraysWithCarryForward_3 {
     }
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
-    private void smallestSubArrayWithBothMinAndMaxElements(int[] array) {
+    public void smallestSubArrayWithBothMinAndMaxElements(int[] array) {
         bruteForce(array);
         optimal(array);
     }
 
-    private void storeAllSubArraysInA2DMatrix(int[] A) {
+    public void storeAllSubArraysInA2DMatrix(int[] A) {
         // Complexity : Time : [ O(N^3) ]
         // Complexity : Space : [ O(1) ]
         int n = A.length;
