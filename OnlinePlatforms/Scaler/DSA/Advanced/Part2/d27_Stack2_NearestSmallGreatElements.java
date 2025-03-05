@@ -2,6 +2,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -30,7 +31,13 @@ public class d27_Stack2_NearestSmallGreatElements {
         d27_Stack2_NearestSmallGreatElements.nearestSmallerElementsToTheRight(A);
         d27_Stack2_NearestSmallGreatElements.nearestGreaterElementsToTheRight(A);
 
-        d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(new int[]{2, 1, 5, 6, 2, 3});
+        d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(new int[]{2, 1, 5, 6, 2, 3}); // Q1
+        d27_Stack2_NearestSmallGreatElements.prevSmallerValuesInAnArray(new int[]{4, 5, 2, 10, 8}); // Q2
+
+        d27_Stack2_NearestSmallGreatElements.nextGreaterValues(new int[]{4, 5, 2, 10, 8}); // AQ2
+
+        d27_Stack2_NearestSmallGreatElements.nextGreaterElementForSubsetQueriesInADistinctArrays
+                (new int[]{4, 1, 2}, new int[]{1, 3, 4, 2}); // LC496
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
@@ -56,11 +63,92 @@ public class d27_Stack2_NearestSmallGreatElements {
         return maxArea;
     }
 
-    public void optimal() {
-        // Complexity : Time : [  ]
-        // Complexity : Space : [  ]
+    public int[] prevSmallerValuesInAnArray(int[] A) {
+        /* QUESTION :
+        Given an array A, find the nearest smaller element G[i] for every element A[i] in the array such that the
+        element has an index smaller than i. More formally,
+        G[i] for an element A[i] = an element A[j] such that
+        j is maximum possible AND
+        j < i AND
+        A[j] < A[i]
+        Elements for which no smaller element exist, consider the next smaller element as -1.
+         */
+        int N = A.length;
+        int[] res = new int[N];
+        Stack<Integer> stack = new Stack<>();
+        stack.push(A[0]);
+        res[0] = -1;
 
+        for (int i = 1; i < N; i++) {
+            while (stack.peek() >= A[i]) {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    res[i] = -1;
+                    break;
+                }
+            }
+            if (!stack.isEmpty()) {
+                res[i] = stack.peek();
+            }
+            stack.push(A[i]);
+        }
+        print("", res);
+        return res;
+    }
 
+    public int[] nextGreaterElementForSubsetQueriesInADistinctArrays(int[] nums1, int[] nums2) {
+        int N = nums2.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(nums2[N - 1]);
+        map.put(nums2[N - 1], -1);
+
+        for (int i = N - 2; i >= 0; i--) {
+            while (stack.peek() <= nums2[i]) {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    map.put(nums2[i], -1);
+                    break;
+                }
+            }
+            if (!stack.isEmpty()) {
+                map.put(nums2[i], stack.peek());
+            }
+            stack.push(nums2[i]);
+        }
+        int M = nums1.length;
+        int[] res = new int[M];
+
+        for (int i = 0; i < M; i++) {
+            res[i] = map.get(nums1[i]);
+        }
+
+        print("", res);
+        return res;
+    }
+
+    public int[] nextGreaterValues(int[] A) {
+        int N = A.length;
+        int[] res = new int[N];
+        Stack<Integer> stack = new Stack<>();
+        stack.push(A[N - 1]);
+        res[N - 1] = -1;
+
+        for (int i = N - 2; i >= 0; i--) {
+            while (stack.peek() <= A[i]) {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    res[i] = -1;
+                    break;
+                }
+            }
+            if (!stack.isEmpty()) {
+                res[i] = stack.peek();
+            }
+            stack.push(A[i]);
+        }
+        print("", res);
+        return res;
     }
 
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */

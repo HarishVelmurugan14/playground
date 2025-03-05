@@ -70,5 +70,11 @@ public class Advanced_DSA_Part2 {
         d27_Stack2_NearestSmallGreatElements d27_Stack2_NearestSmallGreatElements = new d27_Stack2_NearestSmallGreatElements();
 
         d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(null); // Q1 // LC84
+        d27_Stack2_NearestSmallGreatElements.prevSmallerValuesInAnArray(null); // Q2
+
+        d27_Stack2_NearestSmallGreatElements.nextGreaterValues(null); // AQ2
+
+        d27_Stack2_NearestSmallGreatElements.nextGreaterElementForSubsetQueriesInADistinctArrays
+                (new int[]{4, 1, 2}, new int[]{1, 3, 4, 2}); // LC496
     }
 }
