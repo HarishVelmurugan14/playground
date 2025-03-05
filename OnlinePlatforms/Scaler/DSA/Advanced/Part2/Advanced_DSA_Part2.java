@@ -68,5 +68,7 @@ public class Advanced_DSA_Part2 {
         // AQ4
 
         d27_Stack2_NearestSmallGreatElements d27_Stack2_NearestSmallGreatElements = new d27_Stack2_NearestSmallGreatElements();
+
+        d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(null); // Q1 // LC84
     }
 }

@@ -29,13 +29,31 @@ public class d27_Stack2_NearestSmallGreatElements {
         d27_Stack2_NearestSmallGreatElements.nearestGreaterElementsToTheRight(A);
         d27_Stack2_NearestSmallGreatElements.nearestSmallerElementsToTheRight(A);
         d27_Stack2_NearestSmallGreatElements.nearestGreaterElementsToTheRight(A);
+
+        d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(new int[]{2, 1, 5, 6, 2, 3});
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
 
-    public void largestRectangleInAHistogram() {
-
+    public int largestRectangleInAHistogram(int[] A) {
+        /*
+        Given an array of integers A.
+        A represents a histogram i.e A[i] denotes the height of the ith histogram's bar. Width of each bar is 1.
+        Find the area of the largest rectangle formed by the histogram.
+        */
+        int N = A.length;
+        int maxArea = -1;
+        int[] prevSmallerElements = nearestSmallerElementsToTheLeft(A);
+        int[] nextSmallerElements = nearestSmallerElementsToTheRight(A);
+        for (int i = 0; i < N; i++) {
+            int height = A[i];
+            int width = nextSmallerElements[i] - prevSmallerElements[i] - 1;
+            int area = height * width;
+            maxArea = Math.max(area, maxArea);
+        }
+        System.out.println(maxArea);
+        return maxArea;
     }
 
     public void optimal() {
@@ -78,32 +96,16 @@ public class d27_Stack2_NearestSmallGreatElements {
     }
 
     public int[] nearestSmallerElementsToTheRight(int[] A) {
-        int N = A.length;
         Stack<Integer> stack = new Stack<>();
+        int N = A.length;
         int[] res = new int[N];
-        res[N - 1] = N;
-        stack.push(N - 1);
-
-        for (int i = N - 2; i >= 0; i--) {
-            int currentConsideration = A[i];
-            int prevElement = A[stack.peek()];
-            while (prevElement >= currentConsideration) {
+        for (int i = N - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && A[stack.peek()] >= A[i]) {
                 stack.pop();
-                if (!stack.isEmpty()) {
-                    prevElement = A[stack.peek()];
-                } else {
-                    break;
-                }
             }
-            if (stack.isEmpty()) {
-                res[i] = N;
-            } else {
-                res[i] = stack.peek();
-            }
+            res[i] = stack.isEmpty() ? N : stack.peek();
             stack.push(i);
         }
-
-        print("", res);
         return res;
     }
 
