@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week1;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part0;
 
 import Resources.Utilities.PrintHelper;
 
@@ -8,7 +8,8 @@ import Resources.Utilities.PrintHelper;
  * @since 06-01-2025
  */
 
-public class PrefixSum_1 {
+@SuppressWarnings("UnusedReturnValue")
+public class d03_Arrays_PrefixSum {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -27,7 +28,7 @@ public class PrefixSum_1 {
         };
 
         // Call Stack
-        PrefixSum_1 prefixSum = new PrefixSum_1();
+        d03_Arrays_PrefixSum prefixSum = new d03_Arrays_PrefixSum();
 
         prefixSum.bruteForce(array, queries);
         prefixSum.optimal(array, queries, "all");
@@ -35,9 +36,10 @@ public class PrefixSum_1 {
         prefixSum.optimal(array, queries, "odd");
 
         System.out.println("Problems Starts Here .. \n");
-        prefixSum.specialIndices();
-        prefixSum.inPlacePrefixSum();
-        prefixSum.equilibiriumIndex();
+        prefixSum.rangeSumQuery(array, queries); // Q3
+        prefixSum.specialIndices(); // Q4
+        prefixSum.inPlacePrefixSum(); // Q7
+        prefixSum.equilibriumIndex(); // AQ2
 
     }
 
@@ -153,7 +155,7 @@ public class PrefixSum_1 {
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
-    private void specialIndices() {
+    public void specialIndices() {
         /* On removing a index from an array and form a new array, sum of even indexed values should
          match the odd indexed values */
 //        int[] array = {2, 1, 6, 4, 5, 2, 8};
@@ -184,7 +186,7 @@ public class PrefixSum_1 {
     }
 
 
-    private void inPlacePrefixSum() {
+    public void inPlacePrefixSum() {
         /* Without additional Space */
         int[] array = {1, 2, 3, 4, 5};
         for (int i = 1; i < array.length; i++) {
@@ -193,7 +195,7 @@ public class PrefixSum_1 {
         print("In Place Prefix : ", array);
     }
 
-    public void equilibiriumIndex() {
+    public void equilibriumIndex() {
         int[] A = {-7, 1, 5, 2, -4, 3, 0};
 //        int[] A= {1, 2, 3};
         int n = A.length;
@@ -222,8 +224,28 @@ public class PrefixSum_1 {
         System.out.println("Equilibirium Index is : " + equilibriumIndex);
     }
 
+    public long[] rangeSumQuery(int[] A, int[][] B) {
+        long[] prefixArray = new long[A.length];
+        prefixArray[0] = A[0];
+        for (int i = 1; i < A.length; i++) {
+            prefixArray[i] = prefixArray[i - 1] + A[i];
+        }
+
+        long[] returnArray = new long[B.length];
+        for (int i = 0; i < B.length; i++) {
+            int start = B[i][0];
+            int end = B[i][1];
+            long sum = 0;
+            if (start == 0) {
+                sum = prefixArray[end];
+            } else {
+                sum = prefixArray[end] - prefixArray[start - 1];
+            }
+            returnArray[i] = sum;
+        }
+
+        return returnArray;
+    }
 
     /* Section : --------------------------------------- [ End ] ------------------------------------ */
-
-
 }
