@@ -54,8 +54,12 @@ public class Advanced_DSA_Part2 {
 
         d25_LinkedList_Problems d25_linkedList_problems = new d25_LinkedList_Problems();
 
+        // Q1
+        // Q2
         d25_linkedList_problems.insertAtPosition(null, 3, 7); // Q3
         d25_linkedList_problems.deleteAtPosition(null, 5); // Q4
+
+        d25_linkedList_problems.removeElements(null, 7); // LC203
 
     }
 
