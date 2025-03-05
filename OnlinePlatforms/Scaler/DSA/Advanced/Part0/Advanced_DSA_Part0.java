@@ -36,7 +36,5 @@ public class Advanced_DSA_Part0 {
         d04_arrays_carryForward.maxPossibleElementConsideringNEdgeElements(); // AQ1
         d04_arrays_carryForward.leaderElements(); // AQ2
         d04_arrays_subArraysWithCarryForward.maxProfitOnOnlyOneTransaction(); // AQ3
-
-
     }
 }
