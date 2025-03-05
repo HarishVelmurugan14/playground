@@ -21,7 +21,7 @@ public class Advanced_DSA_Part1 {
 
         d08_arrays_oneDimensional.maximumSumContiguosSubArray(new int[]{1, 1}); //Q1
         d08_arrays_oneDimensional.profitOfBeggarsSittingContiguoslyGettingRandomDonation(); // Q2
-        d08_arrays_oneDimensional.rainWaterTrappedBetween2Buildings(); // Q3
+        d08_arrays_oneDimensional.rainWaterTrappedBetween2Buildings(); // Q3 //LC42
 
         d08_arrays_oneDimensional.addOneToNumberProvidedAsArray(); // AQ1
         // AQ2
