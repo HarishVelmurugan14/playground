@@ -1,6 +1,6 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
-@SuppressWarnings({"ExtractMethodRecommender", "DataFlowIssue", "SpellCheckingInspection"})
+@SuppressWarnings({"ExtractMethodRecommender", "DataFlowIssue", "SpellCheckingInspection", "AccessStaticViaInstance"})
 public class Advanced_DSA_Part2 {
     public void implementations() {
         Searching();
@@ -50,10 +50,12 @@ public class Advanced_DSA_Part2 {
     private void LinkedList() {
         /* ------------------------- Day 24 - DSA: Classes, Objects & Linked Lists -----------------------------------*/
 
+
         /* ------------------------- Day 25 - DSA: Linked List Problems ----------------------------------------------*/
 
         d25_LinkedList_Problems d25_linkedList_problems = new d25_LinkedList_Problems();
 
+        d25_linkedList_problems.printALinkedList(null); // Prev Q1
         // Q1
         // Q2
         d25_linkedList_problems.insertAtPosition(null, 3, 7); // Q3
@@ -82,6 +84,7 @@ public class Advanced_DSA_Part2 {
 
         d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(null); // Q1 // LC84
         d27_Stack2_NearestSmallGreatElements.prevSmallerValuesInAnArray(null); // Q2
+        d27_Stack2_NearestSmallGreatElements.identifyMaximumMinusMinimumInAllPossibleSubArrays(new int[]{4, 7, 3, 8}); // Q3
 
         d27_Stack2_NearestSmallGreatElements.nextGreaterValues(null); // AQ2
 

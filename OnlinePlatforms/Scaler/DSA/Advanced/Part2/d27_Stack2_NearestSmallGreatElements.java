@@ -2,6 +2,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -33,6 +34,7 @@ public class d27_Stack2_NearestSmallGreatElements {
 
         d27_Stack2_NearestSmallGreatElements.largestRectangleInAHistogram(new int[]{2, 1, 5, 6, 2, 3}); // Q1
         d27_Stack2_NearestSmallGreatElements.prevSmallerValuesInAnArray(new int[]{4, 5, 2, 10, 8}); // Q2
+        d27_Stack2_NearestSmallGreatElements.identifyMaximumMinusMinimumInAllPossibleSubArrays(new int[]{4, 7, 3, 8}); // Q3
 
         d27_Stack2_NearestSmallGreatElements.nextGreaterValues(new int[]{4, 5, 2, 10, 8}); // AQ2
 
@@ -42,6 +44,75 @@ public class d27_Stack2_NearestSmallGreatElements {
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
+    public int identifyMaximumMinusMinimumInAllPossibleSubArrays(int[] A) {
+        int MOD = 1_000_000_007;
+        int N = A.length;
+
+        int[] prevSmaller = new int[N];
+        int[] nextSmaller = new int[N];
+        int[] prevGreater = new int[N];
+        int[] nextGreater = new int[N];
+
+        Stack<Integer> stack = new Stack<>();
+
+        // Calculate Previous Smaller Elements
+        Arrays.fill(prevSmaller, -1);
+        for (int i = 0; i < N; i++) {
+            while (!stack.isEmpty() && A[stack.peek()] >= A[i]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) prevSmaller[i] = stack.peek();
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        // Calculate Next Smaller Elements
+        Arrays.fill(nextSmaller, N);
+        for (int i = N - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && A[stack.peek()] > A[i]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) nextSmaller[i] = stack.peek();
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        // Calculate Previous Greater Elements
+        Arrays.fill(prevGreater, -1);
+        for (int i = 0; i < N; i++) {
+            while (!stack.isEmpty() && A[stack.peek()] <= A[i]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) prevGreater[i] = stack.peek();
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        // Calculate Next Greater Elements
+        Arrays.fill(nextGreater, N);
+        for (int i = N - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && A[stack.peek()] < A[i]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) nextGreater[i] = stack.peek();
+            stack.push(i);
+        }
+
+        // Compute final sum
+        long sum = 0;
+        for (int i = 0; i < N; i++) {
+            long maxCount = (long) (i - prevGreater[i]) * (nextGreater[i] - i);
+            long minCount = (long) (i - prevSmaller[i]) * (nextSmaller[i] - i);
+            long contribution = (maxCount - minCount) * A[i];
+
+            sum = (sum + contribution + MOD) % MOD;
+        }
+
+        return (int) sum;
+    }
 
     public int largestRectangleInAHistogram(int[] A) {
         /*

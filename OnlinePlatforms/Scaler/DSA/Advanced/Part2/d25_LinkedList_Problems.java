@@ -30,19 +30,21 @@ public class d25_LinkedList_Problems {
         head = d25_linkedList_problems.insertAtHead(head, 3);
         head = d25_linkedList_problems.insertAtHead(head, 6);
 
-        d25_linkedList_problems.print(head);
+        d25_linkedList_problems.printALinkedList(head);
 
         d25_linkedList_problems.insertAtPosition(head, 3, 5); // Q3
         d25_linkedList_problems.deleteAtPosition(head, 5); // Q4
 
         d25_linkedList_problems.removeElements(head, 7); // LC203
 
+//        d25_linkedList_problems.reverseALinkedListInPlaceInOneIteration(head);
+
 
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
-    public static void print(ListNode head) {
+    public static void printALinkedList(ListNode head) {
         ListNode temp = head;
         while (temp != null) {
             System.out.print(temp.val + " -> ");
@@ -101,7 +103,7 @@ public class d25_LinkedList_Problems {
 
         x.next = temp.next;
         temp.next = x;
-        print(A);
+        printALinkedList(A);
         return A;
     }
 
@@ -124,7 +126,7 @@ public class d25_LinkedList_Problems {
             temp.next = temp.next.next;
         }
 
-        print(A);
+        printALinkedList(A);
         return A;
     }
 
