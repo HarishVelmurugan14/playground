@@ -110,6 +110,7 @@ public class Advanced_DSA_Part2 {
         d29_trees1_structureAndTraversal.equalTreePartition(null); // Q4 //LC663 Premium
 
         d29_trees1_structureAndTraversal.postOrderTraversal(null); //AQ1 // LC145
+        d29_trees1_structureAndTraversal.sumBinaryTreeOrNotMain(null); // AQ2
         d29_trees1_structureAndTraversal.getSize(null, 0);
 
     }

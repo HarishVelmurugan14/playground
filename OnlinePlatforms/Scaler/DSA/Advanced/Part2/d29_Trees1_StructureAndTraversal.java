@@ -18,9 +18,6 @@ public class d29_Trees1_StructureAndTraversal {
 
     public static void main(String[] args) {
 
-        // Inputs
-
-
         // Call Stack
         d29_Trees1_StructureAndTraversal d29_trees1_structureAndTraversal = new d29_Trees1_StructureAndTraversal();
 
@@ -29,7 +26,8 @@ public class d29_Trees1_StructureAndTraversal {
         d29_trees1_structureAndTraversal.preOrderTraversal(basicInput()); // Q2
         d29_trees1_structureAndTraversal.hasPathSum(hasPathSumInput(), 22, "Pre"); // Q3
         d29_trees1_structureAndTraversal.equalTreePartition(equalTreePartitionInput()); // Q4
-
+        d29_trees1_structureAndTraversal.postOrderTraversal(basicInput()); // AQ1
+        d29_trees1_structureAndTraversal.sumBinaryTreeOrNotMain(sumBinaryTreeInput()); // AQ2
     }
 
     /* Section : ----------------------------------- [ Inputs ] ------------------------------------ */
@@ -72,7 +70,41 @@ public class d29_Trees1_StructureAndTraversal {
         return root;
     }
 
+    public static TreeNode sumBinaryTreeInput() {
+        TreeNode root = new TreeNode(26);
+        root.left = new TreeNode(10);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(6);
+        root.right.right = new TreeNode(3);
+        return root;
+    }
+
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
+
+    public int sumBinaryTreeOrNotMain(TreeNode A) {
+        return (sumBinaryTreeOrNot(A) == -1) ? 0 : 1;
+    }
+
+    public int sumBinaryTreeOrNot(TreeNode A) {
+        if (A == null) {
+            return 0;
+        }
+
+        if (A.left == null && A.right == null) {
+            return A.val;
+        }
+
+        int leftSum = sumBinaryTreeOrNot(A.left);
+        int rightSum = sumBinaryTreeOrNot(A.right);
+        if (leftSum == -1 || rightSum == -1) return -1;
+
+        if (leftSum + rightSum == A.val) {
+            return leftSum + rightSum + A.val;
+        } else {
+            return -1;
+        }
+    }
 
     public int equalTreePartition(TreeNode A) {
         HashMap<Long, Integer> map = new HashMap<>();
@@ -188,13 +220,17 @@ public class d29_Trees1_StructureAndTraversal {
     }
 
     private void definitions() {
-        /**/
+        /*
+        * Notebook_06012025: Page No : 144
+        * */
     }
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
 
     private void links() {
-        /**/
+        /*
+        * /academy/mentee-dashboard/class/345259/assignment/problems?navref=cl_tb_br
+        * */
     }
 
     /* Section : ------------------------------- [ Definition Resources ] ---------------------------- */
