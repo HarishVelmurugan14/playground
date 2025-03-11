@@ -3,12 +3,14 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 import Resources.Utilities.PrintHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Harish Velmurugan
  * @last-modified 10-03-2025
  * @since 10-03-2025
  */
+@SuppressWarnings({"UnusedReturnValue", "ClassEscapesDefinedScope"})
 public class d29_Trees1_StructureAndTraversal {
 
 
@@ -23,12 +25,11 @@ public class d29_Trees1_StructureAndTraversal {
         d29_Trees1_StructureAndTraversal d29_trees1_structureAndTraversal = new d29_Trees1_StructureAndTraversal();
 
         System.out.println(d29_trees1_structureAndTraversal.getSize(basicInput(), 0));
-        ArrayList<Integer> res = d29_trees1_structureAndTraversal.inorderTraversal(basicInput()); // Q1
-        d29_trees1_structureAndTraversal.print("", res);
-        res = d29_trees1_structureAndTraversal.preOrderTraversal(basicInput()); // Q2
-        d29_trees1_structureAndTraversal.print("", res);
-        int x = d29_trees1_structureAndTraversal.hasPathSum(hasPathSumInput(), 22, "Pre"); // Q3
-        System.out.println(x);
+        d29_trees1_structureAndTraversal.inorderTraversal(basicInput()); // Q1
+        d29_trees1_structureAndTraversal.preOrderTraversal(basicInput()); // Q2
+        d29_trees1_structureAndTraversal.hasPathSum(hasPathSumInput(), 22, "Pre"); // Q3
+        d29_trees1_structureAndTraversal.equalTreePartition(equalTreePartitionInput()); // Q4
+
     }
 
     /* Section : ----------------------------------- [ Inputs ] ------------------------------------ */
@@ -45,27 +46,58 @@ public class d29_Trees1_StructureAndTraversal {
 
     public static TreeNode hasPathSumInput() {
         TreeNode root = new TreeNode(5);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node8 = new TreeNode(8);
-        TreeNode node4_1 = new TreeNode(4);
-        TreeNode node11 = new TreeNode(11);
-        TreeNode node13 = new TreeNode(13);
-        TreeNode node7 = new TreeNode(7);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node1 = new TreeNode(1);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(8);
 
-        root.left = node4;
-        root.right = node8;
-        node4.left = node11;
-        node11.left = node7;
-        node11.right = node2;
-        node8.left = node13;
-        node8.right = node4_1;
-        node4_1.right = node1;
+        root.left.left = new TreeNode(11);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(2);
+
+        root.right.left = new TreeNode(13);
+        root.right.right = new TreeNode(4);
+        root.right.right.right = new TreeNode(1);
+
+        return root;
+    }
+
+    public static TreeNode equalTreePartitionInput() {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(7);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(6);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(6);
+
         return root;
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
+
+    public int equalTreePartition(TreeNode A) {
+        HashMap<Long, Integer> map = new HashMap<>();
+        long totalSum = sumOfSubTree(A, map);
+
+        map.put(totalSum, map.get(totalSum) - 1);
+        long halfSum = totalSum / 2;
+
+        if (totalSum % 2 == 1) {
+            return 0;
+        } else {
+            return map.containsKey(halfSum) ? 1 : 0;
+        }
+    }
+
+    public long sumOfSubTree(TreeNode A, HashMap<Long, Integer> map) {
+        if (A == null) {
+            return 0;
+        }
+        long leftSum = sumOfSubTree(A.left, map);
+        long rightSum = sumOfSubTree(A.right, map);
+        long sum = leftSum + rightSum + A.val;
+        map.put(sum, map.getOrDefault(sum, 0) + 1);
+        return sum;
+    }
 
 
     public int hasPathSum(TreeNode A, int B, String met) {
@@ -80,6 +112,7 @@ public class d29_Trees1_StructureAndTraversal {
         int lst = hasPathSum(A.left, B - A.val, "LST");
         int rst = hasPathSum(A.right, B - A.val, "RST");
 
+        System.out.println((lst == 1 || rst == 1) ? 1 : 0);
         return (lst == 1 || rst == 1) ? 1 : 0;
     }
 
@@ -98,6 +131,7 @@ public class d29_Trees1_StructureAndTraversal {
         res.add(A.val);
         print("", res);
         res = inorderTraversal(A.right, res, "RST");
+        print("", res);
         return res;
     }
 
@@ -113,6 +147,7 @@ public class d29_Trees1_StructureAndTraversal {
         print("", res);
         res = preOrderTraversal(A.left, res);
         res = preOrderTraversal(A.right, res);
+        print("", res);
         return res;
     }
 
@@ -145,6 +180,10 @@ public class d29_Trees1_StructureAndTraversal {
     }
 
     private void print(String message, ArrayList<Integer> arr) {
+        printHelper.print(message, arr);
+    }
+
+    private void print(String message, HashMap arr) {
         printHelper.print(message, arr);
     }
 

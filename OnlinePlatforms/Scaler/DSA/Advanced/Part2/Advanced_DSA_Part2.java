@@ -107,8 +107,9 @@ public class Advanced_DSA_Part2 {
         d29_trees1_structureAndTraversal.inorderTraversal(null); // Q1 // LC94
         d29_trees1_structureAndTraversal.preOrderTraversal(null); // Q2 // LC144
         d29_trees1_structureAndTraversal.hasPathSum(null, 22, "Pre"); // Q3 // LC112
+        d29_trees1_structureAndTraversal.equalTreePartition(null); // Q4 //LC663 Premium
 
-        d29_trees1_structureAndTraversal.postOrderTraversal(null); // LC145
+        d29_trees1_structureAndTraversal.postOrderTraversal(null); //AQ1 // LC145
         d29_trees1_structureAndTraversal.getSize(null, 0);
 
     }
