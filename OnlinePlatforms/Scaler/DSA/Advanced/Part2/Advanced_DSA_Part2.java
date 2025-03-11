@@ -1,11 +1,14 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
+
 @SuppressWarnings({"ExtractMethodRecommender", "DataFlowIssue", "SpellCheckingInspection", "AccessStaticViaInstance"})
 public class Advanced_DSA_Part2 {
     public void implementations() {
         Searching();
         LinkedList();
         Stacks();
+        Queues();
+        Trees();
     }
 
     private void Searching() {
@@ -90,5 +93,23 @@ public class Advanced_DSA_Part2 {
 
         d27_Stack2_NearestSmallGreatElements.nextGreaterElementForSubsetQueriesInADistinctArrays
                 (new int[]{4, 1, 2}, new int[]{1, 3, 4, 2}); // LC496
+    }
+
+    private void Queues() {
+
+    }
+
+    private void Trees() {
+        /* -------------------------  Day 29 - DSA:Trees 1: Structure & Traversal ------------------------------------*/
+
+        d29_Trees1_StructureAndTraversal d29_trees1_structureAndTraversal = new d29_Trees1_StructureAndTraversal();
+
+        d29_trees1_structureAndTraversal.inorderTraversal(null); // Q1 // LC94
+        d29_trees1_structureAndTraversal.preOrderTraversal(null); // Q2 // LC144
+        d29_trees1_structureAndTraversal.hasPathSum(null, 22, "Pre"); // Q3 // LC112
+
+        d29_trees1_structureAndTraversal.postOrderTraversal(null); // LC145
+        d29_trees1_structureAndTraversal.getSize(null, 0);
+
     }
 }
