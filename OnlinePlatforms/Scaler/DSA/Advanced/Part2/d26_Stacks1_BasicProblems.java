@@ -79,6 +79,10 @@ public class d26_Stacks1_BasicProblems {
         return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
     }
 
+    private boolean isOperator(char token) {
+        return token == '+' || token == '-' || token == '*' || token == '/';
+    }
+
     private int applyOperation(int a, int b, String operator) {
         switch (operator) {
             case "+":
@@ -207,8 +211,60 @@ public class d26_Stacks1_BasicProblems {
         return A;
     }
 
-    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
+    public int redundantBracesUnecessaryBraces(String A) {
+        /* QUESTION
+        Given a string A denoting an expression. It contains the following operators '+', '-', '*', '/'.
+        Check whether A has redundant braces or not.
+        A will be always a valid expression and will not contain any white spaces.
+        */
+        char[] charArray = A.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        int N = charArray.length;
+        for (char x : charArray) {
+            if (x == ')') {
+                boolean hasOp = false;
+                while (stack.peek() != '(') {
+                    hasOp = hasOp || isOperator(stack.peek());
+                    stack.pop();
+                }
+                stack.pop();
 
+                if (!hasOp) {
+                    return 1;
+                }
+            } else {
+                stack.push(x);
+            }
+        }
+        return 0;
+    }
+
+    /* Section : ------------------------------- [ Leetcode ] ------------------------------- */
+
+
+    public int minAddToMakeParanthesisValid(String s) {
+        /* Question
+        You are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string.
+        For example, if s = "()))", you can insert an opening parenthesis to be "(()))" or a closing parenthesis to be "())))".
+        Return the minimum number of moves required to make s valid.
+        */
+
+        Stack<Character> stack = new Stack<>();
+
+        for(char x : s.toCharArray()){
+            if(!stack.isEmpty()){
+                if(x == ')'){
+                    if(stack.peek() == '('){
+                        stack.pop();
+                        continue;
+                    }
+                }
+            }
+            stack.push(x);
+        }
+
+        return stack.size();
+    }
 
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */

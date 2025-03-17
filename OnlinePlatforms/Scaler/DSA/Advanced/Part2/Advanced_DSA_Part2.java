@@ -79,9 +79,11 @@ public class Advanced_DSA_Part2 {
         d26_Stacks1_BasicProblems.passingGameOfBall(10, 48, new int[]{4, 0, 30, 0, 41, 28, 50, 2, 47, 39}); // Q4
 
         // AQ1
-        // AQ2
+        d26_Stacks1_BasicProblems.redundantBracesUnecessaryBraces("(a+(a+b))"); // AQ2
         // AQ3
         // AQ4
+
+        d26_Stacks1_BasicProblems.minAddToMakeParanthesisValid("((("); //LC921
 
         d27_Stack2_NearestSmallGreatElements d27_Stack2_NearestSmallGreatElements = new d27_Stack2_NearestSmallGreatElements();
 
