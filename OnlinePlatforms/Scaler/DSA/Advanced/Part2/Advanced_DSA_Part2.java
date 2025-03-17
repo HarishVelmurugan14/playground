@@ -93,6 +93,8 @@ public class Advanced_DSA_Part2 {
 
         d27_Stack2_NearestSmallGreatElements.nextGreaterElementForSubsetQueriesInADistinctArrays
                 (new int[]{4, 1, 2}, new int[]{1, 3, 4, 2}); // LC496
+
+//        Dequeue
     }
 
     private void Queues() {
@@ -118,7 +120,16 @@ public class Advanced_DSA_Part2 {
         d29_trees1_structureAndTraversal.sumBinaryTreeOrNotMain(null); // AQ2
         d29_trees1_structureAndTraversal.getSize(null, 0);
 
-        /* -------------------------  Day 30 - DSA:Trees 2: Trees & Views --------------------------------------------*/
+        /* -------------------------  Day 30 - DSA:Trees 2: Views & Types --------------------------------------------*/
+
+        d30_Trees2_ViewsAndTypes d30_trees2_viewsAndTypes = new d30_Trees2_ViewsAndTypes();
+
+        d30_trees2_viewsAndTypes.levelOrderTraversal(null); // Q1 // LC102
+        d30_trees2_viewsAndTypes.buildTreeWithInOrderAndPostOrder(null, null); // Q2
+        d30_trees2_viewsAndTypes.isBalanced(null); // Q3 // LC110
+        d30_trees2_viewsAndTypes.leftViewOfABinaryTree(null); // Q4
+
+        d30_trees2_viewsAndTypes.buildTreeWithInOrderAndPreOrder(null, null); // AQ1 //LC105
 
     }
 }
