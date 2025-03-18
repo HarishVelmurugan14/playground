@@ -3,6 +3,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 import Resources.Utilities.PrintHelper;
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -79,6 +80,31 @@ public class d28_Queue_ImplementationAndProblems {
             }
         }
         return res;
+    }
+
+    public int firstUniqueCharacterInAString(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        char[] array = s.toCharArray();
+        int N = array.length;
+
+        Deque<Integer> deque = new LinkedList<>();
+
+        for(int i=0; i < N;i++){
+            char x = array[i];
+            if(!map.containsKey(x)){
+                deque.offerLast(i);
+                map.put(x, 1);
+            } else {
+                map.put(x, map.get(x) + 1);
+            }
+        }
+        while(!deque.isEmpty()){
+            int index = deque.pollFirst();
+            if(map.get(array[index]) == 1){
+                return index;
+            }
+        }
+        return -1;
     }
 
     public void implementQueuesUsingStack() {

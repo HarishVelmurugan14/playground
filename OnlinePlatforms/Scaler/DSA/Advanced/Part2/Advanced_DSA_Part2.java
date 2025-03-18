@@ -108,7 +108,7 @@ public class Advanced_DSA_Part2 {
         d28_queue_implementationAndProblems.parkingIceCreamTruck(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3); // Q2
 
         d28_queue_implementationAndProblems.maximumInAFixedSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3); // LC239
-
+        d28_queue_implementationAndProblems.firstUniqueCharacterInAString("leetcode"); // LC387
 
     }
 
