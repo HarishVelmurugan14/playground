@@ -2,6 +2,8 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Stack;
  * @last-modified 11-03-2025
  * @since 11-03-2025
  */
-@SuppressWarnings("StringTemplateMigration")
+@SuppressWarnings({"StringTemplateMigration", "DataFlowIssue", "UnusedReturnValue"})
 public class d28_Queue_ImplementationAndProblems {
 
 
@@ -23,11 +25,61 @@ public class d28_Queue_ImplementationAndProblems {
         // Call Stack
         d28_Queue_ImplementationAndProblems d28_queue_implementationAndProblems = new d28_Queue_ImplementationAndProblems();
         d28_queue_implementationAndProblems.implementQueuesUsingStack(); // Q1
+        d28_queue_implementationAndProblems.parkingIceCreamTruck(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3); // Q2
+
+        d28_queue_implementationAndProblems.maximumInAFixedSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3); // LC239
 
 
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
+
+
+    public int[] parkingIceCreamTruck(int[] A, int B) {
+        Deque<Integer> deque = new LinkedList<>();
+        int N = A.length;
+        int[] res = new int[N - B + 1];
+        int indexToBeRemoved = 0;
+        for (int i = 0; i < N; i++) {
+            while (!deque.isEmpty() && A[i] >= A[deque.peekLast()]) {
+                deque.removeLast();
+            }
+            deque.offerLast(i);
+//            printDeque(deque, A);
+            if (i >= B - 1) {
+                res[indexToBeRemoved] = A[deque.peekFirst()];
+                if (deque.peekFirst() == indexToBeRemoved) {
+                    deque.removeFirst();
+                }
+                indexToBeRemoved++;
+            }
+        }
+        return res;
+    }
+
+
+    public int[] maximumInAFixedSlidingWindow(int[] nums, int k) {
+        int N = nums.length;
+        int[] res = new int[N - k + 1];
+        Deque<Integer> deque = new LinkedList<>();
+        int index = 0;
+
+        for (int i = 0; i < N; i++) {
+            while (!deque.isEmpty() && nums[i] >= nums[deque.peekLast()]) {
+                System.out.println(nums[i] + " - " + nums[deque.peekLast()]);
+                deque.removeLast();
+            }
+            deque.offerLast(i);
+            if (i >= k - 1) {
+                res[index] = nums[deque.peekFirst()];
+                if (index == deque.peekFirst()) {
+                    deque.pop();
+                }
+                index++;
+            }
+        }
+        return res;
+    }
 
     public void implementQueuesUsingStack() {
         UserQueue userQueue = new UserQueue();
@@ -35,19 +87,18 @@ public class d28_Queue_ImplementationAndProblems {
         UserQueue.push(4);
         UserQueue.push(5);
         UserQueue.push(6);
-        System.out.println("Size : "+ UserQueue.size());
-        System.out.println("Is Empty : "+ UserQueue.empty());
-        System.out.println("Peek "+ UserQueue.peek());
-        System.out.println("Pop "+ UserQueue.pop());
+        System.out.println("Size : " + UserQueue.size());
+        System.out.println("Is Empty : " + UserQueue.empty());
+        System.out.println("Peek " + UserQueue.peek());
+        System.out.println("Pop " + UserQueue.pop());
         UserQueue.push(7);
-        System.out.println("Peek "+ UserQueue.peek());
+        System.out.println("Peek " + UserQueue.peek());
     }
 
-    public void optimal() {
-        // Complexity : Time : [  ]
-        // Complexity : Space : [  ]
-
-
+    public void printDeque(Deque<Integer> deque, int[] A) {
+        for (Integer num : deque) {
+            System.out.print(A[num] + " -> ");
+        }
     }
 
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
@@ -55,8 +106,8 @@ public class d28_Queue_ImplementationAndProblems {
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
 
-    private void print(String message) {
-        printHelper.print(message, "");
+    private void print(String message, int[] arr) {
+        printHelper.print(message, arr);
     }
 
     /* Section : ------------------------------- [ Definition Resources ] ---------------------------- */
@@ -77,6 +128,7 @@ public class d28_Queue_ImplementationAndProblems {
 class UserQueue {
     private static Stack<Integer> inputStack;
     private static Stack<Integer> outputStack;
+
     UserQueue() {
         inputStack = new Stack<>();
         outputStack = new Stack<>();
@@ -104,9 +156,9 @@ class UserQueue {
         return inputStack.size() + outputStack.size();
     }
 
-    public static void populateOutputStackIfEmpty(){
-        if(outputStack.isEmpty()){
-            while(!inputStack.isEmpty()){
+    public static void populateOutputStackIfEmpty() {
+        if (outputStack.isEmpty()) {
+            while (!inputStack.isEmpty()) {
                 outputStack.push(inputStack.pop());
             }
         }
