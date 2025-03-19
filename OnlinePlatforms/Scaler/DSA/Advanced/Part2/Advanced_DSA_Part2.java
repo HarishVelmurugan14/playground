@@ -138,5 +138,12 @@ public class Advanced_DSA_Part2 {
 
         d30_trees2_viewsAndTypes.buildTreeWithInOrderAndPreOrder(null, null); // AQ1 //LC105
 
+        /* -------------------------  Day 31 - DSA:Trees 3: BST --------------------------------------------*/
+
+        d31_Trees3_BST d31_trees3_bst = new d31_Trees3_BST();
+
+        d31_trees3_bst.sortedArrayToBST(new int[]{1,3,5,6,7,8}); // Q2 // LC108
+        d31_trees3_bst.searchInABST(null, 3); // Q4 // LC700
+
     }
 }
