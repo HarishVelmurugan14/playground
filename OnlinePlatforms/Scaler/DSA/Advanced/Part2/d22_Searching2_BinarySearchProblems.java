@@ -74,6 +74,8 @@ public class d22_Searching2_BinarySearchProblems {
         You are expected to solve this problem with a time complexity of O(log(N)).
         */
 
+        rotatedSortedArraySearch_myversion(new int[]{3,1}, 1);
+
         int[] A = {9, 10, 3, 5, 6, 8};
         int B = 5;
 
@@ -103,6 +105,39 @@ public class d22_Searching2_BinarySearchProblems {
         }
         return -1;
 
+    }
+
+    public int rotatedSortedArraySearch_myversion(int[] nums, int target) {
+        // nums = new int[] { 3, 1 };
+        // target = 3;
+        int N = nums.length;
+
+        int k = rotationFactor(nums);
+        // System.out.println(k);
+        int index = -1;
+        int low = k;
+        int high = N - 1 + k;
+        while (low <= high) {
+            int mid = low + ((high - low) / 2);
+            int check = mid;
+            if (mid > N - 1) {
+                check = mid - N;
+            }
+
+            // System.out.println(mid + " - C : " + check + " - L : " + low + " - H : " + high);
+
+            if (nums[check] > target) {
+                high = mid - 1;
+            } else if (nums[check] < target) {
+                low = mid + 1;
+            } else {
+                index = check;
+                low = mid + 1;
+            }
+
+        }
+        // System.out.println(index);
+        return index;
     }
 
     public int rotationFactor(int[] A) {

@@ -28,7 +28,7 @@ public class Advanced_DSA_Part2 {
         /* ------------------------- Day 22 - DSA: Searching 2: Binary Search Problems ------------------------------*/
         d22_Searching2_BinarySearchProblems d22Searching2BinarySearchProblems = new d22_Searching2_BinarySearchProblems();
 
-        d22Searching2BinarySearchProblems.squareRootOfANumber(4); // Q1
+        d22Searching2BinarySearchProblems.squareRootOfANumber(4); // Q1 // LC69
         d22Searching2BinarySearchProblems.rotatedSortedArraySearch(); // Q2
         d22Searching2BinarySearchProblems.findMedianInSortedArrays(new int[]{}, new int[]{}); // Q3
 
