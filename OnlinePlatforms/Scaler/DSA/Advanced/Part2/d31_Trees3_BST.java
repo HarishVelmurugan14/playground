@@ -72,6 +72,20 @@ public class d31_Trees3_BST {
         return root;
     }
 
+//    public int isValidBST(TreeNode A) {
+//
+//    }
+//
+//    public int isValidBST(TreeNode A, int min, int max) {
+//
+//        if (A.val < min) {
+//            isValidBST(A.left, min, A.val);
+//        } else {
+//            isValidBST(A.right, A.val, max);
+//        }
+//
+//    }
+
     public void optimal() {
         // Complexity : Time : [  ]
         // Complexity : Space : [  ]
