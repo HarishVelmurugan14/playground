@@ -21,6 +21,7 @@ public class d31_Trees3_BST {
         // Call Stack
         d31_Trees3_BST d31_trees3_bst = new d31_Trees3_BST();
 
+        d31_trees3_bst.isValidBST(null); // Q1 // LC98
         d31_trees3_bst.sortedArrayToBST(new int[]{1, 3, 5, 6, 7, 8}); // Q2
         d31_trees3_bst.searchInABST(input(), 3); // Q4
 
@@ -55,6 +56,22 @@ public class d31_Trees3_BST {
         } else {
             return searchInABST(A.right, B);
         }
+    }
+
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    public boolean isValidBST(TreeNode A, long min, long max) {
+        // System.out.println(A + " : "+min + " : "+max + " : "+"IN");
+        if(A == null){
+            return true;
+        }
+        // System.out.println(A.val + " : "+ min + " : "+ max);
+        if(A.val >= min && A.val <= max){
+            return (isValidBST(A.left, min, (long)(A.val) - 1) && isValidBST(A.right, (long)(A.val) +1, max));
+        }
+        return false;
     }
 
     public TreeNode sortedArrayToBST(int[] nums) {
