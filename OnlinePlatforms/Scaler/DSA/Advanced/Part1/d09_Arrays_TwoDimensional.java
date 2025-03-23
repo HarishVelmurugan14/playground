@@ -8,6 +8,7 @@ import Resources.Utilities.PrintHelper;
  * @since 06-02-2025
  */
 
+@SuppressWarnings("UnusedReturnValue")
 public class d09_Arrays_TwoDimensional {
 
 
@@ -120,6 +121,40 @@ public class d09_Arrays_TwoDimensional {
         }
         System.out.println();
         System.out.println(ans);
+    }
+
+    public int rowWithMaximumNumberOfOnes(int[][] A) {
+       /* QUESTION
+        Given a binary sorted matrix A of size N x N. Find the row with the maximum number of 1.
+
+        If two rows have the maximum number of 1 then return the row which has a lower index.
+        Rows are numbered from top to bottom and columns are numbered from left to right.
+                Assume 0-based indexing.
+                Assume each row to be sorted by values.
+                Expected time complexity is O(rows + columns).
+                */
+
+        int N = A.length;
+        int M = A[0].length;
+        int maxNumberOfOneInARow = 0;
+        int rowWithMaxOne = 0;
+
+        for(int i = 0; i < N; i++){
+            int testIndex = M-1;
+            int currentRowOnes = 0;
+            // System.out.println("Row : "+ i + " - testIndex : "+testIndex + " - M :"+ maxNumberOfOneInARow + " - R : "+rowWithMaxOne );
+            while(testIndex >=0 && A[i][testIndex] == 1){
+                // System.out.println(testIndex);
+                currentRowOnes++;
+                testIndex--;
+            }
+            if(currentRowOnes > maxNumberOfOneInARow){
+                rowWithMaxOne = i;
+                maxNumberOfOneInARow = currentRowOnes;
+            }
+            // System.out.println(" RRR : "+rowWithMaxOne);
+        }
+        return rowWithMaxOne;
     }
 
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */

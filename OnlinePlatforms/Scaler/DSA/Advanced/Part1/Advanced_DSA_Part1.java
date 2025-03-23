@@ -19,11 +19,11 @@ public class Advanced_DSA_Part1 {
         /* ------------------------- Day 08 - DSA: Arrays 1 : 1Dimensional Array -------------------------------------*/
         d08_Arrays_OneDimensional d08_arrays_oneDimensional = new d08_Arrays_OneDimensional();
 
-        d08_arrays_oneDimensional.maximumSumContiguosSubArray(new int[]{1, 1}); //Q1
-        d08_arrays_oneDimensional.profitOfBeggarsSittingContiguoslyGettingRandomDonation(); // Q2
+        d08_arrays_oneDimensional.maximumSumContiguosSubArray(new int[]{1, 1}); //Q1 //LC53
+        d08_arrays_oneDimensional.profitOfBeggarsSittingContiguoslyGettingRandomDonation(); // Q2 // LC370
         d08_arrays_oneDimensional.rainWaterTrappedBetween2Buildings(); // Q3 //LC42
 
-        d08_arrays_oneDimensional.addOneToNumberProvidedAsArray(); // AQ1
+        d08_arrays_oneDimensional.addOneToNumberProvidedAsArray(); // AQ1 // LC66
         // AQ2
 
         /* ------------------------- Day 09 - DSA: Arrays 2 : 2Dimensional Array -------------------------------------*/
@@ -34,7 +34,7 @@ public class Advanced_DSA_Part1 {
         d09_Arrays_TwoDimensional.sumOfAllPossibleSubMatrices(new int[][]{}); // Q3
 
         // AQ1
-        // AQ2
+        d09_Arrays_TwoDimensional.rowWithMaximumNumberOfOnes(null); // AQ2 //LC1428
 
         /* ------------------------- Day 10 - DSA: Arrays 3 : Interview Problems -------------------------------------*/
         d10_Arrays_InterviewProblems d10_Arrays_InterviewProblems = new d10_Arrays_InterviewProblems();
