@@ -221,4 +221,38 @@ public class ArraysAndHashing {
 
         return res;
     }
+
+    public int[] topKFrequentElements(int[] nums, int k) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        List<List<Integer>> bucket = new ArrayList<>();
+
+        // Count frequencies
+        for (int x : nums) {
+            freqMap.put(x, freqMap.getOrDefault(x, 0) + 1);
+        }
+
+        // Initialize the bucket with empty lists
+        for (int i = 0; i <= nums.length; i++) {
+            bucket.add(new ArrayList<>());
+        }
+
+        // Populate the bucket
+        int max = 0;
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
+            int freq = entry.getValue();
+            max = Math.max(max, freq);
+            bucket.get(freq).add(entry.getKey());
+        }
+
+        // Collect top k frequent elements
+        int[] res = new int[k];
+        int index = 0;
+        for (int i = max; i > 0 && index < k; i--) {
+            for (int num : bucket.get(i)) {
+                res[index++] = num;
+                if (index == k) break;
+            }
+        }
+        return res;
+    }
 }
