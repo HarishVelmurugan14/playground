@@ -36,15 +36,15 @@ public class LeetCodeBase {
 
     }
 
-    private static void BackTracking(){
+    private static void BackTracking() {
         BackTracking backTracking = new BackTracking();
 
         // ---------------------------------------- Easy -----------------------------------------
 
 
-
         // ---------------------------------------- Medium -----------------------------------------
         backTracking.generateParenthesis(3); // LC22
+        backTracking.generateSubsets(new int[]{1, 2, 3}); // LC78
 
         // ---------------------------------------- Hard -----------------------------------------
     }

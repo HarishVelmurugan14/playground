@@ -15,6 +15,7 @@ public class Advanced_DSA_Part3 {
 
     private void BackTracking() {
         d36_Backtracking d36_backtracking = new d36_Backtracking();
-        d36_backtracking.generateParenthesis(3);
+        d36_backtracking.generateParenthesis(3); // LC 22
+        d36_backtracking.generateSubsets(new int[]{1, 2, 3}); // LC 78
     }
 }
