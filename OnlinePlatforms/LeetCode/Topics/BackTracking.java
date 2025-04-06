@@ -1,6 +1,7 @@
 package OnlinePlatforms.LeetCode.Topics;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @SuppressWarnings("StringTemplateMigration")
@@ -52,5 +53,30 @@ public class BackTracking {
         dfs(N, nums, index + 1, currentList, all);
 
         return all;
+    }
+
+    public List<List<Integer>> generatePermutations(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        backTrack(res, nums, new boolean[nums.length], new ArrayList<Integer>());
+        return res;
+    }
+
+    private List<List<Integer>> backTrack(List<List<Integer>> res, int[] nums, boolean[] visited, List<Integer> currentList) {
+        if (currentList.size() == nums.length) {
+            res.add(new ArrayList<>(currentList));
+            return res;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (!visited[i]) {
+                int x = nums[i];
+                currentList.add(x);
+                visited[i] = true;
+                backTrack(res, nums, visited, currentList);
+                visited[i] = false;
+                currentList.remove(Integer.valueOf(x));
+            }
+        }
+        return res;
     }
 }

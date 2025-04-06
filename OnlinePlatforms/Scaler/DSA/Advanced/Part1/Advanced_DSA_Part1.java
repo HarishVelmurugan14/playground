@@ -90,6 +90,8 @@ public class Advanced_DSA_Part1 {
         d13_recursions1.findSumOfDigitsOfANumber(2); // AQ2
         d13_recursions1.printNNumbersFirstInDescendingThenInAscendingOrder(5); // AQ3
 
+        d13_recursions1.skipACharacter("", "baaccvgdaa", 'a');
+
         /* ------------------------- Day 14 - DSA: Recursion 2 -------------------------------------------------------*/
         d14_Recursions2 d14_recursions2 = new d14_Recursions2();
 

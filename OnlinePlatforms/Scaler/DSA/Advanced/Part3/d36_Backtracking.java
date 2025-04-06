@@ -78,6 +78,31 @@ public class d36_Backtracking {
         return all;
     }
 
+    public List<List<Integer>> generatePermutations(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        backTrack( res, nums, new boolean[nums.length], new ArrayList<Integer>());
+        return res;
+    }
+
+    private List<List<Integer>> backTrack(List<List<Integer>> res, int[] nums, boolean[] visited, List<Integer> currentList){
+        if(currentList.size() == nums.length){
+            res.add(new ArrayList<>(currentList));
+            return res;
+        }
+
+        for(int i=0; i<nums.length; i++){
+            if(!visited[i]){
+                int x = nums[i];
+                currentList.add(x);
+                visited[i] = true;
+                backTrack(res, nums, visited, currentList);
+                visited[i] = false;
+                currentList.remove(Integer.valueOf(x));
+            }
+        }
+        return res;
+    }
+
 
     public void optimal() {
         // Complexity : Time : [  ]

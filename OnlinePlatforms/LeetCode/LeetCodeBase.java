@@ -44,6 +44,7 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Medium -----------------------------------------
         backTracking.generateParenthesis(3); // LC22
+        backTracking.generatePermutations(new int[]{1, 2, 3}); // LC46
         backTracking.generateSubsets(new int[]{1, 2, 3}); // LC78
 
         // ---------------------------------------- Hard -----------------------------------------

@@ -36,6 +36,9 @@ public class d13_Recursions1 {
 
         recursionOne2.findSumOfDigitsOfANumber(46);
 
+        String strAfterSkip = recursionOne2.skipACharacter("", "baaccvgdaa", 'a');
+        recursionOne2.print(strAfterSkip);
+
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
@@ -110,9 +113,20 @@ public class d13_Recursions1 {
 
 
 
-    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
+    /* Section : ------------------------------- [ Additional Problems ] ------------------------------- */
 
-
+    public String skipACharacter(String p, String up, char target) {
+        if (up.isEmpty()) {
+            return p;
+        }
+        char current = up.charAt(0);
+        if (current == target) {
+            p = skipACharacter(p, up.substring(1), target);
+        } else {
+            p = skipACharacter(p + current, up.substring(1), target);
+        }
+        return p;
+    }
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
 
