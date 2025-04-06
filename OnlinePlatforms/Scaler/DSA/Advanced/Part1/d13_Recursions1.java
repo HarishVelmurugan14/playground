@@ -39,6 +39,9 @@ public class d13_Recursions1 {
         String strAfterSkip = recursionOne2.skipACharacter("", "baaccvgdaa", 'a');
         recursionOne2.print(strAfterSkip);
 
+        strAfterSkip = recursionOne2.skipAString( "baaccvgdapplea", "apple");
+        recursionOne2.print(strAfterSkip);
+
     }
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
@@ -126,6 +129,17 @@ public class d13_Recursions1 {
             p = skipACharacter(p + current, up.substring(1), target);
         }
         return p;
+    }
+
+    public String skipAString(String up, String target) {
+        if (up.isEmpty()) {
+            return "";
+        }
+        if (up.startsWith(target)) {
+            return skipAString(up.substring(target.length()), target);
+        } else {
+            return up.charAt(0) + skipAString(up.substring(1), target);
+        }
     }
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
