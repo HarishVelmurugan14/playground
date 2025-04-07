@@ -42,7 +42,9 @@ public class LeetCodeBase {
         LinkedList linkedList = new LinkedList();
 
         // ---------------------------------------- Easy -----------------------------------------
+        linkedList.mergeTwoSortedLinkedList(null, null); // LC21
         linkedList.isPalindrome(null); // LC234
+        linkedList.middleNodeOfALinkedList(null); // LC876
 
         // ---------------------------------------- Medium -----------------------------------------
         // ---------------------------------------- Hard -----------------------------------------
