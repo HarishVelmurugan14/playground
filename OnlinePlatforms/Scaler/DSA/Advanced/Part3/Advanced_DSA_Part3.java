@@ -4,6 +4,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part3;
 public class Advanced_DSA_Part3 {
     public void implementations() {
         Searching();
+        BackTracking();
     }
 
     private void Searching() {
@@ -11,6 +12,18 @@ public class Advanced_DSA_Part3 {
         d33_Maths_CombinatoricsAndPrimeNumber d33_maths_combinatoricsAndPrimeNumber = new d33_Maths_CombinatoricsAndPrimeNumber();
 
         d33_maths_combinatoricsAndPrimeNumber.allPrimes(40); // Q2
+
+        /* ------------------------- Day 39 - DSA : Linked List Sorting & Problems ------------------------------*/
+        d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
+
+        //Q1
+        //Q2
+        //Q3
+
+        //AQ1
+        //AQ2
+        //AQ3
+
     }
 
     private void BackTracking() {
