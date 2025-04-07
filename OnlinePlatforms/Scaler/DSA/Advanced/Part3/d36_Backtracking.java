@@ -78,15 +78,15 @@ public class d36_Backtracking {
         return all;
     }
 
-    public ArrayList<String> generateSubsets(String p, String up) {
+    public ArrayList<String> generateSubSequence(String p, String up) {
         if (up.isEmpty()) {
             ArrayList<String> list = new ArrayList<>();
             list.add(p);
             return list;
         }
         char ch = up.charAt(0);
-        ArrayList<String> left = generateSubsets(p+ch, up.substring(1));
-        ArrayList<String> right = generateSubsets(p, up.substring(1));
+        ArrayList<String> left = generateSubSequence(p+ch, up.substring(1));
+        ArrayList<String> right = generateSubSequence(p, up.substring(1));
         left.addAll(right);
         return left;
     }
