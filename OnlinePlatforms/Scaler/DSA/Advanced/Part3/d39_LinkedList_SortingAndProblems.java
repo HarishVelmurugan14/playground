@@ -31,6 +31,10 @@ public class d39_LinkedList_SortingAndProblems {
         ListNode afterSort = d39_linkedList_sortingAndProblems.mergeSortLinkedList(unSortedHead());
         printALinkedList(afterSort);
 
+        int isPalindrome = d39_linkedList_sortingAndProblems.isPalindromeLinkedList(palindrome());
+        System.out.println(isPalindrome);
+        isPalindrome = d39_linkedList_sortingAndProblems.isPalindromeLinkedList(head());
+        System.out.println(isPalindrome);
     }
 
     /* Section : ----------------------------------- [ Inputs ] ------------------------------------ */
@@ -73,6 +77,14 @@ public class d39_LinkedList_SortingAndProblems {
         return head;
     }
 
+    private static ListNode palindrome() {
+        ListNode head = insertAtHead(null, 1);
+        head = insertAtHead(head, 2);
+        head = insertAtHead(head, 2);
+        head = insertAtHead(head, 1);
+        return head;
+    }
+
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
     public static ListNode insertAtHead(ListNode A, int B) {
         ListNode x = new ListNode(B);
@@ -89,7 +101,41 @@ public class d39_LinkedList_SortingAndProblems {
         System.out.println("null");
     }
 
+    public ListNode reverseALinkedList(ListNode head){
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null){
+            ListNode nextNode = current.next; // step 2
+            current.next = prev; // step 1
+            prev = current; // move prev forward
+            current = nextNode; // continue process
+        }
+        return prev;
+    }
+
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
+
+
+    public int isPalindromeLinkedList(ListNode A) {
+        ListNode temp = A;
+        ListNode mid = findMiddle(A);
+        ListNode head2 = mid.next;
+        mid.next = null;
+
+        ListNode reversedList = reverseALinkedList(head2);
+
+        while (temp != null && reversedList != null) {
+            if (temp.val == reversedList.val) {
+                temp = temp.next;
+                reversedList = reversedList.next;
+            } else {
+                return 0;
+            }
+        }
+        if (reversedList != null) return 0;
+        return 1;
+    }
 
     public ListNode mergeTwoSortedLinkedList(ListNode p1Head, ListNode p2Head) {
         if (p1Head == null) return p2Head;
