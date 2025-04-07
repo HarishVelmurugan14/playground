@@ -91,6 +91,21 @@ public class d36_Backtracking {
         return left;
     }
 
+    public ArrayList<String> generateSubSequenceAscii(String p, String up) {
+        if (up.isEmpty()) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+        }
+        char ch = up.charAt(0);
+        ArrayList<String> left = generateSubSequenceAscii(p+ch, up.substring(1));
+        ArrayList<String> middle = generateSubSequenceAscii(p, up.substring(1));
+        ArrayList<String> right = generateSubSequenceAscii(p + (ch + 0), up.substring(1));
+        left.addAll(right);
+        left.addAll(middle);
+        return left;
+    }
+
     public List<List<Integer>> generatePermutations(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         backTrack( res, nums, new boolean[nums.length], new ArrayList<Integer>());
