@@ -73,8 +73,7 @@ public class d39_LinkedList_SortingAndProblems {
         return head;
     }
 
-    /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
-
+    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
     public static ListNode insertAtHead(ListNode A, int B) {
         ListNode x = new ListNode(B);
         x.next = A;
@@ -89,6 +88,8 @@ public class d39_LinkedList_SortingAndProblems {
         }
         System.out.println("null");
     }
+
+    /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
     public ListNode mergeTwoSortedLinkedList(ListNode p1Head, ListNode p2Head) {
         if (p1Head == null) return p2Head;
@@ -151,8 +152,6 @@ public class d39_LinkedList_SortingAndProblems {
         return slow;
     }
 
-    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
-
     public ListNode mergeSortLinkedList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -181,7 +180,6 @@ public class d39_LinkedList_SortingAndProblems {
 
 
     }
-
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
 
     private void print(String message) {
