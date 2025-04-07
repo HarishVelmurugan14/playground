@@ -1,7 +1,6 @@
 package OnlinePlatforms.LeetCode.Topics;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @SuppressWarnings("StringTemplateMigration")

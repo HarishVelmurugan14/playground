@@ -2,12 +2,14 @@ package OnlinePlatforms.LeetCode;
 
 import OnlinePlatforms.LeetCode.Topics.ArraysAndHashing;
 import OnlinePlatforms.LeetCode.Topics.BackTracking;
+import OnlinePlatforms.LeetCode.Topics.LinkedList;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class LeetCodeBase {
 
     public static void main(String[] args) {
         ArraysAndHashing();
+        LinkedList();
         BackTracking();
     }
 
@@ -34,6 +36,16 @@ public class LeetCodeBase {
 
         arraysAndHashing.rainWaterTrapped(null); // LC42
 
+    }
+
+    private static void LinkedList() {
+        LinkedList linkedList = new LinkedList();
+
+        // ---------------------------------------- Easy -----------------------------------------
+        linkedList.isPalindrome(null); // LC234
+
+        // ---------------------------------------- Medium -----------------------------------------
+        // ---------------------------------------- Hard -----------------------------------------
     }
 
     private static void BackTracking() {
