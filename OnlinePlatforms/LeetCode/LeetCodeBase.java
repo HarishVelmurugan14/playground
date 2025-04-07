@@ -47,6 +47,8 @@ public class LeetCodeBase {
         linkedList.middleNodeOfALinkedList(null); // LC876
 
         // ---------------------------------------- Medium -----------------------------------------
+        linkedList.mergeSortLinkedList(null); // LC148
+
         // ---------------------------------------- Hard -----------------------------------------
     }
 

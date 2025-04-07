@@ -108,4 +108,19 @@ public class LinkedList {
         }
         return slow;
     }
+
+     public ListNode mergeSortLinkedList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode mid = findMiddle(head);
+        ListNode head2 = mid.next;
+        mid.next = null;
+
+        ListNode left = mergeSortLinkedList(head);
+        ListNode right = mergeSortLinkedList(head2);
+
+        return mergeTwoSortedLinkedList(left, right);
+    }
 }
