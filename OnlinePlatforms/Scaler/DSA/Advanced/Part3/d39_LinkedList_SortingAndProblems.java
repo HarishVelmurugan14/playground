@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 07-04-2025
  * @since 07-04-2025
  */
-@SuppressWarnings("ClassEscapesDefinedScope")
+@SuppressWarnings({"ClassEscapesDefinedScope", "AutoRefact", "StringTemplateMigration"})
 public class d39_LinkedList_SortingAndProblems {
 
 
@@ -20,24 +20,112 @@ public class d39_LinkedList_SortingAndProblems {
 
         // Call Stack
         d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
-        ListNode head = d39_linkedList_sortingAndProblems.insertAtHead(null, 8);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 7);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 6);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 5);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 4);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 3);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 2);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 1);
-        head = d39_linkedList_sortingAndProblems.insertAtHead(head, 0);
-
-        ListNode middle = d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(head);
-        System.out.println(middle.val + " - " + middle.next.val);
-        middle = d39_linkedList_sortingAndProblems.middleNodeOfALinkedListIfEvenConsiderFirst(head);
-        System.out.println(middle.val + " - " + middle.next.val);
+        ListNode middle = d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(head());
+        printALinkedList(middle);
+        middle = d39_linkedList_sortingAndProblems.findMiddle(head());
+        printALinkedList(middle);
+        ListNode merge = d39_linkedList_sortingAndProblems.mergeTwoSortedLinkedList(sortedP1Head(), sortedP2Head());
+        printALinkedList(merge);
+        System.out.println("--");
+        printALinkedList(unSortedHead());
+        ListNode afterSort = d39_linkedList_sortingAndProblems.mergeSortLinkedList(unSortedHead());
+        printALinkedList(afterSort);
 
     }
 
+    /* Section : ----------------------------------- [ Inputs ] ------------------------------------ */
+
+    private static ListNode head() {
+        ListNode head = insertAtHead(null, 4);
+        head = insertAtHead(head, 3);
+        head = insertAtHead(head, 2);
+        head = insertAtHead(head, 1);
+        head = insertAtHead(head, 0);
+        return head;
+    }
+
+    private static ListNode sortedP1Head() {
+        ListNode head = insertAtHead(null, 8);
+        head = insertAtHead(head, 7);
+        head = insertAtHead(head, 5);
+        head = insertAtHead(head, 1);
+        head = insertAtHead(head, 0);
+        return head;
+    }
+
+    private static ListNode sortedP2Head() {
+        ListNode head = insertAtHead(null, 9);
+        head = insertAtHead(head, 6);
+        head = insertAtHead(head, 3);
+        head = insertAtHead(head, 2);
+        return head;
+    }
+
+    private static ListNode unSortedHead() {
+        ListNode head = insertAtHead(null, 8);
+        head = insertAtHead(head, 1);
+        head = insertAtHead(head, 5);
+        head = insertAtHead(head, 0);
+        head = insertAtHead(head, 7);
+        head = insertAtHead(head, 2);
+        head = insertAtHead(head, 6);
+        head = insertAtHead(head, 3);
+        return head;
+    }
+
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public static ListNode insertAtHead(ListNode A, int B) {
+        ListNode x = new ListNode(B);
+        x.next = A;
+        return x;
+    }
+
+    public static void printALinkedList(ListNode head) {
+        ListNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public ListNode mergeTwoSortedLinkedList(ListNode p1Head, ListNode p2Head) {
+        if (p1Head == null) return p2Head;
+        if (p2Head == null) return p1Head;
+        ListNode head = null;
+        ListNode tail = null;
+        if (p1Head.val <= p2Head.val) {
+            head = p1Head;
+            tail = p1Head;
+            p1Head = p1Head.next;
+        } else {
+            head = p2Head;
+            tail = p2Head;
+            p2Head = p2Head.next;
+        }
+
+
+        while (p1Head != null && p2Head != null) {
+            if (p1Head.val <= p2Head.val) {
+                tail.next = p1Head;
+                p1Head = p1Head.next;
+            } else {
+                tail.next = p2Head;
+                p2Head = p2Head.next;
+            }
+            tail = tail.next;
+        }
+
+        // Attach the remaining part of l1 or l2, if any
+        if (p1Head != null) {
+            tail.next = p1Head;
+        } else {
+            tail.next = p2Head;
+        }
+
+        return head;
+    }
 
     public ListNode middleNodeOfALinkedList(ListNode head) {
         ListNode slow = head;
@@ -50,18 +138,34 @@ public class d39_LinkedList_SortingAndProblems {
         return slow;
     }
 
-    public ListNode middleNodeOfALinkedListIfEvenConsiderFirst(ListNode head) {
+    public ListNode findMiddle(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         ListNode slow = head;
-        ListNode fast = head;
-
+        ListNode fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (fast.next != null && fast.next.next == null) {
-                return slow;
-            }
         }
         return slow;
+    }
+
+    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
+
+    public ListNode mergeSortLinkedList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode mid = findMiddle(head);
+        ListNode head2 = mid.next;
+        mid.next = null;
+
+        ListNode left = mergeSortLinkedList(head);
+        ListNode right = mergeSortLinkedList(head2);
+
+        return mergeTwoSortedLinkedList(left, right);
     }
 
     public void bruteForce() {
@@ -76,14 +180,6 @@ public class d39_LinkedList_SortingAndProblems {
         // Complexity : Space : [  ]
 
 
-    }
-
-    /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
-
-    public ListNode insertAtHead(ListNode A, int B) {
-        ListNode x = new ListNode(B);
-        x.next = A;
-        return x;
     }
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
