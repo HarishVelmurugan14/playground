@@ -22,9 +22,22 @@ public class d36_Backtracking {
 
         // Call Stack
         d36_Backtracking d36_backtracking = new d36_Backtracking();
-//        d36_backtracking.generateParenthesis(3); // LC22
-        d36_backtracking.generateSubsets(new int[]{1, 2, 3}); // LC22
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
 
+        d36_backtracking.generateParenthesis(3); // LC22
+
+        d36_backtracking.generateSubsets_yahnit(new int[]{1, 2, 3}); // LC22
+        System.out.println(d36_backtracking.generateSubSequence("", "abc"));
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        d36_backtracking.generateSubSequence_listVersion(new ArrayList<>(), list, res);
+        System.out.println(res);
+
+        d36_backtracking.generatePermutations_yahnit(new int[]{1,2,3});
+        d36_backtracking.generatePermutations("", "abc");
+        d36_backtracking.generatePermutations_listVersion(new ArrayList<>(), list);
 
     }
 
@@ -54,7 +67,7 @@ public class d36_Backtracking {
         return result;
     }
 
-    public List<List<Integer>> generateSubsets(int[] nums) {
+    public List<List<Integer>> generateSubsets_yahnit(int[] nums) {
         // Complexity : Time : [ O(2^N)  ]
         // Complexity : Space : [ O(N) ]
         List<List<Integer>> res = new ArrayList<>();
@@ -65,7 +78,7 @@ public class d36_Backtracking {
 
     private List<List<Integer>> dfs(int N, int[] nums, int index, List<Integer> currentList, List<List<Integer>> all) {
         if (index >= N) {
-            System.out.println(currentList.toString());
+//            System.out.println(currentList.toString());
             all.add(new ArrayList<>(currentList)); // VERY IMPORTANT
             return all;
         }
@@ -78,6 +91,20 @@ public class d36_Backtracking {
         return all;
     }
 
+    public ArrayList<ArrayList<Integer>> generateSubSequence_listVersion(ArrayList<Integer> p, ArrayList<Integer> up, ArrayList<ArrayList<Integer>> res) {
+        if (up.isEmpty()) {
+            res.add(p);
+            return res;
+        }
+        ArrayList<Integer> newUp = new ArrayList<>(up.subList(1, up.size()));
+        int num = up.get(0);
+        ArrayList<Integer> newProcessed = new ArrayList<>(p);
+        generateSubSequence_listVersion(newProcessed, newUp, res);
+        newProcessed.add(num);
+        generateSubSequence_listVersion(newProcessed, newUp, res);
+        return res;
+    }
+
     public ArrayList<String> generateSubSequence(String p, String up) {
         if (up.isEmpty()) {
             ArrayList<String> list = new ArrayList<>();
@@ -85,7 +112,7 @@ public class d36_Backtracking {
             return list;
         }
         char ch = up.charAt(0);
-        ArrayList<String> left = generateSubSequence(p+ch, up.substring(1));
+        ArrayList<String> left = generateSubSequence(p + ch, up.substring(1));
         ArrayList<String> right = generateSubSequence(p, up.substring(1));
         left.addAll(right);
         return left;
@@ -98,7 +125,7 @@ public class d36_Backtracking {
             return list;
         }
         char ch = up.charAt(0);
-        ArrayList<String> left = generateSubSequenceAscii(p+ch, up.substring(1));
+        ArrayList<String> left = generateSubSequenceAscii(p + ch, up.substring(1));
         ArrayList<String> middle = generateSubSequenceAscii(p, up.substring(1));
         ArrayList<String> right = generateSubSequenceAscii(p + (ch + 0), up.substring(1));
         left.addAll(right);
@@ -106,20 +133,20 @@ public class d36_Backtracking {
         return left;
     }
 
-    public List<List<Integer>> generatePermutations(int[] nums) {
+    public List<List<Integer>> generatePermutations_yahnit(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        backTrack( res, nums, new boolean[nums.length], new ArrayList<Integer>());
+        backTrack(res, nums, new boolean[nums.length], new ArrayList<Integer>());
         return res;
     }
 
-    private List<List<Integer>> backTrack(List<List<Integer>> res, int[] nums, boolean[] visited, List<Integer> currentList){
-        if(currentList.size() == nums.length){
+    private List<List<Integer>> backTrack(List<List<Integer>> res, int[] nums, boolean[] visited, List<Integer> currentList) {
+        if (currentList.size() == nums.length) {
             res.add(new ArrayList<>(currentList));
             return res;
         }
 
-        for(int i=0; i<nums.length; i++){
-            if(!visited[i]){
+        for (int i = 0; i < nums.length; i++) {
+            if (!visited[i]) {
                 int x = nums[i];
                 currentList.add(x);
                 visited[i] = true;
@@ -129,6 +156,33 @@ public class d36_Backtracking {
             }
         }
         return res;
+    }
+
+    public void generatePermutations(String p, String up) {
+        if (up.isEmpty()) {
+            System.out.println(p);
+            return;
+        }
+        char ch = up.charAt(0);
+        for (int i = 0; i <= p.length(); i++) {
+            String start = p.substring(0, i);
+            String end = p.substring(i);
+            generatePermutations(start + ch + end, up.substring(1));
+        }
+    }
+
+    public void generatePermutations_listVersion(ArrayList<Integer> p, ArrayList<Integer> up) {
+        if (up.isEmpty()) {
+            System.out.println(p);
+            return;
+        }
+        int ch = up.get(0);
+        ArrayList<Integer> newUp = new ArrayList<>(up.subList(1, up.size()));
+        for (int i = 0; i <= p.size(); i++) {
+            ArrayList<Integer> newProcessed = new ArrayList<>(p);
+            newProcessed.add(i, ch);
+            generatePermutations_listVersion(newProcessed, newUp);
+        }
     }
 
 

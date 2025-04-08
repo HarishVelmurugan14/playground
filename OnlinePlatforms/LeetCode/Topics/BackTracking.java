@@ -61,13 +61,13 @@ public class BackTracking {
             return list;
         }
         char ch = up.charAt(0);
-        ArrayList<String> left = generateSubSequence(p+ch, up.substring(1));
+        ArrayList<String> left = generateSubSequence(p + ch, up.substring(1));
         ArrayList<String> right = generateSubSequence(p, up.substring(1));
         left.addAll(right);
         return left;
     }
 
-    public List<List<Integer>> generatePermutations(int[] nums) {
+    public List<List<Integer>> generatePermutations_old(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         backTrack(res, nums, new boolean[nums.length], new ArrayList<Integer>());
         return res;
