@@ -2,6 +2,7 @@ package OnlinePlatforms.LeetCode.Topics;
 
 import OnlinePlatforms.Scaler.DSA.Advanced.Part3.d39_LinkedList_SortingAndProblems;
 
+@SuppressWarnings({"ClassEscapesDefinedScope", "UnusedReturnValue"})
 public class LinkedList {
 
     public boolean isPalindrome(ListNode head) {
@@ -25,11 +26,11 @@ public class LinkedList {
 
     }
 
-    public ListNode reverseALinkedList(ListNode head){
+    public ListNode reverseALinkedList(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
 
-        while (current != null){
+        while (current != null) {
             ListNode nextNode = current.next; // step 2
             current.next = prev; // step 1
             prev = current; // move prev forward
@@ -49,16 +50,6 @@ public class LinkedList {
             fast = fast.next.next;
         }
         return slow;
-    }
-
-    static class ListNode {
-        public int val;
-        public ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 
     public ListNode mergeTwoSortedLinkedList(ListNode p1Head, ListNode p2Head) {
@@ -109,7 +100,7 @@ public class LinkedList {
         return slow;
     }
 
-     public ListNode mergeSortLinkedList(ListNode head) {
+    public ListNode mergeSortLinkedList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -146,5 +137,26 @@ public class LinkedList {
         }
 
         return dummyHead.next;
+    }
+
+    public ListNode swapPairs(ListNode head) {
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            int x = current.val;
+            current.val = current.next.val;
+            current.next.val = x;
+            current = current.next.next;
+        }
+        return head;
+    }
+
+    static class ListNode {
+        public int val;
+        public ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
     }
 }

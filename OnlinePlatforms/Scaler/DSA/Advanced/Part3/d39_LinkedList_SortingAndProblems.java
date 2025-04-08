@@ -16,26 +16,21 @@ public class d39_LinkedList_SortingAndProblems {
     public static void main(String[] args) {
 
         // Inputs
-
+        head();
+        sortedP1Head();
+        sortedP2Head();
+        unSortedHead();
+        palindrome();
 
         // Call Stack
         d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
-        ListNode middle = d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(head());
-        printALinkedList(middle);
-        middle = d39_linkedList_sortingAndProblems.findMiddle(head());
-        printALinkedList(middle);
-        ListNode merge = d39_linkedList_sortingAndProblems.mergeTwoSortedLinkedList(sortedP1Head(), sortedP2Head());
-        printALinkedList(merge);
-        System.out.println("--");
-        printALinkedList(unSortedHead());
-        ListNode afterSort = d39_linkedList_sortingAndProblems.mergeSortLinkedList(unSortedHead());
-        printALinkedList(afterSort);
-
-        int isPalindrome = d39_linkedList_sortingAndProblems.isPalindromeLinkedList(palindrome());
-        System.out.println(isPalindrome);
-        isPalindrome = d39_linkedList_sortingAndProblems.isPalindromeLinkedList(head());
-        System.out.println(isPalindrome);
-
+        printALinkedList(d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(head()));
+        printALinkedList(d39_linkedList_sortingAndProblems.findMiddle(head()));
+        printALinkedList(d39_linkedList_sortingAndProblems.mergeTwoSortedLinkedList(sortedP1Head(), sortedP2Head()));
+        printALinkedList(d39_linkedList_sortingAndProblems.mergeSortLinkedList(unSortedHead()));
+        System.out.println(d39_linkedList_sortingAndProblems.isPalindromeLinkedList(palindrome()));
+        System.out.println(d39_linkedList_sortingAndProblems.isPalindromeLinkedList(head()));
+        printALinkedList(d39_linkedList_sortingAndProblems.swapPairs(head()));
         printALinkedList(d39_linkedList_sortingAndProblems.addTwoNumbersInReverseOrderAndReturnAsLinkedList(head(), head()));
     }
 
@@ -103,11 +98,11 @@ public class d39_LinkedList_SortingAndProblems {
         System.out.println("null");
     }
 
-    public ListNode reverseALinkedList(ListNode head){
+    public ListNode reverseALinkedList(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
 
-        while (current != null){
+        while (current != null) {
             ListNode nextNode = current.next; // step 2
             current.next = prev; // step 1
             prev = current; // move prev forward
@@ -118,6 +113,17 @@ public class d39_LinkedList_SortingAndProblems {
 
     /* Section : ----------------------------------- [ Problems ] ------------------------------------ */
 
+
+    public ListNode swapPairs(ListNode head) {
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            int x = current.val;
+            current.val = current.next.val;
+            current.next.val = x;
+            current = current.next.next;
+        }
+        return head;
+    }
 
     public int isPalindromeLinkedList(ListNode A) {
         ListNode temp = A;

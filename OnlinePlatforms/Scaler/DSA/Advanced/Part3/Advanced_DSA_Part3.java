@@ -21,7 +21,7 @@ public class Advanced_DSA_Part3 {
         d39_linkedList_sortingAndProblems.isPalindromeLinkedList(null); //Q3 //LC234
         d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(null); //Q4 //LC876
 
-        //AQ1
+        d39_linkedList_sortingAndProblems.swapPairs(null); //AQ1 //LC24
         d39_linkedList_sortingAndProblems.addTwoNumbersInReverseOrderAndReturnAsLinkedList(null, null); //AQ2 //LC02
         //AQ3
 
