@@ -16,9 +16,10 @@ public class Advanced_DSA_Part3 {
         /* ------------------------- Day 39 - DSA : Linked List Sorting & Problems ------------------------------*/
         d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
 
-        //Q1
-        //Q2
-        //Q3
+        d39_linkedList_sortingAndProblems.mergeSortLinkedList(null); // Q1 //LC148
+        d39_linkedList_sortingAndProblems.mergeTwoSortedLinkedList(null, null); //Q2 // LC21
+        d39_linkedList_sortingAndProblems.isPalindromeLinkedList(null); //Q3 //LC234
+        d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(null); //Q4 //LC876
 
         //AQ1
         //AQ2
