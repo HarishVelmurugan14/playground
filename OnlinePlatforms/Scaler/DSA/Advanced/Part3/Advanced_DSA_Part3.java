@@ -22,7 +22,7 @@ public class Advanced_DSA_Part3 {
         d39_linkedList_sortingAndProblems.middleNodeOfALinkedList(null); //Q4 //LC876
 
         //AQ1
-        d39_linkedList_sortingAndProblems.addTwoNumbersInReverseOrderAndReturnAsLinkedList(null, null); //AQ2
+        d39_linkedList_sortingAndProblems.addTwoNumbersInReverseOrderAndReturnAsLinkedList(null, null); //AQ2 //LC02
         //AQ3
 
     }

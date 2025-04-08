@@ -216,6 +216,7 @@ public class d39_LinkedList_SortingAndProblems {
     }
 
     public ListNode addTwoNumbersInReverseOrderAndReturnAsLinkedList(ListNode A, ListNode B) {
+        // do not create util as it may cause overflow
         ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
         int carry = 0;
