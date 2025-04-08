@@ -35,6 +35,8 @@ public class d39_LinkedList_SortingAndProblems {
         System.out.println(isPalindrome);
         isPalindrome = d39_linkedList_sortingAndProblems.isPalindromeLinkedList(head());
         System.out.println(isPalindrome);
+
+        printALinkedList(d39_linkedList_sortingAndProblems.addTwoNumbersInReverseOrderAndReturnAsLinkedList(head(), head()));
     }
 
     /* Section : ----------------------------------- [ Inputs ] ------------------------------------ */
@@ -211,6 +213,29 @@ public class d39_LinkedList_SortingAndProblems {
         ListNode right = mergeSortLinkedList(head2);
 
         return mergeTwoSortedLinkedList(left, right);
+    }
+
+    public ListNode addTwoNumbersInReverseOrderAndReturnAsLinkedList(ListNode A, ListNode B) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode current = dummyHead;
+        int carry = 0;
+
+        while (A != null || B != null) {
+            int x = (A != null) ? A.val : 0;
+            int y = (B != null) ? B.val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
+            current = current.next;
+            if (A != null) A = A.next;
+            if (B != null) B = B.next;
+        }
+
+        if (carry > 0) {
+            current.next = new ListNode(carry);
+        }
+
+        return dummyHead.next;
     }
 
     public void bruteForce() {
