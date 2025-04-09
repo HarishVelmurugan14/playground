@@ -10,6 +10,7 @@ import java.util.List;
  * @last-modified 02-04-2025
  * @since 02-04-2025
  */
+@SuppressWarnings({"StringTemplateMigration", "StringConcatenationInLoop", "ConstantValue"})
 public class d36_Backtracking {
 
 
@@ -39,9 +40,45 @@ public class d36_Backtracking {
         d36_backtracking.generatePermutations("", "abc");
         d36_backtracking.generatePermutations_listVersion(new ArrayList<>(), list);
 
+        System.out.println(d36_backtracking.generateOneZeroSpecialPattern(3, 3));
+
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public int generateOneZeroSpecialPattern(int A, int B) {
+        return kthGrammar(A, B);
+    }
+
+    public int kthGrammar(int n, int k) {
+        if(n == 1){
+            return 0;
+        }
+        return generateOneZeroSpecialPattern_util("0", n - 1, k);
+    }
+
+    public int generateOneZeroSpecialPattern_util(String p, int upTimes, int B) {
+        if (upTimes == 0) {
+            System.out.println(p);
+            return p.charAt(B-1) - '0';
+        }
+        StringBuilder mod = new StringBuilder();
+        for (int i = 0; i < p.length(); i++) {
+            char current = p.charAt(i);
+            System.out.println(current);
+            if (current == '0') {
+                mod.append("01");
+                // mod = mod + "01";
+            } else {
+                mod.append("10");
+                // mod = mod + "10";
+            }
+        }
+        System.out.println(mod.toString() + " - " + upTimes);
+        upTimes--;
+        return generateOneZeroSpecialPattern_util(mod.toString(), upTimes, B);
+    }
+
 
     public List<String> generateParenthesis(int n) {
         // Complexity : Time : [ O(2^2N)  ]

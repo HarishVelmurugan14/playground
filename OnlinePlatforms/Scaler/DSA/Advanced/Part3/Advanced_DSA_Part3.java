@@ -28,13 +28,18 @@ public class Advanced_DSA_Part3 {
     }
 
     private void BackTracking() {
+
+        /* ------------------------- Day 36 - DSA : Backtracking ------------------------------*/
         d36_Backtracking d36_backtracking = new d36_Backtracking();
-        d36_backtracking.generateParenthesis(3); // LC 22
-        d36_backtracking.generateSubsets_yahnit(new int[]{1, 2, 3}); // LC 78
-        d36_backtracking.generateSubSequence("", "abc");
-        d36_backtracking.generateSubSequence_listVersion(null, null, null);
-        d36_backtracking.generatePermutations_yahnit(new int[]{1, 2, 3}); // LC 46
+
+        d36_backtracking.generatePermutations_yahnit(new int[]{1, 2, 3}); // LC 46 // Q1
         d36_backtracking.generatePermutations("", "abc");
         d36_backtracking.generatePermutations_listVersion(null, null);
+        d36_backtracking.generateParenthesis(3); // LC 22 // Q2
+        d36_backtracking.generateSubsets_yahnit(new int[]{1, 2, 3}); // LC 78 // Q2
+        d36_backtracking.generateSubSequence("", "abc");
+        d36_backtracking.generateSubSequence_listVersion(null, null, null);
+
+        d36_backtracking.generateOneZeroSpecialPattern(3,0);  // AQ2
     }
 }
