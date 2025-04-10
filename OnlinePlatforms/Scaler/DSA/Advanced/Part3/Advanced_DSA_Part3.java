@@ -5,6 +5,7 @@ public class Advanced_DSA_Part3 {
     public void implementations() {
         Searching();
         BackTracking();
+        DoublyLinkedList();
     }
 
     private void Searching() {
@@ -41,5 +42,12 @@ public class Advanced_DSA_Part3 {
         d36_backtracking.generateSubSequence_listVersion(null, null, null);
 
         d36_backtracking.generateOneZeroSpecialPattern(3,0);  // AQ2
+    }
+
+    private void DoublyLinkedList(){
+        /* ------------------------- Day 40 - DSA : Doubly Linked List ------------------------------*/
+        d40_DoublyLinkedList d40_doublyLinkedList = new d40_DoublyLinkedList();
+
+        d40_doublyLinkedList.lruCacheImplementation(); // Q2 // LC146
     }
 }
