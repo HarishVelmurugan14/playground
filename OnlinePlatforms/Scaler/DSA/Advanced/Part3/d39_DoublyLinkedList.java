@@ -10,8 +10,8 @@ import java.util.HashMap;
  * @last-modified 09-04-2025
  * @since 09-04-2025
  */
-@SuppressWarnings("StringTemplateMigration")
-public class d40_DoublyLinkedList {
+@SuppressWarnings({"StringTemplateMigration", "ClassEscapesDefinedScope"})
+public class d39_DoublyLinkedList {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -22,13 +22,120 @@ public class d40_DoublyLinkedList {
 
 
         // Call Stack
-        d40_DoublyLinkedList d40_doublyLinkedList = new d40_DoublyLinkedList();
-        d40_doublyLinkedList.lruCacheImplementation();
-        d40_doublyLinkedList.hardCase();
+        d39_DoublyLinkedList d40_doublyLinkedList = new d39_DoublyLinkedList();
+//        d40_doublyLinkedList.lruCacheImplementation();
+//        d40_doublyLinkedList.hardCase();
 
+        SingleNode head = insertAtHead_Single(null, 8);
+        head = insertAtHead_Single(head, 3);
+        head = insertAtHead_Single(head, 5);
+        head = insertAtHead_Single(head, 5);
+        head = insertAtHead_Single(head, 6);
+//        System.out.println("LOOP STATUS : "+ d40_doublyLinkedList.isThereALoopInLinkedList(head));
+        d40_doublyLinkedList.detectStartNodeOfTheLoopAndBreak(head);
+
+    }
+    /* Section : ----------------------------------- [ Implementation ] ------------------------------------ */
+
+
+    public SingleNode detectStartNodeOfTheLoopAndBreak(SingleNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        SingleNode slow = head;
+        SingleNode fast = head.next;
+
+        // Step 1: Detect loop
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                break;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Step 2: If no loop, return head
+        if (fast == null || fast.next == null || slow != fast) {
+            return head;
+        }
+
+        // Step 3: Find the start of the loop
+        slow = head;
+        fast = fast.next;  // Because fast was one step ahead initially
+        SingleNode prev = null;
+
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // Step 4: Break the loop
+        prev.next = null;
+
+        return head;
+    }
+
+    public SingleNode detectStartNodeOfTheLoop(SingleNode head) {
+
+        if(head == null || head.next == null){
+            return null;
+        }
+        SingleNode slow = head;
+        SingleNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                break;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (fast == null || fast.next == null || slow != fast) {
+            return null;
+        } else {
+            slow = head;
+            fast = fast.next;
+            int pos = 0;
+            while (slow != fast) {
+                slow = slow.next;
+                fast = fast.next;
+                pos++;
+            }
+            return slow;
+        }
+    }
+
+    public boolean isThereALoopInLinkedList(SingleNode head) {
+        // Floyd cycle detection algorithm
+        SingleNode slow = head;
+        SingleNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                return true; // DETECTED
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return false;
     }
 
     /* Section : ----------------------------------- [ Implementation ] ------------------------------------ */
+
+    public static SingleNode insertAtHead_Single(SingleNode A, int B) {
+        SingleNode x = new SingleNode(B);
+        x.next = A;
+        return x;
+    }
+
+    public static void printALinkedList_Single(SingleNode head) {
+        SingleNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
 
     public void lruCacheImplementation() {
         LRUCache lruCache = new LRUCache(3);
@@ -242,6 +349,16 @@ class ListNode {
         this.key = key;
         this.val = data;
         this.prev = null;
+        this.next = null;
+    }
+}
+
+class SingleNode {
+    int val;
+    SingleNode next;
+
+    public SingleNode(int data) {
+        this.val = data;
         this.next = null;
     }
 }

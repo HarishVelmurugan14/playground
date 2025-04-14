@@ -14,7 +14,7 @@ public class Advanced_DSA_Part3 {
 
         d33_maths_combinatoricsAndPrimeNumber.allPrimes(40); // Q2
 
-        /* ------------------------- Day 39 - DSA : Linked List Sorting & Problems ------------------------------*/
+        /* ------------------------- Day 38 - DSA : Linked List Sorting & Problems ------------------------------*/
         d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
 
         d39_linkedList_sortingAndProblems.mergeSortLinkedList(null); // Q1 //LC148
@@ -46,8 +46,11 @@ public class Advanced_DSA_Part3 {
 
     private void DoublyLinkedList(){
         /* ------------------------- Day 40 - DSA : Doubly Linked List ------------------------------*/
-        d40_DoublyLinkedList d40_doublyLinkedList = new d40_DoublyLinkedList();
+        d39_DoublyLinkedList d40_doublyLinkedList = new d39_DoublyLinkedList();
 
         d40_doublyLinkedList.lruCacheImplementation(); // Q2 // LC146
+        d40_doublyLinkedList.isThereALoopInLinkedList(null);
+        d40_doublyLinkedList.detectStartNodeOfTheLoop(null);
+        d40_doublyLinkedList.detectStartNodeOfTheLoopAndBreak(null); // Q3 // LC142
     }
 }

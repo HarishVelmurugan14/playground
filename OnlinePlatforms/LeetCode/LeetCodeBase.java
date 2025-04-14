@@ -43,6 +43,8 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Easy -----------------------------------------
         linkedList.mergeTwoSortedLinkedList(null, null); // LC21
+        linkedList.detectionOfCycles(null); // LC141
+        linkedList.detectStartOfTheCycle(null); // LC142
         linkedList.isPalindrome(null); // LC234
         linkedList.middleNodeOfALinkedList(null); // LC876
 

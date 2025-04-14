@@ -159,4 +159,48 @@ public class LinkedList {
             next = null;
         }
     }
+
+    public boolean detectionOfCycles(ListNode head) {
+        if(head == null || head.next == null){
+            return false;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast != null && fast.next != null){
+            if(slow == fast){
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return false;
+    }
+
+    public ListNode detectStartOfTheCycle(ListNode head) {
+        if(head == null || head.next == null){
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                break;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (fast == null || fast.next == null || slow != fast) {
+            return null;
+        } else {
+            slow = head;
+            fast = fast.next;
+            int pos = 0;
+            while (slow != fast) {
+                slow = slow.next;
+                fast = fast.next;
+                pos++;
+            }
+            return slow;
+        }
+    }
 }
