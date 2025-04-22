@@ -46,11 +46,15 @@ public class Advanced_DSA_Part3 {
 
     private void DoublyLinkedList(){
         /* ------------------------- Day 40 - DSA : Doubly Linked List ------------------------------*/
-        d39_DoublyLinkedList d40_doublyLinkedList = new d39_DoublyLinkedList();
+        d39_DoublyLinkedList d39_doublyLinkedList = new d39_DoublyLinkedList();
 
-        d40_doublyLinkedList.lruCacheImplementation(); // Q2 // LC146
-        d40_doublyLinkedList.isThereALoopInLinkedList(null);
-        d40_doublyLinkedList.detectStartNodeOfTheLoop(null);
-        d40_doublyLinkedList.detectStartNodeOfTheLoopAndBreak(null); // Q3 // LC142
+        d39_doublyLinkedList.lruCacheImplementation(); // Q2 // LC146
+        d39_doublyLinkedList.isThereALoopInLinkedList(null);
+        d39_doublyLinkedList.detectStartNodeOfTheLoop(null);
+        d39_doublyLinkedList.detectStartNodeOfTheLoopAndBreak(null); // Q3 // LC142
+    }
+
+    private void Trees(){
+        /* ------------------------- Day 41 - DSA : Morris Inorder Traversal & LCA ------------------------------*/
     }
 }
