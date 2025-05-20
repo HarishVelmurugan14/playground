@@ -33,6 +33,34 @@ public class d53_Graphs_Introduction {
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
+
+    public int pathInADirectedGraph(int A, int[][] B) {
+        List<List<Integer>> adj = buildAdjacencyListForDirectedGraph(A, B);
+
+        boolean[] visited = new boolean[A + 1];
+
+        int sourceNode = 1;
+
+        return dfsForPathInADirectedGraph(sourceNode, A, adj, visited);
+    }
+
+    public int dfsForPathInADirectedGraph(int node, int targetNode, List<List<Integer>> adj, boolean[] visited) {
+        if (node == targetNode) {
+            return 1;
+        }
+        visited[node] = true;
+
+        for (int neighbour : adj.get(node)) {
+            if (!visited[neighbour]) {
+                // if directly returned other neighbours will not be visited
+                if (dfsForPathInADirectedGraph(neighbour, targetNode, adj, visited) == 1) {
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+
     public List<List<Integer>> buildAdjacencyListForDirectedGraph(int numberOfNodes, int[][] connections) {
         // Complexity : Time : [ O(A) ]
         // Complexity : Space : [ O() ]
