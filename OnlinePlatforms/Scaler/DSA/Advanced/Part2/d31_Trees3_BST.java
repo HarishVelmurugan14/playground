@@ -2,6 +2,9 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part2;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author Harish Velmurugan
  * @last-modified 19-03-2025
@@ -41,6 +44,26 @@ public class d31_Trees3_BST {
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
+    public int maxDepth =0;
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        bfs(root, 0);
+        return maxDepth+1;
+    }
+
+    public void bfs(TreeNode root, int level) {
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        if (left != null) {
+            maxDepth = Math.max(maxDepth, level+1);
+            bfs(left, level + 1);
+        }
+        if(right != null){
+            maxDepth = Math.max(maxDepth, level+1);
+            bfs(right, level+1);
+        }
+    }
+
     public int searchInABST(TreeNode A, int B) {
         /* QUESTION :
         Given a Binary Search Tree A. Check whether there exists a node with value B in the BST.
@@ -64,12 +87,12 @@ public class d31_Trees3_BST {
 
     public boolean isValidBST(TreeNode A, long min, long max) {
         // System.out.println(A + " : "+min + " : "+max + " : "+"IN");
-        if(A == null){
+        if (A == null) {
             return true;
         }
         // System.out.println(A.val + " : "+ min + " : "+ max);
-        if(A.val >= min && A.val <= max){
-            return (isValidBST(A.left, min, (long)(A.val) - 1) && isValidBST(A.right, (long)(A.val) +1, max));
+        if (A.val >= min && A.val <= max) {
+            return (isValidBST(A.left, min, (long) (A.val) - 1) && isValidBST(A.right, (long) (A.val) + 1, max));
         }
         return false;
     }

@@ -146,5 +146,7 @@ public class Advanced_DSA_Part2 {
         d31_trees3_bst.sortedArrayToBST(new int[]{1,3,5,6,7,8}); // Q2 // LC108
         d31_trees3_bst.searchInABST(null, 3); // Q4 // LC700
 
+        d31_trees3_bst.maxDepth(null); //LC104
+
     }
 }
