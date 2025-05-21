@@ -8,6 +8,12 @@ public class Advanced_DSA_Part4 {
     }
 
     private void DynamicProgramming(){
+        /* ------------------------- Day 49 - DSA : DP 1 | One Dimensional ------------------------------*/
+        d49_DP_OneDimensional d49_DP_OneDimensional = new d49_DP_OneDimensional();
+
+        d49_DP_OneDimensional.climbStairs_topDown(7);
+        d49_DP_OneDimensional.climbStairs_bottomUp(7); //Q1 //Optimal
+
         /* ------------------------- Day 50 - DSA : DP 2 | Two Dimensional ------------------------------*/
         d50_DP_TwoDimensional d50DpTwoDimensional = new d50_DP_TwoDimensional();
 
