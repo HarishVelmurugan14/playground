@@ -3,7 +3,15 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 @SuppressWarnings("AccessStaticViaInstance")
 public class Advanced_DSA_Part4 {
     public void implementations() {
+        DynamicProgramming();
         Graphs();
+    }
+
+    private void DynamicProgramming(){
+        /* ------------------------- Day 50 - DSA : DP 2 | Two Dimensional ------------------------------*/
+        d50_DP_TwoDimensional d50DpTwoDimensional = new d50_DP_TwoDimensional();
+
+        d50DpTwoDimensional.uniquePathsWithObstacles(null); //Q1
     }
 
     private void Graphs() {
