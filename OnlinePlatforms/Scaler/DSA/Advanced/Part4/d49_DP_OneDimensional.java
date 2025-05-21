@@ -3,6 +3,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 import Resources.Utilities.PrintHelper;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * @author Harish Velmurugan
@@ -28,6 +29,27 @@ public class d49_DP_OneDimensional {
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public void fibonacci_topdown() {
+        Scanner scanner = new Scanner(System.in);
+        int userInput = scanner.nextInt();
+        int A = 4;
+        int[] memory = new int[A+1];
+        Arrays.fill(memory, -1);
+        System.out.println(fib_topDown(userInput, memory));
+    }
+
+    public int fib_topDown(int A, int[] memory) {
+        if (A == 1 || A == 2) {
+            return 1;
+        }
+        if(memory[A] != -1){
+            return memory[A];
+        }
+
+        memory[A] = fib_topDown(A - 1, memory) + fib_topDown(A - 2, memory);
+        return memory[A];
+    }
 
     public int MOD = 1_000_000_007;
     public int climbStairs_bottomUp(int A) {

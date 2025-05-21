@@ -12,7 +12,8 @@ public class Advanced_DSA_Part4 {
         d49_DP_OneDimensional d49_DP_OneDimensional = new d49_DP_OneDimensional();
 
         d49_DP_OneDimensional.climbStairs_topDown(7);
-        d49_DP_OneDimensional.climbStairs_bottomUp(7); //Q1 //Optimal
+        d49_DP_OneDimensional.climbStairs_bottomUp(7); //Q1 //Optimal //LC40
+        d49_DP_OneDimensional.fibonacci_topdown(); //Q3 //LC509
 
         /* ------------------------- Day 50 - DSA : DP 2 | Two Dimensional ------------------------------*/
         d50_DP_TwoDimensional d50DpTwoDimensional = new d50_DP_TwoDimensional();
