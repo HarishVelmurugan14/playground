@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 /**
  * @author Harish Velmurugan
- * @since 21-05-2025
  * @last-modified 21-05-2025
+ * @since 21-05-2025
  */
 public class d49_DP_OneDimensional {
 
     private final PrintHelper printHelper = new PrintHelper();
+    public int MOD = 1_000_000_007;
 
+    /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
     public static void main(String[] args) {
 
@@ -26,16 +28,41 @@ public class d49_DP_OneDimensional {
 
         // Call Stack
         d49_DP_OneDimensional d49_DP_OneDimensional = new d49_DP_OneDimensional();
+        System.out.println(d49_DP_OneDimensional.minimumSquares(13));
+        System.out.println(d49_DP_OneDimensional.minimumSquares(5));
+
     }
 
-    /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+    public int minimumSquares(int A) {
+        int[] memory = new int[A+1];
+        Arrays.fill(memory, -1);
+        return minimumSquares(A, memory);
+    }
+
+    public int minimumSquares(int A, int[] memory) {
+        if (A <= 0) {
+            return 0;
+        }
+        int minCount = Integer.MAX_VALUE;
+        for (int i = 1; i * i <= A; i++) {
+            int nextNum = A - (i * i);
+            if(memory[nextNum] != -1){
+                return memory[nextNum];
+            }
+            memory[nextNum] = minimumSquares(nextNum, memory) + 1;
+            // In case of 12 there are 3 set of possibilities for minimum square,
+            // so only the minimum one need to be stored in dp not all
+            minCount = Math.min(minCount, memory[nextNum]);
+        }
+        return minCount;
+    }
 
     public void fibonacci_topdown() {
         //NOTE : HK1002
         Scanner scanner = new Scanner(System.in);
         int userInput = scanner.nextInt();
         int A = 4;
-        int[] memory = new int[A+1];
+        int[] memory = new int[A + 1];
         Arrays.fill(memory, -1);
         System.out.println(fib_topDown(userInput, memory));
     }
@@ -44,7 +71,7 @@ public class d49_DP_OneDimensional {
         if (A == 1 || A == 2) {
             return 1;
         }
-        if(memory[A] != -1){
+        if (memory[A] != -1) {
             return memory[A];
         }
 
@@ -52,7 +79,6 @@ public class d49_DP_OneDimensional {
         return memory[A];
     }
 
-    public int MOD = 1_000_000_007;
     public int climbStairs_bottomUp(int A) {
         //NOTE : HK1001
         if (A == 1 || A == 2) return A;
@@ -72,19 +98,19 @@ public class d49_DP_OneDimensional {
 
     public int climbStairs_topDown(int A) {
         int MOD = 1000000007;
-        int[] memory = new int[A+1];
+        int[] memory = new int[A + 1];
         Arrays.fill(memory, -1);
         return climbStairs(A, MOD, memory);
     }
 
     public int climbStairs(int A, int MOD, int[] memory) {
-        if(A == 1 || A==2){
+        if (A == 1 || A == 2) {
             return A;
         }
-        if(memory[A] != -1){
+        if (memory[A] != -1) {
             return memory[A];
         }
-        memory[A] = (int)(((long)climbStairs(A - 1, MOD, memory) + (long)climbStairs(A - 2, MOD, memory)) % MOD);
+        memory[A] = (int) (((long) climbStairs(A - 1, MOD, memory) + (long) climbStairs(A - 2, MOD, memory)) % MOD);
         return memory[A];
     }
 
