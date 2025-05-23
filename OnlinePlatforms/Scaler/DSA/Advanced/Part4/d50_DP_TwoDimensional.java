@@ -1,6 +1,7 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 
 import Resources.Utilities.PrintHelper;
+
 import java.util.Arrays;
 
 /**
@@ -11,6 +12,7 @@ import java.util.Arrays;
 public class d50_DP_TwoDimensional {
 
     private final PrintHelper printHelper = new PrintHelper();
+    public int MOD = 1_000_000_007;
 
     public static void main(String[] args) {
 
@@ -24,9 +26,48 @@ public class d50_DP_TwoDimensional {
         int[][] y = new int[][]{{28}, {10}};
         d50DpTwoDimensional.maxSum(x);
         d50DpTwoDimensional.maxSum(y);
+        System.out.println(d50DpTwoDimensional.nDigitNumbers(2, 2));
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public int nDigitNumbers(int A, int B) {
+        // NOTE : HK1004
+        // Complexity : Time : [ O(A*B) ]
+        int[][] memory = new int[A + 1][B + 1];
+
+        for (int i = 0; i <= A; i++) {
+            for (int j = 0; j <= B; j++) {
+                memory[i][j] = -1;
+            }
+        }
+        return nDigitNumbers(A, B, memory);
+    }
+
+    public int nDigitNumbers(int pos, int sum, int[][] memory) {
+        if (pos == 1) {
+            if (sum >= 1 && sum <= 9) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        if (sum <= 0) return 0;
+
+        if (memory[pos][sum] != -1) {
+            return memory[pos][sum];
+        }
+
+        int count = 0;
+        for (int i = 0; i <= 9; i++) {
+            if (sum >= i) {
+                count = (count + nDigitNumbers(pos - 1, sum - i, memory)) % MOD;
+            }
+        }
+        memory[pos][sum] = count;
+        return memory[pos][sum];
+    }
+
 
     public int maxSum(int[][] A) {
         // NOTE : HK1003
@@ -43,7 +84,7 @@ public class d50_DP_TwoDimensional {
         if (col < 0) return 0;
         if (col == 0) return Math.max(A[0][0], A[1][0]);
 
-        if(memory[col] != -1){
+        if (memory[col] != -1) {
             return memory[col];
         }
 
