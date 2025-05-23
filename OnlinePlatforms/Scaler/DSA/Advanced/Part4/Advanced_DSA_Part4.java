@@ -1,6 +1,6 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 
-@SuppressWarnings("AccessStaticViaInstance")
+@SuppressWarnings({"AccessStaticViaInstance", "DataFlowIssue"})
 public class Advanced_DSA_Part4 {
     public void implementations() {
         DynamicProgramming();
@@ -20,6 +20,7 @@ public class Advanced_DSA_Part4 {
         d50_DP_TwoDimensional d50DpTwoDimensional = new d50_DP_TwoDimensional();
 
         d50DpTwoDimensional.uniquePathsWithObstacles(null); //Q1
+        d50DpTwoDimensional.maxSum(null); //Q2
     }
 
     private void Graphs() {
