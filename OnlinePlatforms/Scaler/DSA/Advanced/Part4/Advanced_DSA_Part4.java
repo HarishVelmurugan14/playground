@@ -20,6 +20,7 @@ public class Advanced_DSA_Part4 {
         d50_DP_TwoDimensional d50DpTwoDimensional = new d50_DP_TwoDimensional();
 
         d50DpTwoDimensional.uniquePathsWithObstacles(null); //Q1
+        d50DpTwoDimensional.numBSTrees(3); //Q2 //LC96
         d50DpTwoDimensional.maxSum(null); //Q3
         d50DpTwoDimensional.nDigitNumbers(2,2); //Q4
     }

@@ -27,9 +27,32 @@ public class d50_DP_TwoDimensional {
         d50DpTwoDimensional.maxSum(x);
         d50DpTwoDimensional.maxSum(y);
         System.out.println(d50DpTwoDimensional.nDigitNumbers(2, 2));
+        System.out.println(d50DpTwoDimensional.numBSTrees(3));
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+    public int numBSTrees(int A) {
+        //NOTE : HK1005 Catalan Number
+        // Time Complexity : #number of States * Work done in each state
+        // A* (Iteration of A) => O[A^2]
+        int[] memory = new int[A + 1];
+        Arrays.fill(memory, -1);
+        return numBSTrees(A, memory);
+    }
+
+    public int numBSTrees(int A, int[] memory) {
+        if (A == 0 || A == 1) return 1;
+        if(memory[A] != -1){
+            return memory[A];
+        }
+
+        int count = 0;
+        for (int i = 0; i < A; i++) {
+            count += (numBSTrees(i, memory) * numBSTrees(A - (i + 1), memory));
+        }
+        memory[A] = count;
+        return memory[A];
+    }
 
     public int nDigitNumbers(int A, int B) {
         // NOTE : HK1004
