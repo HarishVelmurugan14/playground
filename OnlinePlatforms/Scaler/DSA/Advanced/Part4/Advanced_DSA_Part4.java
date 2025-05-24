@@ -23,6 +23,12 @@ public class Advanced_DSA_Part4 {
         d50DpTwoDimensional.numBSTrees(3); //Q2 //LC96
         d50DpTwoDimensional.maxSum(null); //Q3
         d50DpTwoDimensional.nDigitNumbers(2,2); //Q4
+
+        /* ------------------------- Day 50 - DSA : DP 2 | Two Dimensional ------------------------------*/
+        d51_DP_Knapsack d51DpKnapsack = new d51_DP_Knapsack();
+
+        d51DpKnapsack.maxValueForKnapsack(null, null, 50); //Q1
+        //https://leetcode.com/problems/profitable-schemes/
     }
 
     private void Graphs() {
