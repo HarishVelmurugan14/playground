@@ -2,7 +2,12 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author Harish Velmurugan
@@ -26,6 +31,57 @@ public class d51_DP_Knapsack {
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+    public int fractionalKnapsack(int[] A, int[] B, int C) {
+        // A: values, B: weights, C: capacity
+
+        int N = A.length;
+        List<double[]> items = new ArrayList<>();
+
+        for (int i = 0; i < N; i++) {
+            items.add(new double[]{(double) A[i], (double) B[i], (double) A[i] / B[i]});
+        }
+
+        Collections.sort(items, new Comparator<double[]>() {
+            @Override
+            public int compare(double[] item1, double[] item2) {
+                if (item2[2] > item1[2]) {
+                    return 1;
+                } else if (item2[2] < item1[2]) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
+        double totalValue = 0.0;
+        double remainingCapacity = (double) C;
+
+        for (double[] item : items) {
+            if (remainingCapacity <= 0) {
+                break;
+            }
+
+            double itemValue = item[0];
+            double itemWeight = item[1];
+
+            if (itemWeight <= remainingCapacity) {
+                totalValue += itemValue;
+                remainingCapacity -= itemWeight;
+            } else {
+                double fraction = remainingCapacity / itemWeight;
+                totalValue += (fraction * itemValue);
+                remainingCapacity = 0;
+            }
+        }
+
+        // --- MODIFICATION STARTS HERE ---
+        // Add a small epsilon to counter floating-point inaccuracies before flooring
+        // A common epsilon value is 1e-9 or 1e-10
+        double epsilon = 1e-9;
+        return (int) Math.floor(totalValue * 100 + epsilon);
+    }
+
     public int unboundedKnapsackMapApproach(int A, int[] B, int[] C) {
         HashMap<String, Integer> memory = new HashMap<>();
         return unboundedKnapsackMapApproach(A, B.length - 1, B, C, memory);
@@ -67,7 +123,6 @@ public class d51_DP_Knapsack {
         }
         return unboundedKnapsack(A, B.length - 1, B, C, memory);
     }
-
 
     public int unboundedKnapsack(int capacity, int index, int[] values, int[] weights, int[][] memory) {
         if (index == 0) {

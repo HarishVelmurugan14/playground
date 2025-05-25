@@ -28,7 +28,8 @@ public class Advanced_DSA_Part4 {
         d51_DP_Knapsack d51DpKnapsack = new d51_DP_Knapsack();
 
         d51DpKnapsack.maxValueForKnapsack(null, null, 50); //Q1
-        //https://leetcode.com/problems/profitable-schemes/
+        d51DpKnapsack.unboundedKnapsack(1, null, null); //Q2 //LC322
+        d51DpKnapsack.fractionalKnapsack(null, null, 1); //Q3
     }
 
     private void Graphs() {
