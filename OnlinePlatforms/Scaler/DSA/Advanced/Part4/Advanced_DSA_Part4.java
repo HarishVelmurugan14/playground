@@ -24,12 +24,17 @@ public class Advanced_DSA_Part4 {
         d50DpTwoDimensional.maxSum(null); //Q3
         d50DpTwoDimensional.nDigitNumbers(2,2); //Q4
 
-        /* ------------------------- Day 50 - DSA : DP 2 | Two Dimensional ------------------------------*/
+        /* ------------------------- Day 51 - DSA : DP 3 | Knapsack ------------------------------*/
         d51_DP_Knapsack d51DpKnapsack = new d51_DP_Knapsack();
 
         d51DpKnapsack.maxValueForKnapsack(null, null, 50); //Q1
         d51DpKnapsack.unboundedKnapsack(1, null, null); //Q2 //LC322
-        d51DpKnapsack.fractionalKnapsack(null, null, 1); //Q3
+        d51DpKnapsack.fractionalKnapsack(null, null, 1); //Q3 // GEMINI CODE NOT PRACTISED
+
+        /* ------------------------- Day 52 - DSA : DP 4 | Knapsack Interview Problems ------------------------------*/
+        d52_DP_KnapsackApplications d52DpKnapsackApplications = new d52_DP_KnapsackApplications();
+
+        d52DpKnapsackApplications.maxProfitFromRodCutting(null); //Q1
     }
 
     private void Graphs() {
