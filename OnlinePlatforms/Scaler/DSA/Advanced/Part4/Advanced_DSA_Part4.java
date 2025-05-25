@@ -7,7 +7,7 @@ public class Advanced_DSA_Part4 {
         Graphs();
     }
 
-    private void DynamicProgramming(){
+    private void DynamicProgramming() {
         /* ------------------------- Day 49 - DSA : DP 1 | One Dimensional ------------------------------*/
         d49_DP_OneDimensional d49_DP_OneDimensional = new d49_DP_OneDimensional();
 
@@ -22,7 +22,7 @@ public class Advanced_DSA_Part4 {
         d50DpTwoDimensional.uniquePathsWithObstacles(null); //Q1
         d50DpTwoDimensional.numBSTrees(3); //Q2 //LC96
         d50DpTwoDimensional.maxSum(null); //Q3
-        d50DpTwoDimensional.nDigitNumbers(2,2); //Q4
+        d50DpTwoDimensional.nDigitNumbers(2, 2); //Q4
 
         /* ------------------------- Day 51 - DSA : DP 3 | Knapsack ------------------------------*/
         d51_DP_Knapsack d51DpKnapsack = new d51_DP_Knapsack();
@@ -35,6 +35,8 @@ public class Advanced_DSA_Part4 {
         d52_DP_KnapsackApplications d52DpKnapsackApplications = new d52_DP_KnapsackApplications();
 
         d52DpKnapsackApplications.maxProfitFromRodCutting(null); //Q1
+        d52DpKnapsackApplications.coinchange2(null, 4); //Q2 //LC518
+        d52DpKnapsackApplications.knapsack01BottomUp(null, null, 2); //Q3
     }
 
     private void Graphs() {
