@@ -3,8 +3,16 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 @SuppressWarnings({"AccessStaticViaInstance", "DataFlowIssue"})
 public class Advanced_DSA_Part4 {
     public void implementations() {
+        Heaps();
         DynamicProgramming();
         Graphs();
+    }
+
+    private void Heaps() {
+        /* ------------------------- Day 44 - DSA : Heaps | Introduction ------------------------------*/
+        d44_Heaps_Introduction d44HeapsIntroduction = new d44_Heaps_Introduction();
+        d44HeapsIntroduction.connectingRopesPQ(new int[]{1, 2, 3, 4, 5}); //Q1 //LC1167
+        d44HeapsIntroduction.connectingRopesManual(new int[]{1, 2, 3, 4, 5});
     }
 
     private void DynamicProgramming() {
