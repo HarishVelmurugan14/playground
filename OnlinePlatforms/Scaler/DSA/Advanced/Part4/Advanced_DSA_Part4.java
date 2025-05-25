@@ -13,6 +13,8 @@ public class Advanced_DSA_Part4 {
         d44_Heaps_Introduction d44HeapsIntroduction = new d44_Heaps_Introduction();
         d44HeapsIntroduction.connectingRopesPQ(new int[]{1, 2, 3, 4, 5}); //Q1 //LC1167
         d44HeapsIntroduction.connectingRopesManual(new int[]{1, 2, 3, 4, 5});
+        d44HeapsIntroduction.buildMinHeap(null); //Q2
+        d44HeapsIntroduction.solveQueries(null); //Q3
     }
 
     private void DynamicProgramming() {

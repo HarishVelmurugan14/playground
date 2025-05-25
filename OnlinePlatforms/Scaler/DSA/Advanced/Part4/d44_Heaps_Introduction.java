@@ -2,6 +2,7 @@ package OnlinePlatforms.Scaler.DSA.Advanced.Part4;
 
 import Resources.Utilities.PrintHelper;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -24,6 +25,32 @@ public class d44_Heaps_Introduction {
 
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+    public void buildMinHeap(int[] A){
+        MinHeapManual.buildMinHeap(A);
+    }
+
+    public int[] solveQueries(int[][] A) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int[] row: A){
+            int P = row[0];
+            int Q = row[1];
+            if(P == 1){
+                if(minHeap.size() > 0){
+                    list.add(minHeap.poll());
+                } else {
+                    list.add(-1);
+                }
+            }else{
+                minHeap.add(Q);
+            }
+        }
+        int[] res = new int[list.size()];
+        for(int i = 0; i< res.length; i++){
+            res[i] = list.get(i);
+        }
+        return res;
+    }
 
     public int connectingRopesPQ(int[] ropes) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
