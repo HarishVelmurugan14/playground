@@ -1,7 +1,5 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
-import OnlinePlatforms.Scaler.DSA.Feb.Week2.d19_Sort_QuickSortAndComparator;
-
 import java.util.ArrayList;
 
 @SuppressWarnings({"DataFlowIssue", "ExtractMethodRecommender"})
