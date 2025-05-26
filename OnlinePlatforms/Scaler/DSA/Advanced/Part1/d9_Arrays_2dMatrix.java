@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 14-01-2025
  * @since 14-01-2025
  */
-public class TwoDMatrices_1 {
+public class d9_Arrays_2dMatrix {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -18,7 +18,7 @@ public class TwoDMatrices_1 {
 
 
         // Call Stack
-        TwoDMatrices_1 twoDMatrices = new TwoDMatrices_1();
+        d9_Arrays_2dMatrix twoDMatrices = new d9_Arrays_2dMatrix();
 //        int[][] matrixArray = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 //        int[][] matrixArray = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}, {17, 18, 19, 20}};
         int[][] matrixArray = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};

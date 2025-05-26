@@ -1,6 +1,6 @@
 package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
-import OnlinePlatforms.Scaler.DSA.Feb.Week2.Sorting2QuickSortComparatorProblems;
+import OnlinePlatforms.Scaler.DSA.Feb.Week2.d19_Sort_QuickSortAndComparator;
 
 import java.util.ArrayList;
 
@@ -159,7 +159,7 @@ public class Advanced_DSA_Part1 {
 
     private void Sorting() {
         /* ------------------------------------------ Quick Sort & Comparator ----------------------------------------*/
-        Sorting2QuickSortComparatorProblems sorting2QuickSortCmp = new Sorting2QuickSortComparatorProblems();
+        d19_Sort_QuickSortAndComparator sorting2QuickSortCmp = new d19_Sort_QuickSortAndComparator();
 
         sorting2QuickSortCmp.sortByColor();
         sorting2QuickSortCmp.quickSort(new int[]{}, 0, 10);

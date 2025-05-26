@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Jan.Lectures.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part0;
 
 import Resources.Utilities.PrintHelper;
 
@@ -7,7 +7,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 15-01-2025
  * @since 15-01-2025
  */
-public class MemoryManagement_2 {
+public class d7_MemoryManagement {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -18,7 +18,7 @@ public class MemoryManagement_2 {
 
 
         // Call Stack
-        MemoryManagement_2 memoryManagement = new MemoryManagement_2();
+        d7_MemoryManagement memoryManagement = new d7_MemoryManagement();
 
         memoryManagement.argumentPassedAsValue_main();
         memoryManagement.argumentPassedAsReference_main();

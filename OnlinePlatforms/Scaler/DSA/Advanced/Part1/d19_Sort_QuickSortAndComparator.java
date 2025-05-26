@@ -1,16 +1,13 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * @author Harish Velmurugan
  * @last-modified 14-02-2025
  * @since 14-02-2025
  */
-public class Sorting2QuickSortComparatorProblems {
+public class d19_Sort_QuickSortAndComparator {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -21,7 +18,7 @@ public class Sorting2QuickSortComparatorProblems {
 
 
         // Call Stack
-        Sorting2QuickSortComparatorProblems sorting1CountSortMergeSort2 = new Sorting2QuickSortComparatorProblems();
+        d19_Sort_QuickSortAndComparator sorting1CountSortMergeSort2 = new d19_Sort_QuickSortAndComparator();
 //        int[] A = {54, 26, 93, 17, 77, 31, 44, 55, 20};
         int[] A = {-58, 32, 10, 42, 82, -12, 88, 17, 35, 8, -72, -32, -48, 76, -48, -8, -69, -1, 54, 52, 37, -1, 95, 0, -32, 38, 62, 68, 68, -71, 62, -58, -25, 55, -11, 2};
 //        sorting1CountSortMergeSort2.pivotPartition(A, 1, A.length - 1);

@@ -1,4 +1,4 @@
-package OnlinePlatforms.Scaler.DSA.Feb.Week2;
+package OnlinePlatforms.Scaler.DSA.Advanced.Part1;
 
 import Resources.Utilities.PrintHelper;
 
@@ -8,7 +8,7 @@ import Resources.Utilities.PrintHelper;
  * @last-modified 12-02-2025
  * @since 12-02-2025
  */
-public class Sorting1CountSortMergeSort_2 {
+public class d18_Sort_CountMergeSort {
 
 
     private final PrintHelper printHelper = new PrintHelper();
@@ -19,7 +19,7 @@ public class Sorting1CountSortMergeSort_2 {
 
 
         // Call Stack
-        Sorting1CountSortMergeSort_2 sorting1CountSortMergeSort2 = new Sorting1CountSortMergeSort_2();
+        d18_Sort_CountMergeSort sorting1CountSortMergeSort2 = new d18_Sort_CountMergeSort();
         sorting1CountSortMergeSort2.findTheSmallestNumberByRearrangingTheDigits();
         sorting1CountSortMergeSort2.mergeTwoSortedArrays();
         sorting1CountSortMergeSort2.mergeContiguousSortedSubArrays();
