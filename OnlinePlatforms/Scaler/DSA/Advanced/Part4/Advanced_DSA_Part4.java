@@ -15,6 +15,12 @@ public class Advanced_DSA_Part4 {
         d44HeapsIntroduction.connectingRopesManual(new int[]{1, 2, 3, 4, 5});
         d44HeapsIntroduction.buildMinHeap(null); //Q2
         d44HeapsIntroduction.solveQueries(null); //Q3
+
+        /* ------------------------- Day 45 - DSA : Heaps | Greedy ------------------------------*/
+        d45_Heaps_SortAndGreedy d45HeapsSortAndGreedy = new d45_Heaps_SortAndGreedy();
+        d45HeapsSortAndGreedy.expectedDeliveryTime(null); //Q1
+        d45HeapsSortAndGreedy.medianRunningArray(); //LC295
+        d45HeapsSortAndGreedy.maxJobs(new int[]{1, 5, 7, 1}, new int[]{7, 8, 8, 8}); //Q2
     }
 
     private void DynamicProgramming() {

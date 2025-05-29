@@ -2,6 +2,7 @@ package OnlinePlatforms.LeetCode;
 
 import OnlinePlatforms.LeetCode.Topics.ArraysAndHashing;
 import OnlinePlatforms.LeetCode.Topics.BackTracking;
+import OnlinePlatforms.LeetCode.Topics.Heaps;
 import OnlinePlatforms.LeetCode.Topics.LinkedList;
 
 @SuppressWarnings("SpellCheckingInspection")
@@ -69,6 +70,19 @@ public class LeetCodeBase {
         backTracking.generateSubSequence("", "abc"); // LC78
 
         // ---------------------------------------- Hard -----------------------------------------
+    }
+
+    private static void Heaps() {
+        Heaps heaps = new Heaps();
+
+        // ---------------------------------------- Easy ------------------------------------------
+
+
+        // ---------------------------------------- Medium -----------------------------------------
+
+
+        // ---------------------------------------- Hard -------------------------------------------
+        heaps.medianRunningArray(); //LC295
     }
 
 }
