@@ -20,6 +20,10 @@ public class Heaps {
         System.out.println(m.findMedian());
     }
 
+    public void kThLargestElement(){
+        KthLargest kthLargest = new KthLargest(1, null);
+    }
+
     public ListNode mergeKLists(ArrayList<ListNode> a) {
         PriorityQueue<ListNode> minHeap = new PriorityQueue<>((c, b) -> c.val - b.val);
 
@@ -111,3 +115,31 @@ class ListNode {
         this.next = null;
     }
 }
+class KthLargest {
+    private PriorityQueue<Integer> minHeap;
+    private int k;
+
+    // Constructor to initialize k and the initial stream
+    public KthLargest(int k, int[] nums) {
+        this.k = k;
+        minHeap = new PriorityQueue<>(); // Min-heap stores top k largest elements
+
+        for (int num : nums) {
+            add(num); // Use add to build the heap respecting size limit
+        }
+    }
+
+    // Adds a new score and returns the kth largest
+    public int add(int val) {
+        minHeap.offer(val);
+
+        // If size exceeds k, remove smallest to keep only top k elements
+        if (minHeap.size() > k) {
+            minHeap.poll();
+        }
+
+        // Top of the heap is the kth largest
+        return minHeap.peek();
+    }
+}
+

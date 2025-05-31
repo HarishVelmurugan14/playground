@@ -4,6 +4,7 @@ import Resources.Utilities.PrintHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
@@ -27,6 +28,24 @@ public class d46_Heaps_LabSessions {
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
+    public int[] aThLargestElement(int A, int[] B) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
+        int n = B.length;
+        int[] res = new int[n];
+        Arrays.fill(res, -1);
+        for (int i = 0; i < n; i++) {
+            maxHeap.add(B[i]);
+            if (i >= A - 1) {
+                if (maxHeap.size() > A) {
+                    maxHeap.poll();
+                }
+                int min = maxHeap.peek();
+                res[i] = min;
+            }
+        }
+        return res;
+    }
+
     public int distributeCandys(int[] A) {
         int n = A.length;
         int candies = 0;
@@ -38,13 +57,13 @@ public class d46_Heaps_LabSessions {
             }
         }
 
-        for (int i = n-2; i >= 0; i--) {
+        for (int i = n - 2; i >= 0; i--) {
             if (A[i] > A[i + 1]) {
                 candy[i] = Math.max(candy[i + 1] + 1, candy[i]);
             }
         }
 
-        for(int i=0; i<n; i++){
+        for (int i = 0; i < n; i++) {
             candies += candy[i];
         }
         return candies;
