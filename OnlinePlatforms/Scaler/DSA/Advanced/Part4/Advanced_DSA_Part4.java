@@ -21,6 +21,11 @@ public class Advanced_DSA_Part4 {
         d45HeapsSortAndGreedy.expectedDeliveryTime(null); //Q1
         d45HeapsSortAndGreedy.medianRunningArray(); //LC295
         d45HeapsSortAndGreedy.maxJobs(new int[]{1, 5, 7, 1}, new int[]{7, 8, 8, 8}); //Q2
+
+        /* ------------------------- Day 46 - DSA : Heaps | Lab Sessions ------------------------------*/
+        d46_Heaps_LabSessions d46HeapsLabSessions = new d46_Heaps_LabSessions();
+        d46HeapsLabSessions.mergeKLists(null); //Q2 //LC23
+
     }
 
     private void DynamicProgramming() {
