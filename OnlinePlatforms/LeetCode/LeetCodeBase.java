@@ -84,6 +84,7 @@ public class LeetCodeBase {
         // ---------------------------------------- Hard -------------------------------------------
         heaps.medianRunningArray(); //LC295
         heaps.mergeKLists(null); //LC23
+        heaps.distributeCandys(null); //LC135
     }
 
 }

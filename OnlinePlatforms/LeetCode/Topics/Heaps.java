@@ -1,6 +1,7 @@
 package OnlinePlatforms.LeetCode.Topics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
@@ -39,6 +40,29 @@ public class Heaps {
             tail = tail.next;
         }
         return dummyHead.next;
+    }
+
+    public int distributeCandys(int[] A) {
+        int n = A.length;
+        int candies = 0;
+        int[] candy = new int[A.length];
+        Arrays.fill(candy, 1);
+        for (int i = 1; i < n; i++) {
+            if (A[i] > A[i - 1]) {
+                candy[i] = candy[i - 1] + 1;
+            }
+        }
+
+        for (int i = n-2; i >= 0; i--) {
+            if (A[i] > A[i + 1]) {
+                candy[i] = Math.max(candy[i + 1] + 1, candy[i]);
+            }
+        }
+
+        for(int i=0; i<n; i++){
+            candies += candy[i];
+        }
+        return candies;
     }
 }
 

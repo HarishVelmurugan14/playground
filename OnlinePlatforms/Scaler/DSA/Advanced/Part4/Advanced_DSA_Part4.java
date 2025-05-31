@@ -25,6 +25,7 @@ public class Advanced_DSA_Part4 {
         /* ------------------------- Day 46 - DSA : Heaps | Lab Sessions ------------------------------*/
         d46_Heaps_LabSessions d46HeapsLabSessions = new d46_Heaps_LabSessions();
         d46HeapsLabSessions.mergeKLists(null); //Q2 //LC23
+        d46HeapsLabSessions.distributeCandys(null); //Q4 //LC135
 
     }
 
