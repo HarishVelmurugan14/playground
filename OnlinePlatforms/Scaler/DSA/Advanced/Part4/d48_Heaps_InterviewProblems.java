@@ -30,6 +30,26 @@ public class d48_Heaps_InterviewProblems {
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
+    public int[] kPlacesApart(int[] A, int places) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        int[] res = new int[A.length];
+
+        for (int i = 0; i <= places && i < A.length; i++) {
+            minHeap.add(A[i]);
+        }
+
+        int idx = 0;
+        for (int i = places + 1; i < A.length; i++) {
+            res[idx++] = minHeap.poll();
+            minHeap.add(A[i]);
+        }
+
+        while (!minHeap.isEmpty()) {
+            res[idx++] = minHeap.poll();
+        }
+        return res;
+    }
+
     public int minimumMeetingRoomsRequired(int numberOfMeetings, int[][] meetingInfo) {
         MeetingTime[] meeting = new MeetingTime[numberOfMeetings];
         for (int i = 0; i < numberOfMeetings; i++) {
@@ -46,7 +66,7 @@ public class d48_Heaps_InterviewProblems {
             int currentEnd = meeting[i].end;
             minHeap.add(currentEnd);
 
-            if(!minHeap.isEmpty() && currentStart >= minHeap.peek()){
+            if (!minHeap.isEmpty() && currentStart >= minHeap.peek()) {
                 minHeap.poll();
             } else {
                 meetingRooms++;

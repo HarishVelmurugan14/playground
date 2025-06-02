@@ -34,7 +34,7 @@ public class Advanced_DSA_Part4 {
         d48HeapsInterviewProblems.shaggySpecialIndexMinimumDistance(null); //Q1
         d48HeapsInterviewProblems.containsNearbyDuplicate(null,3); //LC219
         d48HeapsInterviewProblems.minimumMeetingRoomsRequired(3, null); //Q3 //LC253
-
+        d48HeapsInterviewProblems.kPlacesApart(null, 3); //Q4
 
     }
 
