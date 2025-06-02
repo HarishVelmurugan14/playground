@@ -24,8 +24,16 @@ public class Advanced_DSA_Part4 {
 
         /* ------------------------- Day 46 - DSA : Heaps | Lab Sessions ------------------------------*/
         d46_Heaps_LabSessions d46HeapsLabSessions = new d46_Heaps_LabSessions();
+        d46HeapsLabSessions.distributeCandys(null); //Q1 //LC135
         d46HeapsLabSessions.mergeKLists(null); //Q2 //LC23
-        d46HeapsLabSessions.distributeCandys(null); //Q4 //LC135
+        d46HeapsLabSessions.aThLargestElement(1, null); //Q3
+        d46HeapsLabSessions.flipkartInventoryManagement(null, null); //Q4
+
+        /* ------------------------- Day 46 - DSA : Heaps | Interview Problems ------------------------------*/
+        d48_Heaps_InterviewProblems d48HeapsInterviewProblems = new d48_Heaps_InterviewProblems();
+        d48HeapsInterviewProblems.shaggySpecialIndexMinimumDistance(null); //Q1
+        d48HeapsInterviewProblems.containsNearbyDuplicate(null,3); //LC219
+
 
     }
 

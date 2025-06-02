@@ -4,7 +4,7 @@ import Resources.Utilities.PrintHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -27,6 +27,32 @@ public class d46_Heaps_LabSessions {
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+
+    public int flipkartInventoryManagement(int[] A, int[] B) {
+        long MOD = 1_000_000_007L;
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        int n = A.length;
+        Item[] items = new Item[n];
+        for (int i = 0; i < n; i++) {
+            items[i] = new Item(A[i], B[i]);
+        }
+        Arrays.sort(items, Comparator.comparingInt(item -> item.expiry));
+
+        for (Item item : items) {
+            minHeap.add(item.profit);
+            if (minHeap.size() > item.expiry) {
+                minHeap.poll();
+            }
+        }
+
+        long maxProfit = 0;
+        while (!minHeap.isEmpty()) {
+            maxProfit = (maxProfit + minHeap.poll()) % MOD;
+        }
+
+        return (int) maxProfit;
+    }
 
     public int[] aThLargestElement(int A, int[] B) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
@@ -137,5 +163,15 @@ class ListNode {
     ListNode(int val) {
         this.val = val;
         this.next = null;
+    }
+}
+
+class Item {
+    int expiry;
+    int profit;
+
+    public Item(int expiry, int profit) {
+        this.expiry = expiry;
+        this.profit = profit;
     }
 }

@@ -3,6 +3,7 @@ package OnlinePlatforms.LeetCode.Topics;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class Heaps {
@@ -22,6 +23,22 @@ public class Heaps {
 
     public void kThLargestElement(){
         KthLargest kthLargest = new KthLargest(1, null);
+    }
+
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                int currentDistance = i - map.get(nums[i]);
+                if(currentDistance <= k){
+                    return true;
+                }
+                map.put(nums[i], i);
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return false;
     }
 
     public ListNode mergeKLists(ArrayList<ListNode> a) {

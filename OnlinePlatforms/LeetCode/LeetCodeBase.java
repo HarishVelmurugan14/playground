@@ -77,7 +77,7 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Easy ------------------------------------------
         heaps.kThLargestElement(); //LC703
-
+        heaps.containsNearbyDuplicate(null, 3); //LC219
 
         // ---------------------------------------- Medium -----------------------------------------
 
