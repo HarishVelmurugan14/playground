@@ -80,7 +80,7 @@ public class LeetCodeBase {
         heaps.containsNearbyDuplicate(null, 3); //LC219
 
         // ---------------------------------------- Medium -----------------------------------------
-
+        heaps.minimumMeetingRoomsRequired(3, null); //LC253
 
         // ---------------------------------------- Hard -------------------------------------------
         heaps.medianRunningArray(); //LC295

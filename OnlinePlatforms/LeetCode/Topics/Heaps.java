@@ -3,6 +3,7 @@ package OnlinePlatforms.LeetCode.Topics;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
@@ -85,6 +86,31 @@ public class Heaps {
         }
         return candies;
     }
+
+    public int minimumMeetingRoomsRequired(int numberOfMeetings, int[][] meetingInfo) {
+        MeetingTime[] meeting = new MeetingTime[numberOfMeetings];
+        for (int i = 0; i < numberOfMeetings; i++) {
+            meeting[i] = new MeetingTime(meetingInfo[i][0], meetingInfo[i][1]);
+        }
+
+        Arrays.sort(meeting, Comparator.comparingInt(x -> x.start));
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        int meetingRooms = 0;
+        for (int i = 0; i < numberOfMeetings; i++) {
+            int currentStart = meeting[i].start;
+            int currentEnd = meeting[i].end;
+            minHeap.add(currentEnd);
+
+            if(!minHeap.isEmpty() && currentStart >= minHeap.peek()){
+                minHeap.poll();
+            } else {
+                meetingRooms++;
+            }
+        }
+        return meetingRooms;
+    }
 }
 
 class MedianFinder {
@@ -159,4 +185,12 @@ class KthLargest {
         return minHeap.peek();
     }
 }
+class MeetingTime {
+    int start;
+    int end;
 
+    public MeetingTime(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+}
