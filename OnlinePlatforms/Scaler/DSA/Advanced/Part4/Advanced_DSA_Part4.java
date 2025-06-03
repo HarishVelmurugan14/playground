@@ -82,8 +82,8 @@ public class Advanced_DSA_Part4 {
 
         /* ------------------------- Day 54 - DSA : Graphs 2 | BFS & MST ------------------------------*/
         d54_Graphs_BST d54GraphsBst = new d54_Graphs_BST();
-
-        d54GraphsBst.rottenOranges(null); //LC994
+        d54GraphsBst.connectingBridges(3, null); //Q1 //LC1135
+        d54GraphsBst.rottenOranges(null); //Q2 //LC994
 
     }
 }

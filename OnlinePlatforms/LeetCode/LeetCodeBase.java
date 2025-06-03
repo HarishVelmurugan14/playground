@@ -91,13 +91,15 @@ public class LeetCodeBase {
         heaps.medianRunningArray(); //LC295
     }
 
-    private static void Graphs(){
+    private static void Graphs() {
         Graphs graphs = new Graphs();
 
         // ---------------------------------------- Easy ------------------------------------------
 
         // ---------------------------------------- Medium -----------------------------------------
         graphs.rottenOranges(null); //LC994
+        graphs.connectingBridges(3, null); //LC1135
+        graphs.minCostConnectPoints(null); //LC1584
 
         // ---------------------------------------- Hard -------------------------------------------
 
