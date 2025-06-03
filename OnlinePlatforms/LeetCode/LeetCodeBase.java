@@ -2,6 +2,7 @@ package OnlinePlatforms.LeetCode;
 
 import OnlinePlatforms.LeetCode.Topics.ArraysAndHashing;
 import OnlinePlatforms.LeetCode.Topics.BackTracking;
+import OnlinePlatforms.LeetCode.Topics.Graphs;
 import OnlinePlatforms.LeetCode.Topics.Heaps;
 import OnlinePlatforms.LeetCode.Topics.LinkedList;
 
@@ -12,6 +13,7 @@ public class LeetCodeBase {
         ArraysAndHashing();
         LinkedList();
         BackTracking();
+        Heaps();
     }
 
     @SuppressWarnings("DataFlowIssue")
@@ -87,6 +89,18 @@ public class LeetCodeBase {
         heaps.minWindowSubstring("", ""); //LC76
         heaps.distributeCandys(null); //LC135
         heaps.medianRunningArray(); //LC295
+    }
+
+    private static void Graphs(){
+        Graphs graphs = new Graphs();
+
+        // ---------------------------------------- Easy ------------------------------------------
+
+        // ---------------------------------------- Medium -----------------------------------------
+        graphs.rottenOranges(null); //LC994
+
+        // ---------------------------------------- Hard -------------------------------------------
+
     }
 
 }
