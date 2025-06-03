@@ -83,9 +83,10 @@ public class LeetCodeBase {
         heaps.minimumMeetingRoomsRequired(3, null); //LC253
 
         // ---------------------------------------- Hard -------------------------------------------
-        heaps.medianRunningArray(); //LC295
         heaps.mergeKLists(null); //LC23
+        heaps.minWindowSubstring("", ""); //LC76
         heaps.distributeCandys(null); //LC135
+        heaps.medianRunningArray(); //LC295
     }
 
 }

@@ -33,9 +33,9 @@ public class Advanced_DSA_Part4 {
         d48_Heaps_InterviewProblems d48HeapsInterviewProblems = new d48_Heaps_InterviewProblems();
         d48HeapsInterviewProblems.shaggySpecialIndexMinimumDistance(null); //Q1
         d48HeapsInterviewProblems.containsNearbyDuplicate(null,3); //LC219
+        d48HeapsInterviewProblems.kPlacesApart(null, 3); //Q2
         d48HeapsInterviewProblems.minimumMeetingRoomsRequired(3, null); //Q3 //LC253
-        d48HeapsInterviewProblems.kPlacesApart(null, 3); //Q4
-
+        d48HeapsInterviewProblems.minWindow("", ""); //Q4 //LC76
     }
 
     private void DynamicProgramming() {

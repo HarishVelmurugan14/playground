@@ -5,6 +5,7 @@ import Resources.Utilities.PrintHelper;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.PriorityQueue;
 
 /**
@@ -24,11 +25,62 @@ public class d48_Heaps_InterviewProblems {
 
         // Call Stack
         d48_Heaps_InterviewProblems d48HeapsInterviewProblems = new d48_Heaps_InterviewProblems();
+        d48HeapsInterviewProblems.minWindow("ADOBECODEBANC", "ABC");
 
 
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public String minWindow(String A, String B) {
+        if (A.length() < B.length()) return "-1";
+
+        HashMap<Character, Integer> target = new HashMap<>();
+        for (char c : B.toCharArray()) {
+            target.put(c, target.getOrDefault(c, 0) + 1);
+        }
+
+        HashMap<Character, Integer> currentWindow = new HashMap<>();
+        int required = target.size();
+        int formed = 0;
+        int left = 0, right = 0;
+
+        // To store the result window
+        int minLength = Integer.MAX_VALUE;
+        int start = 0;
+
+        while (right < A.length()) {
+            char c = A.charAt(right);
+            currentWindow.put(c, currentWindow.getOrDefault(c, 0) + 1);
+
+            if (target.containsKey(c) &&
+                    currentWindow.get(c).intValue() == target.get(c).intValue()) {
+                formed++;
+            }
+
+            // Try to shrink the window
+            while (formed == required) {
+                if (right - left + 1 < minLength) {
+                    minLength = right - left + 1;
+                    start = left;
+                }
+
+                char leftChar = A.charAt(left);
+                currentWindow.put(leftChar, currentWindow.get(leftChar) - 1);
+
+                if (target.containsKey(leftChar) &&
+                        currentWindow.get(leftChar).intValue() < target.get(leftChar).intValue()) {
+                    formed--;
+                }
+
+                left++;
+            }
+
+            right++;
+        }
+
+        return minLength == Integer.MAX_VALUE ? "-1" : A.substring(start, start + minLength);
+    }
 
     public int[] kPlacesApart(int[] A, int places) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
