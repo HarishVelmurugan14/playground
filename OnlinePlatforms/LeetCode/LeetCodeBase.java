@@ -5,15 +5,28 @@ import OnlinePlatforms.LeetCode.Topics.BackTracking;
 import OnlinePlatforms.LeetCode.Topics.Graphs;
 import OnlinePlatforms.LeetCode.Topics.Heaps;
 import OnlinePlatforms.LeetCode.Topics.LinkedList;
+import OnlinePlatforms.LeetCode.Topics.Strings;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class LeetCodeBase {
 
     public static void main(String[] args) {
+        Strings();
         ArraysAndHashing();
         LinkedList();
         BackTracking();
         Heaps();
+    }
+
+    private static void Strings(){
+        Strings strings = new Strings();
+        // ---------------------------------------- Easy -----------------------------------------
+
+        // ---------------------------------------- Medium -----------------------------------------
+        strings.smallestEquivalentString("leetcode", "programs", "sourcecode"); //LC1061
+
+        // ---------------------------------------- Hard -----------------------------------------
+
     }
 
     @SuppressWarnings("DataFlowIssue")
