@@ -84,6 +84,7 @@ public class Advanced_DSA_Part4 {
         d54_Graphs_BST d54GraphsBst = new d54_Graphs_BST();
         d54GraphsBst.connectingBridges(3, null); //Q1 //LC1135
         d54GraphsBst.rottenOranges(null); //Q2 //LC994
+        d54GraphsBst.minimumCostRoads(3, null); //Q3 //1584
 
     }
 }

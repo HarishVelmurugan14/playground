@@ -17,6 +17,7 @@ import java.util.Queue;
 public class d54_Graphs_BST {
 
     private final PrintHelper printHelper = new PrintHelper();
+    public int MOD = 1_000_000_007;
 
     public static void main(String[] args) {
 
@@ -27,6 +28,49 @@ public class d54_Graphs_BST {
         d54_Graphs_BST d54GraphsBst = new d54_Graphs_BST();
 
 
+    }
+
+    public int minimumCostRoads(int A, int[][] B) {
+        if (A == 1) return 0;
+
+        HashMap<Integer, ArrayList<Road>> map = buildAdj(A, B);
+        PriorityQueue<Road> minHeap = new PriorityQueue<>(Comparator.comparingInt(x -> x.cost));
+        minHeap.add(new Road(1, 0));
+        boolean[] visited = new boolean[A + 1];
+        long totalCost = 0;
+        int centersToVisit = A;
+
+        while (!minHeap.isEmpty() && centersToVisit > 0) {
+            Road current = minHeap.poll();
+            int node = current.node;
+            int cost = current.cost;
+
+            if (visited[node]) continue;
+
+            visited[node] = true;
+            totalCost = ((long) (totalCost + (long) cost)) % MOD;
+            centersToVisit--;
+
+            for (Road neighbour : map.getOrDefault(node, new ArrayList<>())) {
+                if (!visited[neighbour.node]) {
+                    minHeap.add(new Road(neighbour.node, neighbour.cost));
+                }
+            }
+        }
+
+        return (int) totalCost;
+    }
+
+    public HashMap<Integer, ArrayList<Road>> buildAdj(int n, int[][] B) {
+        HashMap<Integer, ArrayList<Road>> map = new HashMap<>();
+        for (int[] x : B) {
+            int s = x[0];
+            int d = x[1];
+            int cost = x[2];
+            map.computeIfAbsent(s, y -> new ArrayList<>()).add(new Road(d, cost));
+            map.computeIfAbsent(d, y -> new ArrayList<>()).add(new Road(s, cost));
+        }
+        return map;
     }
 
     public int connectingBridges(int islands, int[][] bridges) {
@@ -111,14 +155,14 @@ public class d54_Graphs_BST {
         return x >= 0 && y >= 0 && x < m && y < n;
     }
 
-    /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
-
     public void bruteForce() {
         // Complexity : Time : [  ]
         // Complexity : Space : [  ]
 
 
     }
+
+    /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
 
     public void optimal() {
         // Complexity : Time : [  ]
@@ -131,21 +175,21 @@ public class d54_Graphs_BST {
         printHelper.print(message, "");
     }
 
+    private void definitions() {
+        /**/
+    }
+
     /* Section : ------------------------------- [ Specific Utilities ] ------------------------------- */
 
 
 
     /* Section : ------------------------------- [ Generic Utilities ] ------------------------------- */
 
-    private void definitions() {
+    private void links() {
         /**/
     }
 
     /* Section : ------------------------------- [ Definition Resources ] ---------------------------- */
-
-    private void links() {
-        /**/
-    }
 
     static class Position {
         int row, col;
@@ -161,6 +205,16 @@ public class d54_Graphs_BST {
 
         Bridge(int end, int cost) {
             this.end = end;
+            this.cost = cost;
+        }
+    }
+
+    class Road {
+        int node;
+        int cost;
+
+        Road(int node, int cost) {
+            this.node = node;
             this.cost = cost;
         }
     }

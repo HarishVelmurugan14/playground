@@ -5,6 +5,7 @@ import OnlinePlatforms.LeetCode.Topics.BackTracking;
 import OnlinePlatforms.LeetCode.Topics.Graphs;
 import OnlinePlatforms.LeetCode.Topics.Heaps;
 import OnlinePlatforms.LeetCode.Topics.LinkedList;
+import OnlinePlatforms.LeetCode.Topics.Stacks;
 import OnlinePlatforms.LeetCode.Topics.Strings;
 
 @SuppressWarnings("SpellCheckingInspection")
@@ -12,6 +13,7 @@ public class LeetCodeBase {
 
     public static void main(String[] args) {
         Strings();
+        Stacks();
         ArraysAndHashing();
         LinkedList();
         BackTracking();
@@ -24,6 +26,18 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Medium -----------------------------------------
         strings.smallestEquivalentString("leetcode", "programs", "sourcecode"); //LC1061
+        strings.robotWithString("bdda"); //LC2434
+
+        // ---------------------------------------- Hard -----------------------------------------
+
+    }
+
+    private static void Stacks(){
+        Stacks stacks = new Stacks();
+        // ---------------------------------------- Easy -----------------------------------------
+
+        // ---------------------------------------- Medium -----------------------------------------
+        stacks.robotWithString("bdda"); //LC2434
 
         // ---------------------------------------- Hard -----------------------------------------
 
