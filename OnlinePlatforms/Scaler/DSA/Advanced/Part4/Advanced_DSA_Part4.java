@@ -61,6 +61,7 @@ public class Advanced_DSA_Part4 {
         d51DpKnapsack.maxValueForKnapsack(null, null, 50); //Q1
         d51DpKnapsack.unboundedKnapsack(1, null, null); //Q2 //LC322
         d51DpKnapsack.fractionalKnapsack(null, null, 1); //Q3 // GEMINI CODE NOT PRACTISED
+        d51DpKnapsack.sendingAlienSignal(5); //AQ2
 
         /* ------------------------- Day 52 - DSA : DP 4 | Knapsack Interview Problems ------------------------------*/
         d52_DP_KnapsackApplications d52DpKnapsackApplications = new d52_DP_KnapsackApplications();

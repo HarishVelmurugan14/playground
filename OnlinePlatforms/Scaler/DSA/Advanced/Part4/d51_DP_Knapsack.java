@@ -31,6 +31,23 @@ public class d51_DP_Knapsack {
     }
 
     /* Section : ----------------------------------- [ Approaches ] ------------------------------------ */
+
+    public int sendingAlienSignal(int A) {
+        int MOD = 1000000007;
+        if (A == 1) return 2;
+        if (A == 2) return 3;
+
+        long a = 2, b = 3, c = 0;
+
+        for (int i = 3; i <= A; i++) {
+            c = (a + b) % MOD;
+            a = b;
+            b = c;
+        }
+
+        return (int) c;
+    }
+
     public int fractionalKnapsack(int[] A, int[] B, int C) {
         // A: values, B: weights, C: capacity
 
