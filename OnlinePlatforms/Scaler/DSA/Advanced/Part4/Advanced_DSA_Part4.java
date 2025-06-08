@@ -83,9 +83,16 @@ public class Advanced_DSA_Part4 {
 
         /* ------------------------- Day 54 - DSA : Graphs 2 | BFS & MST ------------------------------*/
         d54_Graphs_BST d54GraphsBst = new d54_Graphs_BST();
+
         d54GraphsBst.connectingBridges(3, null); //Q1 //LC1135
         d54GraphsBst.rottenOranges(null); //Q2 //LC994
         d54GraphsBst.minimumCostRoads(3, null); //Q3 //1584
+
+        /* ------------------------- Day 55 - DSA : Graphs 3 | Dijkstra & TopSort ------------------------------*/
+        d55_Graphs_Dijkstra_TopSort d55GraphsDijkstraTopSort = new d55_Graphs_Dijkstra_TopSort();
+
+        d55GraphsDijkstraTopSort.courseScheduler(1, null, null); //Q1
+        d55GraphsDijkstraTopSort.minimumDistanceForEachNodeUsingDijkstra(3, null, 4); //Q2 //LC743
 
     }
 }

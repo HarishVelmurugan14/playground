@@ -1,13 +1,51 @@
 package OnlinePlatforms.LeetCode.Topics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Graphs {
+    public int networkDelayTime(int[][] times, int n, int k) {
+        List<int[]>[] graph = new ArrayList[n + 1];
+        for (int i = 1; i <= n; i++) graph[i] = new ArrayList<>();
+        for (int[] t : times) graph[t[0]].add(new int[]{t[1], t[2]});
+
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[k] = 0;
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        pq.offer(new int[]{k, 0});
+
+        while (!pq.isEmpty()) {
+            int[] current = pq.poll();
+            int node = current[0], time = current[1];
+
+            if (time > dist[node]) continue;
+
+            for (int[] neighbor : graph[node]) {
+                int nextNode = neighbor[0], weight = neighbor[1];
+                if (dist[nextNode] > time + weight) {
+                    dist[nextNode] = time + weight;
+                    pq.offer(new int[]{nextNode, dist[nextNode]});
+                }
+            }
+        }
+
+        int maxTime = 0;
+        for (int i = 1; i <= n; i++) {
+            if (dist[i] == Integer.MAX_VALUE) return -1;
+            maxTime = Math.max(maxTime, dist[i]);
+        }
+        return maxTime;
+    }
+
+
     public int rottenOranges(int[][] oranges) {
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         Queue<Position> queue = new LinkedList<>();
@@ -51,15 +89,6 @@ public class Graphs {
         return x >= 0 && y >= 0 && x < m && y < n;
     }
 
-    static class Edge {
-        int point;
-        int cost;
-        Edge(int point, int cost) {
-            this.point = point;
-            this.cost = cost;
-        }
-    }
-
     public int minCostConnectPoints(int[][] points) {
         int n = points.length;
         boolean[] visited = new boolean[n];
@@ -96,15 +125,6 @@ public class Graphs {
 
     private int manhattanDistance(int[] a, int[] b) {
         return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
-    }
-
-    static class Bridge {
-        int end, cost;
-
-        Bridge(int end, int cost) {
-            this.end = end;
-            this.cost = cost;
-        }
     }
 
     public int connectingBridges(int islands, int[][] bridges) {
@@ -146,8 +166,28 @@ public class Graphs {
         return map;
     }
 
+    static class Edge {
+        int point;
+        int cost;
+
+        Edge(int point, int cost) {
+            this.point = point;
+            this.cost = cost;
+        }
+    }
+
+    static class Bridge {
+        int end, cost;
+
+        Bridge(int end, int cost) {
+            this.end = end;
+            this.cost = cost;
+        }
+    }
+
 
 }
+
 class Position {
     int row, col;
 

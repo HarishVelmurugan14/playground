@@ -20,7 +20,7 @@ public class LeetCodeBase {
         Heaps();
     }
 
-    private static void Strings(){
+    private static void Strings() {
         Strings strings = new Strings();
         // ---------------------------------------- Easy -----------------------------------------
 
@@ -32,7 +32,7 @@ public class LeetCodeBase {
 
     }
 
-    private static void Stacks(){
+    private static void Stacks() {
         Stacks stacks = new Stacks();
         // ---------------------------------------- Easy -----------------------------------------
 
@@ -124,6 +124,7 @@ public class LeetCodeBase {
         // ---------------------------------------- Easy ------------------------------------------
 
         // ---------------------------------------- Medium -----------------------------------------
+        graphs.networkDelayTime(null, 1, 4); //LC743
         graphs.rottenOranges(null); //LC994
         graphs.connectingBridges(3, null); //LC1135
         graphs.minCostConnectPoints(null); //LC1584
