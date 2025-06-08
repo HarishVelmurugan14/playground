@@ -93,6 +93,8 @@ public class Advanced_DSA_Part4 {
 
         d55GraphsDijkstraTopSort.courseScheduler(1, null, null); //Q1
         d55GraphsDijkstraTopSort.minimumDistanceForEachNodeUsingDijkstra(3, null, 4); //Q2 //LC743
+        d55GraphsDijkstraTopSort.anotherBfs(1, null, 1, 1); //Q3
+        d55GraphsDijkstraTopSort.topologicalSort(1, null); //Q4
 
     }
 }

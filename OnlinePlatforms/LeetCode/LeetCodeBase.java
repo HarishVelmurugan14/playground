@@ -25,6 +25,7 @@ public class LeetCodeBase {
         // ---------------------------------------- Easy -----------------------------------------
 
         // ---------------------------------------- Medium -----------------------------------------
+        strings.lexicalOrder(1); //LC386
         strings.smallestEquivalentString("leetcode", "programs", "sourcecode"); //LC1061
         strings.robotWithString("bdda"); //LC2434
 

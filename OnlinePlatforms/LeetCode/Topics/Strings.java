@@ -1,10 +1,40 @@
 package OnlinePlatforms.LeetCode.Topics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 public class Strings {
     int[] parent = new int[26];
+
+    public List<Integer> lexicalOrder(int n) {
+        List<Integer> result = new ArrayList<>();
+
+        // Start from 1 to n, generating numbers in lexicographical order
+        int current = 1;
+
+        for (int i = 1; i <= n; ++i) {
+            result.add(current);
+
+            // If the current * 10 is within the range [1, n], multiply by 10
+            if (current * 10 <= n) {
+                current *= 10;
+            } else if (current % 10 != 9 && current + 1 <= n) {
+                // Otherwise, if incrementing by 1 is within the range, increment
+                current++;
+            } else {
+                // Otherwise, go back to the nearest valid number to increment
+                while ((current / 10) % 10 == 9) {
+                    current /= 10;
+                }
+                current = current / 10 + 1;
+            }
+        }
+
+        return result;
+    }
+
 
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
         // Initialize parent array
