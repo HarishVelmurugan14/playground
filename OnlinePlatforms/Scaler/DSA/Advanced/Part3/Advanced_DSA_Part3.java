@@ -14,6 +14,12 @@ public class Advanced_DSA_Part3 {
 
         d33_maths_combinatoricsAndPrimeNumber.allPrimes(40); // Q2
 
+
+        /* ------------------------- Day 35 - DSA : Maths & 2 Pointers ------------------------------*/
+        d35_Maths_2Pointers d35Maths2Pointers = new d35_Maths_2Pointers();
+
+        d35Maths2Pointers.contiguousSubArrayWithGivenSum(null, 2); //Q4
+
         /* ------------------------- Day 38 - DSA : Linked List Sorting & Problems ------------------------------*/
         d39_LinkedList_SortingAndProblems d39_linkedList_sortingAndProblems = new d39_LinkedList_SortingAndProblems();
 
