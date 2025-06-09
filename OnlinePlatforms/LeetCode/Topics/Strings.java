@@ -6,7 +6,41 @@ import java.util.List;
 import java.util.Stack;
 
 public class Strings {
+
     int[] parent = new int[26];
+
+    public static void main(String[] args) {
+        Strings strings = new Strings();
+        System.out.println(strings.findKthNumber(1000, 3));
+    }
+
+    public int findKthNumber(int n, int k) {
+        int current = 1;
+        k--; // We already count '1' as the first
+
+        while (k > 0) {
+            long steps = countSteps(n, current, current + 1);
+            if (steps <= k) {
+                current++;
+                k -= steps;
+            } else {
+                current *= 10;
+                k--;
+            }
+        }
+
+        return current;
+    }
+
+    private long countSteps(int n, long prefix, long nextPrefix) {
+        long steps = 0;
+        while (prefix <= n) {
+            steps += Math.min(n + 1, nextPrefix) - prefix;
+            prefix *= 10;
+            nextPrefix *= 10;
+        }
+        return steps;
+    }
 
     public List<Integer> lexicalOrder(int n) {
         List<Integer> result = new ArrayList<>();
