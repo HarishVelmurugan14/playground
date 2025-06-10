@@ -23,6 +23,7 @@ public class LeetCodeBase {
     private static void Strings() {
         Strings strings = new Strings();
         // ---------------------------------------- Easy -----------------------------------------
+        strings.maxDifferenceBetweenOddFreqCharacterAndEvenFreqCharacter("abcabcab"); //LC3442
 
         // ---------------------------------------- Medium -----------------------------------------
         strings.lexicalOrder(1); //LC386

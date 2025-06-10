@@ -2,7 +2,10 @@ package OnlinePlatforms.LeetCode.Topics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 public class Strings {
@@ -12,6 +15,26 @@ public class Strings {
     public static void main(String[] args) {
         Strings strings = new Strings();
         System.out.println(strings.findKthNumber(1000, 3));
+        System.out.println(strings.maxDifferenceBetweenOddFreqCharacterAndEvenFreqCharacter("abcabcab"));
+    }
+
+
+    public int maxDifferenceBetweenOddFreqCharacterAndEvenFreqCharacter(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (char k : map.keySet()) {
+            int freq = map.get(k);
+            if (freq % 2 == 1) {
+                maxHeap.add(freq);
+            } else {
+                minHeap.add(freq);
+            }
+        }
+        return maxHeap.peek() - minHeap.peek();
     }
 
     public int findKthNumber(int n, int k) {
