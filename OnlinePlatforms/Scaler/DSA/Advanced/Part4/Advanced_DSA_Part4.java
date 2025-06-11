@@ -96,5 +96,10 @@ public class Advanced_DSA_Part4 {
         d55GraphsDijkstraTopSort.anotherBfs(1, null, 1, 1); //Q3
         d55GraphsDijkstraTopSort.topologicalSort(1, null); //Q4
 
+        /* ------------------------- Day 56 - DSA : Graphs 4 | Interview Problems ------------------------------*/
+        d56_Graph_InterviewProblems d56GraphInterviewProblems = new d56_Graph_InterviewProblems();
+
+        d56GraphInterviewProblems.numberOfIslandsPresent(null); //Q3
+
     }
 }

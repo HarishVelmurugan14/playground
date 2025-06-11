@@ -126,6 +126,7 @@ public class LeetCodeBase {
         // ---------------------------------------- Easy ------------------------------------------
 
         // ---------------------------------------- Medium -----------------------------------------
+        graphs.numberOfIslandsPresent(null); //LC200
         graphs.networkDelayTime(null, 1, 4); //LC743
         graphs.rottenOranges(null); //LC994
         graphs.connectingBridges(3, null); //LC1135
