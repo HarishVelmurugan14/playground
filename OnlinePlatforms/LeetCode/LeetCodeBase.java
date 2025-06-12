@@ -24,6 +24,7 @@ public class LeetCodeBase {
         Strings strings = new Strings();
         // ---------------------------------------- Easy -----------------------------------------
         strings.maxDifferenceBetweenOddFreqCharacterAndEvenFreqCharacter("abcabcab"); //LC3442
+        strings.maxAdjacentDistanceInACircularArray(null); //LC3423
 
         // ---------------------------------------- Medium -----------------------------------------
         strings.lexicalOrder(1); //LC386
@@ -31,6 +32,7 @@ public class LeetCodeBase {
         strings.robotWithString("bdda"); //LC2434
 
         // ---------------------------------------- Hard -----------------------------------------
+        strings.maxDifferenceBetweenOddAndEvenfrequency("21312312", 2); //LC 3445
 
     }
 
@@ -127,6 +129,7 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Medium -----------------------------------------
         graphs.numberOfIslandsPresent(null); //LC200
+        graphs.mazeMinimumDistance(null, null, null); //LC490 //LC499 //LC505
         graphs.networkDelayTime(null, 1, 4); //LC743
         graphs.rottenOranges(null); //LC994
         graphs.connectingBridges(3, null); //LC1135

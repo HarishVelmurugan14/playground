@@ -99,6 +99,7 @@ public class Advanced_DSA_Part4 {
         /* ------------------------- Day 56 - DSA : Graphs 4 | Interview Problems ------------------------------*/
         d56_Graph_InterviewProblems d56GraphInterviewProblems = new d56_Graph_InterviewProblems();
 
+        d56GraphInterviewProblems.mazeMinimumDistance(null, new int[]{1, 1}, new int[]{2, 1}); //Q2 //LC490 //LC499 //LC505
         d56GraphInterviewProblems.numberOfIslandsPresent(null); //Q3
 
     }

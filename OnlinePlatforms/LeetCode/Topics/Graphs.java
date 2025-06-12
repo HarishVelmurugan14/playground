@@ -11,16 +11,48 @@ import java.util.Queue;
 
 public class Graphs {
 
-    int[][] directions = new int[][]{{-1,0}, {1, 0}, {0,-1}, {0,1}, {-1,-1}, {1,1}, {-1, 1}, {1, -1}};
+    int[][] directions = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
+
+    public int mazeMinimumDistance(int[][] maze, int[] start, int[] dest) {
+        int n = maze.length, m = maze[0].length;
+        int[][] dist = new int[n][m];
+        for (int[] row : dist) Arrays.fill(row, Integer.MAX_VALUE);
+        dist[start[0]][start[1]] = 0;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node(start[0], start[1]));
+
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        while (!queue.isEmpty()) {
+            Node cur = queue.poll();
+
+            for (int[] d : dirs) {
+                int x = cur.x, y = cur.y, count = 0;
+                while (isValid(n, m, x + d[0], y + d[1]) && maze[x + d[0]][y + d[1]] == 0) {
+                    x += d[0];
+                    y += d[1];
+                    count++;
+                }
+
+                if (dist[cur.x][cur.y] + count < dist[x][y]) {
+                    dist[x][y] = dist[cur.x][cur.y] + count;
+                    queue.add(new Node(x, y));
+                }
+            }
+        }
+
+        return dist[dest[0]][dest[1]] == Integer.MAX_VALUE ? -1 : dist[dest[0]][dest[1]];
+    }
+
     public int numberOfIslandsPresent(char[][] A) {
         int n = A.length;
         int m = A[0].length;
         boolean[][] visited = new boolean[n][m];
-        int islands =0;
-        for(int i = 0; i<n; i++ ){
-            for(int j = 0; j<m ; j++){
+        int islands = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 char current = A[i][j];
-                if(current == '1' && !visited[i][j]){
+                if (current == '1' && !visited[i][j]) {
                     islands++;
                     visited[i][j] = true;
                     dfs(i, j, A, n, m, visited);
@@ -30,21 +62,21 @@ public class Graphs {
         return islands;
     }
 
-    public void dfs(int x, int y, char[][] A, int n, int m, boolean[][] visited){
-        for(int i =0; i<4; i++){
+    public void dfs(int x, int y, char[][] A, int n, int m, boolean[][] visited) {
+        for (int i = 0; i < 4; i++) {
             int xAxis = x + directions[i][0];
             int yAxis = y + directions[i][1];
-            if(isValid(n, m, xAxis, yAxis) && !visited[xAxis][yAxis]){
+            if (isValid(n, m, xAxis, yAxis) && !visited[xAxis][yAxis]) {
                 visited[xAxis][yAxis] = true;
-                if(A[xAxis][yAxis] == '1'){
+                if (A[xAxis][yAxis] == '1') {
                     dfs(xAxis, yAxis, A, n, m, visited);
                 }
             }
         }
     }
 
-    public boolean isValid(int n, int m, int x, int y){
-        return x >=0 && y>=0 && x<n && y<m;
+    public boolean isValid(int n, int m, int x, int y) {
+        return x >= 0 && y >= 0 && x < n && y < m;
     }
 
 
@@ -232,5 +264,15 @@ class Position {
     Position(int row, int col) {
         this.row = row;
         this.col = col;
+    }
+}
+
+class Node {
+    int x;
+    int y;
+
+    Node(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
