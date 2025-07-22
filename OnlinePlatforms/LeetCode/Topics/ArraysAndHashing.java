@@ -11,11 +11,35 @@ import java.util.Set;
 @SuppressWarnings({"UnusedReturnValue", "ExtractMethodRecommender"})
 public class ArraysAndHashing {
 
+    public int containerWithMostWater(int[] height) {
+        //TwoPointer
+        int left = 0;
+        int right = height.length - 1;
+        int maxArea = 0;
+
+        while (left < right) {
+            // Calculate area
+            int width = right - left;
+            int currentHeight = Math.min(height[left], height[right]);
+            int area = width * currentHeight;
+
+            maxArea = Math.max(maxArea, area);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxArea;
+    }
+
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> hash = new HashSet<>();
 
-        for(int x: nums){
-            if(hash.contains(x)){
+        for (int x : nums) {
+            if (hash.contains(x)) {
                 return true;
             }
             hash.add(x);
@@ -25,15 +49,15 @@ public class ArraysAndHashing {
 
     public boolean isAnagram(String s, String t) {
         int n = s.length();
-        if(n != t.length()) return false;
+        if (n != t.length()) return false;
         int[] array = new int[26];
 
-        for(int i = 0; i < n; i++){
-            array[ s.charAt(i) - 'a']++;
-            array[ t.charAt(i) - 'a']--;
+        for (int i = 0; i < n; i++) {
+            array[s.charAt(i) - 'a']++;
+            array[t.charAt(i) - 'a']--;
         }
-        for(int i=0; i<26; i++){
-            if(array[i] != 0){
+        for (int i = 0; i < 26; i++) {
+            if (array[i] != 0) {
                 return false;
             }
         }
@@ -43,12 +67,12 @@ public class ArraysAndHashing {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(target - nums[0], 0);
-        for(int i = 1; i< nums.length; i++){
-            if(map.containsKey(nums[i])){
+        for (int i = 1; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
                 return new int[]{map.get(nums[i]), i};
             }
             int requiredPair = target - nums[i];
-            if(!map.containsKey(requiredPair)){
+            if (!map.containsKey(requiredPair)) {
                 map.put(requiredPair, i);
             }
         }
@@ -58,9 +82,9 @@ public class ArraysAndHashing {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
 
-        for(String s : strs){
+        for (String s : strs) {
             int[] count = new int[26];
-            for(char current : s.toCharArray()){
+            for (char current : s.toCharArray()) {
                 count[current - 'a']++;
             }
             String key = Arrays.toString(count);
@@ -172,16 +196,16 @@ public class ArraysAndHashing {
         int maxNumberOfOneInARow = 0;
         int rowWithMaxOne = 0;
 
-        for(int i = 0; i < N; i++){
-            int testIndex = M-1;
+        for (int i = 0; i < N; i++) {
+            int testIndex = M - 1;
             int currentRowOnes = 0;
             // System.out.println("Row : "+ i + " - testIndex : "+testIndex + " - M :"+ maxNumberOfOneInARow + " - R : "+rowWithMaxOne );
-            while(testIndex >=0 && A[i][testIndex] == 1){
+            while (testIndex >= 0 && A[i][testIndex] == 1) {
                 // System.out.println(testIndex);
                 currentRowOnes++;
                 testIndex--;
             }
-            if(currentRowOnes > maxNumberOfOneInARow){
+            if (currentRowOnes > maxNumberOfOneInARow) {
                 rowWithMaxOne = i;
                 maxNumberOfOneInARow = currentRowOnes;
             }
@@ -190,31 +214,37 @@ public class ArraysAndHashing {
         return rowWithMaxOne;
     }
 
+
+//    Input: height = [1,8,6,2,5,4,8,3,7]
+//    Output: 49
+
     public int[] plusOneToAndIntegerArray(int[] digits) {
         int N = digits.length;
         int carry = 0;
         int[] res = new int[N];
 
-        int current = digits[N-1] + 1;
-        res[N-1] = current % 10;
-        if(current == 10) {carry = 1;}
+        int current = digits[N - 1] + 1;
+        res[N - 1] = current % 10;
+        if (current == 10) {
+            carry = 1;
+        }
 
-        for(int i = N-2; i >= 0; i--){
+        for (int i = N - 2; i >= 0; i--) {
             current = digits[i];
-            if(carry == 1){
+            if (carry == 1) {
                 current += carry;
-                if(current != 10){
+                if (current != 10) {
                     carry = 0;
                 }
             }
             res[i] = current % 10;
         }
 
-        if(carry == 1){
-            int[] newRes = new int[N+1];
+        if (carry == 1) {
+            int[] newRes = new int[N + 1];
             newRes[0] = 1;
-            for(int i = 1; i < N+1; i++){
-                newRes[i] = res[i-1];
+            for (int i = 1; i < N + 1; i++) {
+                newRes[i] = res[i - 1];
             }
             return newRes;
         }
@@ -255,4 +285,5 @@ public class ArraysAndHashing {
         }
         return res;
     }
+
 }
