@@ -11,6 +11,47 @@ import java.util.Set;
 @SuppressWarnings({"UnusedReturnValue", "ExtractMethodRecommender"})
 public class ArraysAndHashing {
 
+    public static int combinations = 0;
+
+    public static void main(String[] args) {
+        System.out.println(backtrackCount(new int[]{2, 3, 5}, 8, 0));
+    }
+
+    private static int backtrackCount(int[] candidates, int target, int start) {
+        if (target == 0) return 1;  // Found one valid combination
+        if (target < 0) return 0;   // Exceeded the sum
+
+        int count = 0;
+        //i = start is a good check
+        for (int i = start; i < candidates.length; i++) {
+            if (candidates[i] > target) break; // Prune
+            count += backtrackCount(candidates, target - candidates[i], i);
+            // `i` because we can reuse the same element
+        }
+        return count;
+    }
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates); // optional
+        backtrack(candidates, target, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private void backtrack(int[] candidates, int target, int start, List<Integer> current, List<List<Integer>> result) {
+        if (target == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            if (candidates[i] > target) break; // prune since array is sorted
+            current.add(candidates[i]);
+            backtrack(candidates, target - candidates[i], i, current, result);
+            current.remove(current.size() - 1); // backtrack
+        }
+    }
+
     public int containerWithMostWater(int[] height) {
         //TwoPointer
         int left = 0;
