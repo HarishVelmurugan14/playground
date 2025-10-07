@@ -7,6 +7,7 @@ import OnlinePlatforms.LeetCode.Topics.Heaps;
 import OnlinePlatforms.LeetCode.Topics.LinkedList;
 import OnlinePlatforms.LeetCode.Topics.Stacks;
 import OnlinePlatforms.LeetCode.Topics.Strings;
+import OnlinePlatforms.LeetCode.Topics.Threads;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class LeetCodeBase {
@@ -18,6 +19,7 @@ public class LeetCodeBase {
         LinkedList();
         BackTracking();
         Heaps();
+        Threads();
     }
 
     private static void Strings() {
@@ -139,6 +141,14 @@ public class LeetCodeBase {
 
         // ---------------------------------------- Hard -------------------------------------------
 
+    }
+
+    private static void Threads() {
+        Threads threads = new Threads();
+        // ---------------------------------------- Medium -----------------------------------------
+
+        threads.ZeroEvenOdd(); // LC1116
+        threads.H20(); // LC1117
     }
 
 }
